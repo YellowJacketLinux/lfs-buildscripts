@@ -4,12 +4,6 @@ source versions.sh
 
 GLSOURCES="${LFS}/sources"
 
-function myfail {
-  echo "$1"
-  exit 1
-}
-
-
 if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  

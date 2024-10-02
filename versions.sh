@@ -1,5 +1,10 @@
 #!/bin/bash
 
+function myfail {
+  echo "$1"
+  exit 1
+}
+
 acl_dnl="https://download.savannah.gnu.org/releases/acl/acl-2.3.2.tar.xz"
 acl_sha256="97203a72cae99ab89a067fe2210c1cbf052bc492b479eca7d226d9830883b0bd"
 acl_tarball="acl-2.3.2.tar.xz"

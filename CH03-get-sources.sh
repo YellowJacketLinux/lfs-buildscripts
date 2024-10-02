@@ -9,11 +9,6 @@ GLSOURCES="${LFS}/sources"
 
 [ ! -d ${GLSOURCES} ] && mkdir ${GLSOURCES}
 
-function myfail {
-  echo "$1"
-  exit 1
-}
-
 function getSource {
   URL="`echo $1 |xargs`"
   EXPECTED="`echo $2 |xargs`"
