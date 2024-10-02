@@ -28,6 +28,13 @@ mv gmp-${gmp_version} gmp
 tar -xf ../${mpc_tarball}
 mv mpc-${mpc_version} mpc
 
+case $(uname -m) in
+  x86_64)
+    sed -e '/m64=/s/lib64/lib/' \
+        -i.orig gcc/config/i386/t-linux64
+  ;;
+esac
+
 mkdir build
 cd build
 
