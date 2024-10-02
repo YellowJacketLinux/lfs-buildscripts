@@ -274,9 +274,10 @@ ninja_dnl="https://github.com/ninja-build/ninja/archive/v1.12.1/ninja-1.12.1.tar
 ninja_sha256="821bdff48a3f683bc4bb3b6f0b5fe7b2d647cf65d52aeb63328c91a6c6df285a"
 ninja_tarball="ninja-1.12.1.tar.gz"
 
-patch_dnl="https://ftp.gnu.org/gnu/patch/patch-2.7.6.tar.xz"
+patch_version="2.7.6"
+patch_dnl="https://ftp.gnu.org/gnu/patch/patch-${patch_version}.tar.xz"
 patch_sha256="ac610bda97abe0d9f6b7c963255a11dcb196c25e337c61f94e4778d632f1d8fd"
-patch_tarball="patch-2.7.6.tar.xz"
+patch_tarball="patch-${patch_version}.tar.xz"
 
 perl_dnl="https://www.cpan.org/src/5.0/perl-5.40.0.tar.xz"
 perl_sha256="d5325300ad267624cb0b7d512cfdfcd74fa7fe00c455c5b51a6bd53e5e199ef9"
@@ -306,9 +307,10 @@ readline_dnl="https://ftp.gnu.org/gnu/readline/readline-8.2.13.tar.gz"
 readline_sha256="0e5be4d2937e8bd9b7cd60d46721ce79f88a33415dd68c2d738fb5924638f656"
 readline_tarball="readline-8.2.13.tar.gz"
 
-sed_dnl="https://ftp.gnu.org/gnu/sed/sed-4.9.tar.xz"
+sed_version="4.9"
+sed_dnl="https://ftp.gnu.org/gnu/sed/sed-${sed_version}.tar.xz"
 sed_sha256="6e226b732e1cd739464ad6862bd1a1aba42d7982922da7a53519631d24975181"
-sed_tarball="sed-4.9.tar.xz"
+sed_tarball="sed-${sed_version}.tar.xz"
 
 setuptools_dnl="https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
 setuptools_sha256="d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
