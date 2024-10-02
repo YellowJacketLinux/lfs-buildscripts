@@ -5,51 +5,59 @@ function myfail {
   exit 1
 }
 
-acl_dnl="https://download.savannah.gnu.org/releases/acl/acl-2.3.2.tar.xz"
+acl_version="2.3.2"
+acl_dnl="https://download.savannah.gnu.org/releases/acl/acl-${acl_version}.tar.xz"
 acl_sha256="97203a72cae99ab89a067fe2210c1cbf052bc492b479eca7d226d9830883b0bd"
-acl_tarball="acl-2.3.2.tar.xz"
+acl_tarball="acl-${acl_version}.tar.xz"
 
-attr_dnl="https://download.savannah.gnu.org/releases/attr/attr-2.5.2.tar.gz"
+attr_version="2.5.2"
+attr_dnl="https://download.savannah.gnu.org/releases/attr/attr-${attr_version}.tar.gz"
 attr_sha256="39bf67452fa41d0948c2197601053f48b3d78a029389734332a6309a680c6c87"
-attr_tarball="attr-2.5.2.tar.gz"
+attr_tarball="attr-${attr_version}.tar.gz"
 
-autoconf_dnl="https://ftp.gnu.org/gnu/autoconf/autoconf-2.72.tar.xz"
+autoconf_version="2.72"
+autoconf_dnl="https://ftp.gnu.org/gnu/autoconf/autoconf-${autoconf_version}.tar.xz"
 autoconf_sha256="ba885c1319578d6c94d46e9b0dceb4014caafe2490e437a0dbca3f270a223f5a"
-autoconf_tarball="autoconf-2.72.tar.xz"
+autoconf_tarball="autoconf-${autoconf_version}.tar.xz"
 
-automake_dnl="https://ftp.gnu.org/gnu/automake/automake-1.17.tar.xz"
+automake_version="1.17"
+automake_dnl="https://ftp.gnu.org/gnu/automake/automake-${automake_version}.tar.xz"
 automake_sha256="8920c1fc411e13b90bf704ef9db6f29d540e76d232cb3b2c9f4dc4cc599bd990"
-automake_tarball="automake-1.17.tar.xz"
+automake_tarball="automake-${automake_version}.tar.xz"
 
 bash_version="5.2.32"
 bash_dnl="https://ftp.gnu.org/gnu/bash/bash-${bash_version}.tar.gz"
 bash_sha256="d3ef80d2b67d8cbbe4d3265c63a72c46f9b278ead6e0e06d61801b58f23f50b5"
 bash_tarball="bash-${bash_version}.tar.gz"
 
-bc_dnl="https://github.com/gavinhoward/bc/releases/download/6.7.6/bc-6.7.6.tar.xz"
+bc_version="6.7.6"
+bc_dnl="https://github.com/gavinhoward/bc/releases/download/${bc_version}/bc-${bc_version}.tar.xz"
 bc_sha256="828f390c2a552cadbc8c8ad5fde6eeaee398dc8d59d706559158330f3629ce35"
-bc_tarball="bc-6.7.6.tar.xz"
+bc_tarball="bc-${bc_version}.tar.xz"
 
 binutils_version="2.43.1"
 binutils_dnl="https://sourceware.org/pub/binutils/releases/binutils-${binutils_version}.tar.xz"
 binutils_sha256="13f74202a3c4c51118b797a39ea4200d3f6cfbe224da6d1d95bb938480132dfd"
 binutils_tarball="binutils-${binutils_version}.tar.xz"
 
-bison_dnl="https://ftp.gnu.org/gnu/bison/bison-3.8.2.tar.xz"
+bison_version="3.8.2"
+bison_dnl="https://ftp.gnu.org/gnu/bison/bison-${bison_version}.tar.xz"
 bison_sha256="9bba0214ccf7f1079c5d59210045227bcf619519840ebfa80cd3849cff5a5bf2"
-bison_tarball="bison-3.8.2.tar.xz"
+bison_tarball="bison-${bison_version}.tar.xz"
 
-bzip2_dnl="https://www.sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz"
+bzip2_version="1.0.8"
+bzip2_dnl="https://www.sourceware.org/pub/bzip2/bzip2-${bzip2_version}.tar.gz"
 bzip2_sha256="ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269"
-bzip2_tarball="bzip2-1.0.8.tar.gz"
+bzip2_tarball="bzip2-${bzip2_version}.tar.gz"
 
 bzip2_patch_dnl="https://www.linuxfromscratch.org/patches/lfs/12.2/bzip2-1.0.8-install_docs-1.patch"
 bzip2_patch_sha256="35e3bbd9642af51fef2a8a83afba040d272da42d7e3a251d8e43255a7b496702"
 bzip2_patch_file="bzip2-1.0.8-install_docs-1.patch"
 
-check_dnl="https://github.com/libcheck/check/releases/download/0.15.2/check-0.15.2.tar.gz"
+check_version="0.15.2"
+check_dnl="https://github.com/libcheck/check/releases/download/${check_version}/check-${check_version}.tar.gz"
 check_sha256="a8de4e0bacfb4d76dd1c618ded263523b53b85d92a146d8835eb1a52932fa20a"
-check_tarball="check-0.15.2.tar.gz"
+check_tarball="check-${check_version}.tar.gz"
 
 coreutils_version="9.5"
 coreutils_dnl="https://ftp.gnu.org/gnu/coreutils/coreutils-${coreutils_version}.tar.xz"
@@ -60,9 +68,10 @@ coreutils_patch_dnl="https://www.linuxfromscratch.org/patches/lfs/12.2/coreutils
 coreutils_patch_sha256="99f1553ce9b7ded634bb56dac14ba6e439fc124daf8da436ee4cda1fd286f4a2"
 coreutils_patch_file="coreutils-9.5-i18n-2.patch"
 
-dbus_dnl="https://dbus.freedesktop.org/releases/dbus/dbus-1.14.10.tar.xz"
+dbus_version="1.14.10"
+dbus_dnl="https://dbus.freedesktop.org/releases/dbus/dbus-${dbus_version}.tar.xz"
 dbus_sha256="ba1f21d2bd9d339da2d4aa8780c09df32fea87998b73da24f49ab9df1e36a50f"
-dbus_tarball="dbus-1.14.10.tar.xz"
+dbus_tarball="dbus-${dbus_version}.tar.xz"
 
 diffutils_version="3.10"
 diffutils_dnl="https://ftp.gnu.org/gnu/diffutils/diffutils-${diffutils_version}.tar.xz"
