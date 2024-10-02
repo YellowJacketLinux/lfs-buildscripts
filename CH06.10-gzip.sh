@@ -10,24 +10,23 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
-tar -Jxf ${m4_tarball}
+tar -Jxf ${gzip_tarball}
 
-cd m4-${m4_version}
+cd gzip-${gzip_version}
 
 ./configure --prefix=/usr \
-  --host=${LFS_TGT} \
-  --build=$(build-aux/config.guess)
+  --host=${LFS_TGT} 
 
 make
 
 if [ $? -ne 0 ]; then
-  myfail "Failed building m4"
+  myfail "Failed building gzip"
 fi
 
 make DESTDIR=${LFS} install
 
 if [ $? -ne 0 ]; then
-  myfail "Failed installing m4"
+  myfail "Failed installing gzip"
 fi
 
 

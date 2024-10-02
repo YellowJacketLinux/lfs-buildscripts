@@ -10,24 +10,25 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
-tar -Jxf ${m4_tarball}
+tar -zxf ${make_tarball}
 
-cd m4-${m4_version}
+cd make-${make_version}
 
 ./configure --prefix=/usr \
+  --without-guile \
   --host=${LFS_TGT} \
   --build=$(build-aux/config.guess)
 
 make
 
 if [ $? -ne 0 ]; then
-  myfail "Failed building m4"
+  myfail "Failed building make"
 fi
 
 make DESTDIR=${LFS} install
 
 if [ $? -ne 0 ]; then
-  myfail "Failed installing m4"
+  myfail "Failed installing make"
 fi
 
 
