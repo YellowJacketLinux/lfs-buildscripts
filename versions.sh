@@ -51,9 +51,10 @@ check_dnl="https://github.com/libcheck/check/releases/download/0.15.2/check-0.15
 check_sha256="a8de4e0bacfb4d76dd1c618ded263523b53b85d92a146d8835eb1a52932fa20a"
 check_tarball="check-0.15.2.tar.gz"
 
-coreutils_dnl="https://ftp.gnu.org/gnu/coreutils/coreutils-9.5.tar.xz"
+coreutils_version="9.5"
+coreutils_dnl="https://ftp.gnu.org/gnu/coreutils/coreutils-${coreutils_version}.tar.xz"
 coreutils_sha256="cd328edeac92f6a665de9f323c93b712af1858bc2e0d88f3f7100469470a1b8a"
-coreutils_tarball="coreutils-9.5.tar.xz"
+coreutils_tarball="coreutils-${coreutils_version}.tar.xz"
 
 coreutils_patch_dnl="https://www.linuxfromscratch.org/patches/lfs/12.2/coreutils-9.5-i18n-2.patch"
 coreutils_patch_sha256="99f1553ce9b7ded634bb56dac14ba6e439fc124daf8da436ee4cda1fd286f4a2"
@@ -63,9 +64,10 @@ dbus_dnl="https://dbus.freedesktop.org/releases/dbus/dbus-1.14.10.tar.xz"
 dbus_sha256="ba1f21d2bd9d339da2d4aa8780c09df32fea87998b73da24f49ab9df1e36a50f"
 dbus_tarball="dbus-1.14.10.tar.xz"
 
-diffutils_dnl="https://ftp.gnu.org/gnu/diffutils/diffutils-3.10.tar.xz"
+diffutils_version="3.10"
+diffutils_dnl="https://ftp.gnu.org/gnu/diffutils/diffutils-${diffutils_version}.tar.xz"
 diffutils_sha256="90e5e93cc724e4ebe12ede80df1634063c7a855692685919bfe60b556c9bd09e"
-diffutils_tarball="diffutils-3.10.tar.xz"
+diffutils_tarball="diffutils-${diffutils_version}.tar.xz"
 
 e2fsprogs_dnl="https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.47.1/e2fsprogs-1.47.1.tar.gz"
 e2fsprogs_sha256="9afcd201f39429d2db2492aeb13dba5e75d6cc50682b732dca35643bd5f092e3"
@@ -87,9 +89,10 @@ expect_patch_dnl="https://www.linuxfromscratch.org/patches/lfs/12.2/expect-5.45.
 expect_patch_sha256="517c0cdd5db949cdd99dfa38b7a6c3945e1524c50e3467028973298f2c76a92c"
 expect_patch_file="expect-5.45.4-gcc14-1.patch"
 
-file_dnl="https://astron.com/pub/file/file-5.45.tar.gz"
+file_version="5.45"
+file_dnl="https://astron.com/pub/file/file-${file_version}.tar.gz"
 file_sha256="fc97f51029bb0e2c9f4e3bffefdaf678f0e039ee872b9de5c002a6d09c784d82"
-file_tarball="file-5.45.tar.gz"
+file_tarball="file-${file_version}.tar.gz"
 
 findutils_dnl="https://ftp.gnu.org/gnu/findutils/findutils-4.10.0.tar.xz"
 findutils_sha256="1387e0b67ff247d2abde998f90dfbf70c1491391a59ddfecb8ae698789f0a4f5"
