@@ -328,9 +328,10 @@ systemd_man_dnl="https://anduin.linuxfromscratch.org/LFS/systemd-man-pages-256.4
 systemd_man_sha256="dceb4cc699b3801c38d99f88618ca7e7f7e23ee6016a8b7eef3ed361d852d340"
 systemd_man_tarball="systemd-man-pages-256.4.tar.xz"
 
-tar_dnl="https://ftp.gnu.org/gnu/tar/tar-1.35.tar.xz"
+tar_version="1.35"
+tar_dnl="https://ftp.gnu.org/gnu/tar/tar-${tar_version}.tar.xz"
 tar_sha256="4d62ff37342ec7aed748535323930c7cf94acf71c3591882b26a7ea50f3edc16"
-tar_tarball="tar-1.35.tar.xz"
+tar_tarball="tar-${tar_version}.tar.xz"
 
 tcl_dnl="https://downloads.sourceforge.net/tcl/tcl8.6.14-src.tar.gz"
 tcl_sha256="5880225babf7954c58d4fb0f5cf6279104ce1cd6aa9b71e9a6322540e1c4de66"
@@ -363,6 +364,11 @@ wheel_tarball="wheel-0.44.0.tar.gz"
 xml_parser_dnl="https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.47.tar.gz"
 xml_parser_sha256="ad4aae643ec784f489b956abe952432871a622d4e2b5c619e8855accbfc4d1d8"
 xml_parser_tarball="XML-Parser-2.47.tar.gz"
+
+xz_version="5.6.2"
+xz_dnl="https://github.com//tukaani-project/xz/releases/download/v${xz_version}/xz-${xz_version}.tar.xz"
+xz_sha256="a9db3bb3d64e248a0fae963f8fb6ba851a26ba1822e504dc0efd18a80c626caf"
+xz_tarball="xz-${xz_version}.tar.xz"
 
 zlib_dnl="https://zlib.net/fossils/zlib-1.3.1.tar.gz"
 zlib_sha256="9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23"

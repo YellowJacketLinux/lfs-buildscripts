@@ -120,6 +120,7 @@ getSource "${util_linux_dnl}" "${util_linux_sha256}" "${util_linux_tarball}"
 getSource "${vim_dnl}" "${vim_sha256}" "${vim_tarball}"
 getSource "${wheel_dnl}" "${wheel_sha256}" "${wheel_tarball}"
 getSource "${xml_parser_dnl}" "${xml_parser_sha256}" "${xml_parser_tarball}"
+getSource "${xz_dnl}" "${xz_sha256}" "${xz_tarball}"
 getSource "${zlib_dnl}" "${zlib_sha256}" "${zlib_tarball}"
 getSource "${zstd_dnl}" "${zstd_sha256}" "${zstd_tarball}"
 
