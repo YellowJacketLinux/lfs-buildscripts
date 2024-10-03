@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#LFS=/mnt/newlfs
-LFS=/home/mpeters/newlfs
+LFS=/mnt/newlfs
+#LFS=/home/mpeters/newlfs
 
 function myfail {
   echo "$1"

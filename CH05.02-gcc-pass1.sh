@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# FIXME - go and objc
+# FIXME - does not build d,ada compilers
 
 source versions.sh
 
