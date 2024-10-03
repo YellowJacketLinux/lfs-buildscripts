@@ -10,6 +10,8 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
+[ -d patch-${patch_version} ] && rm -rf patch-${patch_version}
+
 tar -Jxf ${patch_tarball}
 
 cd patch-${patch_version}

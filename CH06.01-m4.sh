@@ -10,6 +10,8 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
+[ -d m4-${m4_version} ] && rm -rf m4-${m4_version}
+
 tar -Jxf ${m4_tarball}
 
 cd m4-${m4_version}

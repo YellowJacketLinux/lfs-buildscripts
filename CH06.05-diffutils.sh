@@ -10,6 +10,8 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
+[ -d diffutils-${diffutils_version} ] && rm -rf diffutils-${diffutils_version}
+
 tar -Jxf ${diffutils_tarball}
 
 cd diffutils-${diffutils_version}

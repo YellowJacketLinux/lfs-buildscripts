@@ -10,6 +10,8 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
+[ -d grep-${grep_version} ] && rm -rf grep-${grep_version}
+
 tar -Jxf ${grep_tarball}
 
 cd grep-${grep_version}

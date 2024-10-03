@@ -10,6 +10,8 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
+[ -d coreutils-${coreutils_version} ] && rm -rf coreutils-${coreutils_version}
+
 tar -Jxf ${coreutils_tarball}
 
 cd coreutils-${coreutils_version}

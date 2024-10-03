@@ -10,6 +10,8 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
+[ -d tar-${tar_version} ] && rm -rf tar-${tar_version}
+
 tar -Jxf ${tar_tarball}
 
 cd tar-${tar_version}

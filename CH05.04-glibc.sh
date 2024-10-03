@@ -10,6 +10,8 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
+[ -d glibc-${glibc_version} ] && rm -rf glibc-${glibc_version}
+
 tar -Jxf ${glibc_tarball}
 cd glibc-${glibc_version}
 

@@ -10,6 +10,8 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
+[ -d sed-${sed_version} ] && rm -rf sed-${sed_version}
+
 tar -Jxf ${sed_tarball}
 
 cd sed-${sed_version}

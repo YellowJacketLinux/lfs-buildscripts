@@ -10,6 +10,8 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
+[ -d gawk-${gawk_version} ] && rm -rf gawk-${gawk_version}
+
 tar -Jxf ${gawk_tarball}
 
 cd gawk-${gawk_version}

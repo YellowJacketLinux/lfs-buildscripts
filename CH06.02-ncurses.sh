@@ -10,6 +10,8 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
+[ -d ncurses-${ncurses_version} ] && rm -rf ncurses-${ncurses_version}
+
 tar -zxf ${ncurses_tarball}
 
 cd ncurses-${ncurses_version}

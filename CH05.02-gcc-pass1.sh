@@ -12,6 +12,8 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
+[ -d gcc-${gcc_version} ] && rm -rf gcc-${gcc_version}
+
 tar -Jxf ${gcc_tarball}
 cd gcc-${gcc_version}
 

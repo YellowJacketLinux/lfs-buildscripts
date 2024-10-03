@@ -10,6 +10,8 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
+[ -d binutils-${binutils_version} ] && rm -rf binutils-${binutils_version}
+
 tar -Jxf ${binutils_tarball}
 cd binutils-${binutils_version}
 

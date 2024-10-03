@@ -10,6 +10,8 @@ fi
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
+[ -d gzip-${gzip_version} ] && rm -rf gzip-${gzip_version}
+
 tar -Jxf ${gzip_tarball}
 
 cd gzip-${gzip_version}
