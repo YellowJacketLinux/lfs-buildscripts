@@ -65,3 +65,8 @@ make install
 if [ $? -ne 0 ]; then
   myfail "Failed installing gcc pass 1"
 fi
+
+cd ..
+
+cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
+  `dirname $(${LFS_TGT}-gcc -print-libgcc-file-name)`/include/limits.h
