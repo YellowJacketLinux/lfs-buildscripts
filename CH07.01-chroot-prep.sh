@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ "`whoami`" != "root" ]; then
+  myfail "Must run this script as r00t"
+fi
+
 LFS=/mnt/newlfs
 #LFS=/home/mpeters/newlfs
 
