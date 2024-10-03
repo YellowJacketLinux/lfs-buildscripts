@@ -12,7 +12,7 @@ tar -Jxf ${perl_tarball}
 
 cd perl-${perl_version}
 
-vlib="/usr/lib/perl5/${perl_major_version}"
+vlib="/usr/lib/perl${perl_major_version}/${perl_major_version}.${perl_minor_version}"
 
 sh Configure -des \
   -D prefix=/usr \
