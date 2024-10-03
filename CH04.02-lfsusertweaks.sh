@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#LFS=/mnt/newlfs
-LFS=/home/mpeters/newlfs
+LFS=/mnt/newlfs
+#LFS=/home/mpeters/newlfs
 
 function myfail {
   echo "$1"
@@ -20,7 +20,7 @@ EOF
 cat > ~/.bashrc << "EOF"
 set +h
 umask 022
-LFS=/mnt/lfs
+LFS=/mnt/newlfs
 LC_ALL=POSIX
 LFS_TGT=$(uname -m)-lfs-linux-gnu
 PATH=/usr/bin
