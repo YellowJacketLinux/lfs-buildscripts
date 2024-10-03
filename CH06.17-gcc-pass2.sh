@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# FIXME - go and objc
+# FIXME - doesn't build d or ada compiler
 
 source versions.sh
 
@@ -34,53 +34,6 @@ esac
 
 sed '/thread_header =/s/@.*@/gthr-posix.h/' \
     -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in
-
-mkdir build && cd build
-
-tar -xf ../${mpfr_tarball}
-mv mpfr-${mpfr_version} mpfr
-tar -xf ../${gmp_tarball}
-mv gmp-${gmp_version} gmp
-tar -xf ../${mpc_tarball}
-mv mpc-${mpc_version} mpc
-
-case $(uname -m) in
-  x86_64)
-    sed -e '/m64=/s/lib64/lib/' \
-        -i.orig gcc/config/i386/t-linux64
-  ;;
-esac
-
-sed '/thread_header =/s/@.*@/gthr-posix.h/' \
-    -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in
-
-mkdir build && cd build
-
-tar -xf ../${mpfr_tarball}
-mv mpfr-${mpfr_version} mpfr
-tar -xf ../${gmp_tarball}
-mv gmp-${gmp_version} gmp
-tar -xf ../${mpc_tarball}
-mv mpc-${mpc_version} mpc
-
-case $(uname -m) in
-  x86_64)
-    sed -e '/m64=/s/lib64/lib/' \
-        -i.orig gcc/config/i386/t-linux64
-  ;;
-esac
-
-sed '/thread_header =/s/@.*@/gthr-posix.h/' \
-    -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in
-
-mkdir build && cd build
-
-tar -xf ../${mpfr_tarball}
-mv mpfr-${mpfr_version} mpfr
-tar -xf ../${gmp_tarball}
-mv gmp-${gmp_version} gmp
-tar -xf ../${mpc_tarball}
-mv mpc-${mpc_version} mpc
 
 case $(uname -m) in
   x86_64)
