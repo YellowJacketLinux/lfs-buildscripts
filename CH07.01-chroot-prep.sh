@@ -8,12 +8,11 @@ LFS=/mnt/newlfs
 #LFS=/home/mpeters/newlfs
 
 cp -ar chrootscripts ${LFS}/sources/
+cp versions.sh ${LFS}/sources/chrootscripts/
 
 chown --from lfs -R root:root ${LFS}/{usr,lib,var,etc,bin,sbin,tools}
 
-case $(uname -m) in
-  x86_64) chown --from lfs -R root:root $LFS/lib64 ;;
-esac
+chown --from lfs -R root:root ${LFS}/lib64
 
 mkdir -pv ${LFS}/{dev,proc,sys,run}
 
