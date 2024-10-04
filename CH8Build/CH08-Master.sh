@@ -152,5 +152,24 @@ else
   sleep 3
 fi
 
+/bin/bash CH08.16-dejagnu.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.16-dejagnu.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 DejaGNU Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.17-pkgconf.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.17-pkgconf.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Pkgconf Complete"
+  sleep 3
+fi
 
 exit 0

@@ -73,6 +73,11 @@ dbus_dnl="https://dbus.freedesktop.org/releases/dbus/dbus-${dbus_version}.tar.xz
 dbus_sha256="ba1f21d2bd9d339da2d4aa8780c09df32fea87998b73da24f49ab9df1e36a50f"
 dbus_tarball="dbus-${dbus_version}.tar.xz"
 
+dejagnu_version="1.6.3"
+dejagnu_dnl="https://ftp.gnu.org/gnu/dejagnu/dejagnu-${dejagnu_version}.tar.gz"
+dejagnu_sha256="87daefacd7958b4a69f88c6856dbd1634261963c414079d0c371f589cd66a2e3"
+dejagnu_tarball="dejagnu-${dejagnu_version}.tar.gz"
+
 diffutils_version="3.10"
 diffutils_dnl="https://ftp.gnu.org/gnu/diffutils/diffutils-${diffutils_version}.tar.xz"
 diffutils_sha256="90e5e93cc724e4ebe12ede80df1634063c7a855692685919bfe60b556c9bd09e"
