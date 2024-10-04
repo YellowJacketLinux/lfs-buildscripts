@@ -1,5 +1,10 @@
 #!/bin/bash
 
+function myfail {
+  echo "$1"
+  exit 1
+}
+
 if [ "`whoami`" != "root" ]; then
   myfail "Must run this script as r00t"
 fi
