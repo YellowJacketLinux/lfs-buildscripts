@@ -10,11 +10,10 @@ if [ "`whoami`" != "root" ]; then
 fi
 
 LFS=/mnt/newlfs
-#LFS=/home/mpeters/newlfs
 
-cp -ar chrootscripts ${LFS}/sources/
-cp -ar CH8Build ${LFS}/sources/
-cp versions.sh ${LFS}/sources/chrootscripts/
+[ ! -d ${LFS}/sources/CH7Build ] && cp -ar CH7Build ${LFS}/sources/
+[ ! -d ${LFS}/sources/CH8Build ] && cp -ar CH8Build ${LFS}/sources/
+cp versions.sh ${LFS}/sources/CH7Build/
 cp versions.sh ${LFS}/sources/CH8Build/
 
 chown --from lfs -R root:root ${LFS}/{usr,lib,var,etc,bin,sbin,tools}
