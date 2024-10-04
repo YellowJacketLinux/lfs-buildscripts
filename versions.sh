@@ -68,6 +68,15 @@ coreutils_patch_dnl="https://www.linuxfromscratch.org/patches/lfs/12.2/coreutils
 coreutils_patch_sha256="99f1553ce9b7ded634bb56dac14ba6e439fc124daf8da436ee4cda1fd286f4a2"
 coreutils_patch_file="coreutils-9.5-i18n-2.patch"
 
+cracklib_version="2.10.2"
+cracklib_dnl="https://github.com/cracklib/cracklib/releases/download/v${cracklib_version}/cracklib-${cracklib_version}.tar.xz"
+cracklib_sha256="febfa832ec11e6a12942daf0dbaa0acdbd2242920202edfedde2abbc030d3b0c"
+cracklib_tarball="cracklib-${cracklib_version}"
+
+cracklib_words_english_dnl="https://github.com/cracklib/cracklib/releases/download/v${cracklib_version}/cracklib-words-${cracklib_version}.xz"
+cracklib_words_english_sha256="b3d1e0e0ae9bc7ffed65c0042d7c68bdb903368aa6b918f94572453c6ea874dc"
+cracklib_words_english_tarball="cracklib-words-${cracklib_version}.xz"
+
 dbus_version="1.14.10"
 dbus_dnl="https://dbus.freedesktop.org/releases/dbus/dbus-${dbus_version}.tar.xz"
 dbus_sha256="ba1f21d2bd9d339da2d4aa8780c09df32fea87998b73da24f49ab9df1e36a50f"

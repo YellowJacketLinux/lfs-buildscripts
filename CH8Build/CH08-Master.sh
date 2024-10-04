@@ -192,4 +192,91 @@ else
   sleep 3
 fi
 
+/bin/bash CH08.20-mpfr.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.20-mpfr.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 MPFR Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.21-mpc.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.21-mpc.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 MPC Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.22-attr.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.22-attr.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Attr Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.23-acl.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.23-acl.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 ACL Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.24-libcap.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.24-libcap.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Libcap Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.25-libxcrypt.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.25-libxcrypt.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Libxcrypt Complete"
+  sleep 3
+fi
+
+/bin/bash BLFS.01-cracklib.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed BLFS.01-cracklib.sh"
+  exit 1
+else
+  echo "BLFS Cracklib Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.26-shadow.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.26-shadow.sh"
+  exit 1
+else
+  echo "LFS Shadow Complete"
+  sleep 3
+fi
+
+
+
+
+
+
+echo "You should set the r00t password now."
+
 exit 0
