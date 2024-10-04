@@ -102,5 +102,55 @@ else
   sleep 3
 fi
 
+/bin/bash CH08.11-m4.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.11-m4.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 M4 Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.12-bc.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.12-bc.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 BC Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.13-flex.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.13-flex.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Flex Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.14-tcl.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.14-tcl.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Tcl Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.15-expect.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.15-expect.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Expect Complete"
+  sleep 3
+fi
+
 
 exit 0
