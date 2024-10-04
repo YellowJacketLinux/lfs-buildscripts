@@ -14,7 +14,7 @@ cd xz-${xz_version}
 
 ./configure --prefix=/usr \
   --disable-static \
-  --docdir=/usr/share/doc/xz-${xz-version}
+  --docdir=/usr/share/doc/xz-${xz_version}
 
 make
 if [ $? -ne 0 ]; then
