@@ -12,7 +12,7 @@ tar -Jxf ${bc_tarball}
 
 cd bc-${bc_version}
 
-CC=gcc ./configure --prefix=/usr -G -03 -r
+CC=gcc ./configure --prefix=/usr -G -O3 -r
 
 make
 if [ $? -ne 0 ]; then
