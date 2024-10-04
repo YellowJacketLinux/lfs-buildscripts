@@ -21,6 +21,7 @@ if [ $? -ne 0 ]; then
   myfail "Failed building cracklib"
 fi
 
+make install
 if [ $? -ne 0 ]; then
   myfail "Failed installing cracklib"
 fi
@@ -30,6 +31,8 @@ install -v -m644 -D    ../cracklib-words-2.10.2.xz \
 
 unxz -v                  /usr/share/dict/cracklib-words.xz
 ln -v -sf cracklib-words /usr/share/dict/words
+
+echo $(hostname) >>      /usr/share/dict/cracklib-extra-words
 
 install -v -m755 -d      /usr/lib/cracklib
 
