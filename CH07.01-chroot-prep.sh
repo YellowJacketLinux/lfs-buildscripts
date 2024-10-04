@@ -8,7 +8,9 @@ LFS=/mnt/newlfs
 #LFS=/home/mpeters/newlfs
 
 cp -ar chrootscripts ${LFS}/sources/
+cp -ar CH8Build ${LFS}/sources/
 cp versions.sh ${LFS}/sources/chrootscripts/
+cp versions.sh ${LFS}/sources/CH8Build/
 
 chown --from lfs -R root:root ${LFS}/{usr,lib,var,etc,bin,sbin,tools}
 
