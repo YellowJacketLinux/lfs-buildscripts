@@ -172,4 +172,24 @@ else
   sleep 3
 fi
 
+/bin/bash CH08.18-binutils.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.18-binutils.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Binutils Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.19-gmp.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.19-gmp.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 GMP Complete"
+  sleep 3
+fi
+
 exit 0
