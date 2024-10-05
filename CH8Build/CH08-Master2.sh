@@ -112,7 +112,7 @@ else
   sleep 3
 fi
 
-/bin/bash CH08.45-libressl.sh
+/bin/bash CH08.46-libressl.sh
 
 if [ $? -ne 0 ]; then
   echo "failed CH08.46-libressl.sh"
