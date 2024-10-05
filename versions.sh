@@ -71,7 +71,7 @@ coreutils_patch_file="coreutils-9.5-i18n-2.patch"
 cracklib_version="2.10.2"
 cracklib_dnl="https://github.com/cracklib/cracklib/releases/download/v${cracklib_version}/cracklib-${cracklib_version}.tar.xz"
 cracklib_sha256="febfa832ec11e6a12942daf0dbaa0acdbd2242920202edfedde2abbc030d3b0c"
-cracklib_tarball="cracklib-${cracklib_version}"
+cracklib_tarball="cracklib-${cracklib_version}.tar.xz"
 
 cracklib_words_english_dnl="https://github.com/cracklib/cracklib/releases/download/v${cracklib_version}/cracklib-words-${cracklib_version}.xz"
 cracklib_words_english_sha256="b3d1e0e0ae9bc7ffed65c0042d7c68bdb903368aa6b918f94572453c6ea874dc"
