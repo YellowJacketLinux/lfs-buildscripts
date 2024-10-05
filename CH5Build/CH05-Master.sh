@@ -33,6 +33,7 @@ else
   sleep 3
 fi
 
+echo "Before executing Master2,"
 echo "As root, issue following two commands:"
 
 echo "ln -sfv ../lib/ld-linux-x86-64.so.2 ${LFS}/lib64"

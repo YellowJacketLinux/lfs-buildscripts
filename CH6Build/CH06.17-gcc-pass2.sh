@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# FIXME - doesn't build d or ada compiler
+# doesn't build d or ada compiler
 
-source versions.sh
+source ../versions.sh
 
 GLSOURCES="${LFS}/sources"
 
