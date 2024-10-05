@@ -268,15 +268,93 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.26-shadow.sh"
   exit 1
 else
-  echo "LFS Shadow Complete"
+  echo "LFS Chapter 8 Shadow Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.27-gcc.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.27-gcc.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 GCC Complete"
+  sleep 60
+fi
+
+/bin/bash CH08.28-ncurses.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.28-ncurses.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Ncurses Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.29-sed.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.29-sed.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Sed Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.30-psmisc.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.30-psmisc.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Psmisc Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.31-gettext.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.31-gettext"
+  exit 1
+else
+  echo "LFS Chapter 8 Gettext Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.32-bison.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.32-bison"
+  exit 1
+else
+  echo "LFS Chapter 8 Bison Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.33-grep.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.33-grep"
+  exit 1
+else
+  echo "LFS Chapter 8 Grep Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.34-bash.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.34-bash"
+  exit 1
+else
+  echo "LFS Chapter 8 Bash Complete"
   sleep 3
 fi
 
 
-
-
-
-
 echo "You should set the r00t password now."
+echo
+echo "Also, Exit chroot and re-enter to invoke new bash"
 
 exit 0
