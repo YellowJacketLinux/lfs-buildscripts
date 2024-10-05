@@ -72,10 +72,55 @@ else
   sleep 3
 fi
 
+/bin/bash CH08.42-xml-parser.sh
 
+if [ $? -ne 0 ]; then
+  echo "failed CH08.42-xml-parser.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 XML::Parser Complete"
+  sleep 3
+fi
 
+/bin/bash CH08.43-Intltool.sh
 
+if [ $? -ne 0 ]; then
+  echo "failed CH08.43-intltool.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Intltool Complete"
+  sleep 3
+fi
 
+/bin/bash CH08.44-autoconf.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.44-autoconf.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Autoconf Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.45-automake.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.45-automake.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Automake Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.45-libressl.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.46-libressl.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 LibreSSL (OpenSSL) Complete"
+  sleep 3
+fi
 
 
 
