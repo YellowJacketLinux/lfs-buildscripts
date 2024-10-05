@@ -22,7 +22,7 @@ fi
 echo "running libcap make test"
 make test > ${GLSOURCES}/libcap.check 2>&1
 
-make prefix=/usr install
+make prefix=/usr lib=lib install
 if [ $? -ne 0 ]; then
   myfail "Failed installing libcap"
 fi
