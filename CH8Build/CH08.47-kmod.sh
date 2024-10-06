@@ -10,7 +10,7 @@ pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 tar -Jxf ${kmod_tarball}
 
-cd kmod-${zstd_version}
+cd kmod-${kmod_version}
 
 ./configure --prefix=/usr \
             --sysconfdir=/etc \

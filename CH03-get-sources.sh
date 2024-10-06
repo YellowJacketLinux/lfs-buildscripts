@@ -128,7 +128,7 @@ getSource "${xz_dnl}" "${xz_sha256}" "${xz_tarball}"
 getSource "${zlib_dnl}" "${zlib_sha256}" "${zlib_tarball}"
 getSource "${zstd_dnl}" "${zstd_sha256}" "${zstd_tarball}"
 
-cp ${CWD}/libressl-${libressl_version}-cnf-name.patch ${GLSOURCES}/
+cp ${CWD}/CH8Build/libressl-${libressl_version}-cnf-name.patch ${GLSOURCES}/
 
 popd > /dev/null 2>&1
 
