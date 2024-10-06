@@ -12,7 +12,7 @@ tar -zxf ${libressl_tarball}
 
 cd libressl-${libressl_version}
 
-patch -p1 < libressl-${libressl_version}-cnf-name.patch
+patch -p1 < ../libressl-${libressl_version}-cnf-name.patch
 mv openssl.cnf libressl.cnf
 mv man/openssl.cnf.5 man/libressl.cnf.5
 pushd apps/openssl

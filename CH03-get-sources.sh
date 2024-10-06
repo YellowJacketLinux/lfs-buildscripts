@@ -6,6 +6,7 @@ LFS=/mnt/newlfs
 source versions.sh
 
 GLSOURCES="${LFS}/sources"
+CWD="`pwd`"
 
 [ ! -d ${GLSOURCES} ] && mkdir ${GLSOURCES}
 
@@ -126,6 +127,8 @@ getSource "${xml_parser_dnl}" "${xml_parser_sha256}" "${xml_parser_tarball}"
 getSource "${xz_dnl}" "${xz_sha256}" "${xz_tarball}"
 getSource "${zlib_dnl}" "${zlib_sha256}" "${zlib_tarball}"
 getSource "${zstd_dnl}" "${zstd_sha256}" "${zstd_tarball}"
+
+cp ${CWD}/libressl-${libressl_version}-cnf-name.patch ${GLSOURCES}/
 
 popd > /dev/null 2>&1
 
