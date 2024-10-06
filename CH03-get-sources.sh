@@ -35,7 +35,7 @@ function getSource {
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
-[ -f ${HOME}/lfs-sources.tar.xz ] && tar -xpf ${HOME}/lfs-sources.tar.xz
+[ -f ${HOME}/lfs-sources.tar ] && tar -xpf ${HOME}/lfs-sources.tar
 
 getSource "${acl_dnl}" "${acl_sha256}" "${acl_tarball}"
 getSource "${attr_dnl}" "${attr_sha256}" "${attr_tarball}"
@@ -131,9 +131,9 @@ getSource "${zstd_dnl}" "${zstd_sha256}" "${zstd_tarball}"
 
 cp ${CWD}/CH8Build/libressl-${libressl_version}-cnf-name.patch .
 
-echo "backing up sources, may take a few minutes"
-rm -f ${HOME}/lfs-sources.tar.xz
-tar -cJpf ${HOME}/lfs-sources.tar.xz .
+rm -f ${HOME}/lfs-sources.tar
+tar -cJpf ${HOME}/lfs-sources.tar .
+echo "Sources backed-up as ${HOME}/lfs-sources.tar"
 
 
 popd > /dev/null 2>&1
