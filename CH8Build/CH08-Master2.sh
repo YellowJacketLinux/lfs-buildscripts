@@ -132,6 +132,100 @@ else
   sleep 3
 fi
 
+/bin/bash CH08.48-libelf.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.48-libelf.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Libelf Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.49-libffi.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.49-libffi.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Libffi Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.50-python.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.50-python.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Python Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.51-flit-core.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.51-flit-core.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Flit-Core Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.52-wheel.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.52-wheel.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Wheel Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.53-setuptools.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.53-setuptools.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Setuptools Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.54-ninja.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.54-ninja.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Ninja Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.55-meson.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.55-ninja.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Meson Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.56-coreutils.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.56-coreutils.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Coreutils Complete"
+  sleep 3
+fi
+
+
+
+
+
 
 
 
