@@ -122,6 +122,15 @@ else
   sleep 3
 fi
 
+/bin/bash CH08.47-kmod.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.47-kmod.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Kmod Complete"
+  sleep 3
+fi
 
 
 

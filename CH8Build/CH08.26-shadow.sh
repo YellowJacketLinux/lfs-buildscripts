@@ -23,7 +23,7 @@ sed -e 's:#ENCRYPT_METHOD DES:ENCRYPT_METHOD YESCRYPT:' \
     -i etc/login.defs
 
 
-sed -i 's:DICTPATH.*:DICTPATH\t/lib/cracklib/pw_dict:' etc/login.defs
+#sed -i 's:DICTPATH.*:DICTPATH\t/lib/cracklib/pw_dict:' etc/login.defs
 
 
 touch /usr/bin/passwd
@@ -31,8 +31,7 @@ touch /usr/bin/passwd
             --disable-static    \
             --with-{b,yes}crypt \
             --without-libbsd    \
-            --with-group-name-max-length=32 \
-            --with-libcrack
+            --with-group-name-max-length=32 
 
 
 make
@@ -44,10 +43,12 @@ make exec_prefix=/usr install
 if [ $? -ne 0 ]; then
   myfail "Failed installing shadow"
 fi
+make -C man install-man
 
 pwconv
-
 grpconv
 
-echo "You should set the root password now."
+mkdir -p /etc/default
+useradd -D --gid 999
+
 
