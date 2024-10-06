@@ -152,6 +152,14 @@ else
   sleep 3
 fi
 
+# Disable OpenSSL
+pushd /usr/include
+mv openssl dis-openssl
+popd
+pushd /usr/lib/pkgconfig
+mv libssl.pc dis-libssl.pc
+popd
+
 /bin/bash CH08.50-python.sh
 
 if [ $? -ne 0 ]; then
@@ -161,6 +169,14 @@ else
   echo "LFS Chapter 8 Python Complete"
   sleep 3
 fi
+
+# re-enable OpenSSL
+pushd /usr/include
+mv dis-openssl openssl
+popd
+pushd /usr/lib/pkgconfig
+mv dis-libssl.pc libssl.pc
+popd
 
 /bin/bash CH08.51-flit-core.sh
 

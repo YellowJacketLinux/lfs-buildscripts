@@ -12,17 +12,9 @@ tar -Jxf ${python_tarball}
 
 cd Python-${python_version}
 
-# if configure switch doesn't work, try:
-#sed -i'' -e '1i\
-##error' ./Modules/_ssl.c
-#sed -i'' -e '1i\
-##error' ./Modules/_hashopenssl.c
-
-
 ./configure --prefix=/usr \
             --enable-shared \
             --with-system-expat \
-            --disable-ssl \
             --enable-optimizations
 
 make
