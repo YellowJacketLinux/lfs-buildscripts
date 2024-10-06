@@ -238,7 +238,75 @@ else
   sleep 3
 fi
 
+/bin/bash CH08.57-check.sh
 
+if [ $? -ne 0 ]; then
+  echo "failed CH08.57-check.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Check Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.58-diffutils.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.58-diffutils.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Diffutils Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.59-gawk.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.59-gawk.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Gawk Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.60-findutils.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.60-findutils.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Findutils Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.61-groff.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.61-groff.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Groff Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.62-grub.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.62-grub.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Grub Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.63-gzip.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.63-gzip.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Gzip Complete"
+  sleep 3
+fi
 
 
 

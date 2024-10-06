@@ -425,9 +425,9 @@ util_linux_dnl="https://www.kernel.org/pub/linux/utils/util-linux/v${util_linux_
 util_linux_sha256="d78b37a66f5922d70edf3bdfb01a6b33d34ed3c3cafd6628203b2a2b67c8e8b3"
 util_linux_tarball="util-linux-${util_linux_version}.tar.xz"
 
-vim_version="9.1.0751"
+vim_version="9.1.0764"
 vim_dnl="https://github.com/vim/vim/archive/refs/tags/v${vim_version}.tar.gz"
-vim_sha256="efa1be453c97a3bff693835d7b64a14dee8bb7619bd893ce6f12c2cf5dafc7a3"
+vim_sha256="874be6146792d67ae47dc8d89f9d32558a266df87a81f5f80ad1b9b4cb31c1a1"
 vim_tarball="v${vim_version}.tar.gz"
 
 wheel_version="0.44.0"

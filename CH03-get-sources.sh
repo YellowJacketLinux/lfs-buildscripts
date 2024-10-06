@@ -1,7 +1,6 @@
 #!/bin/bash
 
 LFS=/mnt/newlfs
-#LFS=/home/mpeters/newlfs
 
 source versions.sh
 
@@ -35,6 +34,8 @@ function getSource {
 }
 
 pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+
+[ -f ${HOME}/lfs-sources.tar.xz ] && tar -xpf ${HOME}/lfs-sources.tar.xz
 
 getSource "${acl_dnl}" "${acl_sha256}" "${acl_tarball}"
 getSource "${attr_dnl}" "${attr_sha256}" "${attr_tarball}"
@@ -128,29 +129,12 @@ getSource "${xz_dnl}" "${xz_sha256}" "${xz_tarball}"
 getSource "${zlib_dnl}" "${zlib_sha256}" "${zlib_tarball}"
 getSource "${zstd_dnl}" "${zstd_sha256}" "${zstd_tarball}"
 
-cp ${CWD}/CH8Build/libressl-${libressl_version}-cnf-name.patch ${GLSOURCES}/
+cp ${CWD}/CH8Build/libressl-${libressl_version}-cnf-name.patch .
+
+echo "backing up sources, may take a few minutes"
+rm -f ${HOME}/lfs-sources.tar.xz
+tar -cJpf ${HOME}/lfs-sources.tar.xz .
+
 
 popd > /dev/null 2>&1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
