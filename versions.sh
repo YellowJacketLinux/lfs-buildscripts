@@ -269,9 +269,9 @@ libxcrypt_dnl="https://github.com/besser82/libxcrypt/releases/download/v${libxcr
 libxcrypt_sha256="e5e1f4caee0a01de2aee26e3138807d6d3ca2b8e67287966d1fefd65e1fd8943"
 libxcrypt_tarball="libxcrypt-${libxcrypt_version}.tar.xz"
 
-linux_lts_version="6.6.53"
+linux_lts_version="6.6.54"
 linux_lts_dnl="https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-${linux_lts_version}.tar.xz"
-linux_lts_sha256="285d181d1b252b0bf905f040d094215cf183ac98c31a17f9cce9f3537ef4d779"
+linux_lts_sha256="5fae869d6a24055c16ffc2d92669e3fb2b258e34d36c850bb8cf9def417ecfa0"
 linux_lts_tarball="linux-${linux_lts_version}.tar.xz"
 
 lz4_version="1.10.0"
