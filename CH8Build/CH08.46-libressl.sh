@@ -14,7 +14,7 @@ cd libressl-${libressl_version}
 
 patch -p1 < libressl-${libressl_version}-cnf-name.patch
 mv openssl.cnf libressl.cnf
-mv man/openssl.cnf.5 man/libressl.cnf
+mv man/openssl.cnf.5 man/libressl.cnf.5
 pushd apps/openssl
 
 sed -i 's?openssl.1?libressl.1?' openssl.1
@@ -47,4 +47,15 @@ make install
 if [ $? -ne 0 ]; then
   myfail "Failed installing libressl"
 fi
+
+# rename binary and make compatibility links
+mv /usr/bin/openssl /usr/bin/libressl
+ln -s libressl /usr/bin/openssl
+ln -s libressl.cnf /etc/ssl/openssl.cnf
+cat > /usr/share/man/man1/openssl.1 << "EOF"
+.so man1/libressl.1
+EOF
+cat > /usr/share/man/man5/openssl.cnf.5 << "EOF"
+.so man5/libressl.cnf.5
+EOF
 
