@@ -8,7 +8,7 @@ pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d setuptools-${setuptools_version} ] && rm -rf setuptools-${setuptools_version}
 
-tar -zxf ${setuptoools_tarball}
+tar -zxf ${setuptools_tarball}
 
 cd setuptools-${setuptools_version}
 
