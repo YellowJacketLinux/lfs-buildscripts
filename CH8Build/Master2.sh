@@ -308,7 +308,85 @@ else
   sleep 3
 fi
 
+/bin/bash CH08.64-iproute2.sh
 
+if [ $? -ne 0 ]; then
+  echo "failed CH08.64-iproute2.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 IPRoute2 Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.65-kbd.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.65-kbd.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Kbd Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.66-libpipeline.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.66-libpipeline.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Libpipeline Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.67-make.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.67-make.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Make Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.68-patch.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.68-patch.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Patch Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.69-tar.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.69-tar.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Tar Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.70-texinfo.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.70-texinfo.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Texinfo Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.71-vim.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.71-vim.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Vim Complete"
+  sleep 3
+fi
 
 
 
