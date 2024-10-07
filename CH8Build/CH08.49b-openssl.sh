@@ -12,7 +12,7 @@ tar -zxf ${openssl_tarball}
 
 cd openssl-${openssl_version}
 
-./configure --prefix=/opt/openssl \
+./config --prefix=/opt/openssl \
             --openssldir=/opt/openssl/ssl \
             --libdir=lib \
             shared \
@@ -29,4 +29,3 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing openssl"
 fi
 
-[ -d /usr/share/doc/openssl ] && mv /usr/share/doc/openssl /usr/share/doc/openssl-${openssl_version}
