@@ -388,6 +388,59 @@ else
   sleep 3
 fi
 
+/bin/bash CH08.72-markupsafe.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.72-markupsafe.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 MarkupSafe Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.73-jinja2.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.73-jinja2.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Jinja2 Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.74-systemd.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.74-systemd.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 SystemD Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.75-dbus.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.75-dbus.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 D-Bus Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.76-mandb.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.76-mandb.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Man-DB Complete"
+  sleep 3
+fi
+
+
+
+
 
 
 
