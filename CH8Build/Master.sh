@@ -252,15 +252,15 @@ else
   sleep 3
 fi
 
-#/bin/bash BLFS.01-cracklib.sh
-#
-#if [ $? -ne 0 ]; then
-#  echo "failed BLFS.01-cracklib.sh"
-#  exit 1
-#else
-#  echo "BLFS Cracklib Complete"
-#  sleep 3
-#fi
+/bin/bash BLFS.01-cracklib.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed BLFS.01-cracklib.sh"
+  exit 1
+else
+  echo "BLFS Cracklib Complete"
+  sleep 3
+fi
 
 /bin/bash CH08.26-shadow.sh
 

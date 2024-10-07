@@ -12,6 +12,9 @@ tar -Jxf ${shadow_tarball}
 
 cd shadow-${shadow_version}
 
+# for libcrack
+sed -i 's@DICTPATH.*@DICTPATH\t/lib/cracklib/pw_dict@' etc/login.defs
+
 sed -i 's/groups$(EXEEXT) //' src/Makefile.in
 find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \;
 find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \;
@@ -31,7 +34,8 @@ touch /usr/bin/passwd
             --disable-static    \
             --with-{b,yes}crypt \
             --without-libbsd    \
-            --with-group-name-max-length=32 
+            --with-group-name-max-length=32 \
+            --with-libcrack
 
 
 make
@@ -39,7 +43,7 @@ if [ $? -ne 0 ]; then
   myfail "Failed building shadow"
 fi
 
-make exec_prefix=/usr install
+make exec_prefix=/usr pamdir= install
 if [ $? -ne 0 ]; then
   myfail "Failed installing shadow"
 fi
