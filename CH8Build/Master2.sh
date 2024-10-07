@@ -152,13 +152,23 @@ else
   sleep 3
 fi
 
-# Disable OpenSSL
+# Disable LibreSSL
 pushd /usr/include
 mv openssl dis-openssl
 popd
 pushd /usr/lib/pkgconfig
 mv libssl.pc dis-libssl.pc
 popd
+
+/bin/bash CH08.49b-openssl.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.49b-openssl.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 OpenSSL Complete"
+  sleep 3
+fi
 
 /bin/bash CH08.50-python.sh
 
@@ -170,7 +180,7 @@ else
   sleep 3
 fi
 
-# re-enable OpenSSL
+# re-enable LibreSSL
 pushd /usr/include
 mv dis-openssl openssl
 popd

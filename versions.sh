@@ -353,6 +353,11 @@ ninja_dnl="https://github.com/ninja-build/ninja/archive/v${ninja_version}/ninja-
 ninja_sha256="821bdff48a3f683bc4bb3b6f0b5fe7b2d647cf65d52aeb63328c91a6c6df285a"
 ninja_tarball="ninja-${ninja_version}.tar.gz"
 
+openssl_version="3.3.2"
+openssl_dnl="https://github.com/openssl/openssl/releases/download/openssl-${openssl_version}/openssl-${openssl_version}.tar.gz"
+openssl_sha256="2e8a40b01979afe8be0bbfb3de5dc1c6709fedb46d6c89c10da114ab5fc3d281"
+openssl_tarball="openssl-${openssl_version}.tar.gz"
+
 patch_version="2.7.6"
 patch_dnl="https://ftp.gnu.org/gnu/patch/patch-${patch_version}.tar.xz"
 patch_sha256="ac610bda97abe0d9f6b7c963255a11dcb196c25e337c61f94e4778d632f1d8fd"

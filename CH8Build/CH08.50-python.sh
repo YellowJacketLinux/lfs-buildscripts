@@ -12,8 +12,10 @@ tar -Jxf ${python_tarball}
 
 cd Python-${python_version}
 
+LDFLAGS="${LDFLAGS} -Wl,-rpath=/opt/openssl/lib" \
 ./configure --prefix=/usr \
             --enable-shared \
+            --with-openssl=/opt/openssl \
             --with-system-expat \
             --enable-optimizations
 
