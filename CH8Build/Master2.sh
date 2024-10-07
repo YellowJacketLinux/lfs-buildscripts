@@ -438,6 +438,36 @@ else
   sleep 3
 fi
 
+/bin/bash CH08.77-procps-ng.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.77-procps-ng.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Procps-ng Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.78-util-linux.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.78-util-linux.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 Util-linux Complete"
+  sleep 3
+fi
+
+/bin/bash CH08.79-e2fsprogs.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed CH08.79-e2fsprogs.sh"
+  exit 1
+else
+  echo "LFS Chapter 8 E2fsprogs Complete"
+  sleep 3
+fi
+
 
 
 
