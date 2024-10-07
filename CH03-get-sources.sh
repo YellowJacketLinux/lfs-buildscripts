@@ -132,7 +132,7 @@ getSource "${zstd_dnl}" "${zstd_sha256}" "${zstd_tarball}"
 cp ${CWD}/CH8Build/libressl-${libressl_version}-cnf-name.patch .
 
 rm -f ${HOME}/lfs-sources.tar
-tar -cJpf ${HOME}/lfs-sources.tar .
+tar -cpf ${HOME}/lfs-sources.tar .
 echo "Sources backed-up as ${HOME}/lfs-sources.tar"
 
 
