@@ -17,6 +17,7 @@ mv openssl.cnf libressl.cnf
 mv man/openssl.cnf.5 man/libressl.cnf.5
 pushd apps/openssl
 
+sed -i 's?^Dt OPENSSL?Dt LIBRESSL?' openssl.1
 sed -i 's?openssl.1?libressl.1?' openssl.1
 sed -i 's?^.Nd OpenSSL?.Nd LibreSSL?g' openssl.1
 sed -i 's?^.Nm openssl ?.Nm libressl ?g' openssl.1
