@@ -27,7 +27,10 @@ automake_tarball="automake-${automake_version}.tar.xz"
 
 bash_version="5.2.32"
 bash_dnl="https://ftp.gnu.org/gnu/bash/bash-${bash_version}.tar.gz"
-bash_sha256="d3ef80d2b67d8cbbe4d3265c63a72c46f9b278ead6e0e06d61801b58f23f50b5"
+bash_sha256="9599b22ecd1d5787ad7d3b7bf0c59f312b3396d1e281175dd1f8a4014da621ff"
+# 5.2.37
+# 5.2.32
+#bash_sha256="d3ef80d2b67d8cbbe4d3265c63a72c46f9b278ead6e0e06d61801b58f23f50b5"
 bash_tarball="bash-${bash_version}.tar.gz"
 
 bc_version="6.7.6"
@@ -102,9 +105,12 @@ elfutils_dnl="https://sourceware.org/ftp/elfutils/${elfutils_version}/elfutils-$
 elfutils_sha256="df76db71366d1d708365fc7a6c60ca48398f14367eb2b8954efc8897147ad871"
 elfutils_tarball="elfutils-${elfutils_version}.tar.bz2"
 
-expat_version="2.6.2"
+expat_version="2.6.3"
 expat_dnl="https://prdownloads.sourceforge.net/expat/expat-${expat_version}.tar.xz"
-expat_sha256="ee14b4c5d8908b1bec37ad937607eab183d4d9806a08adee472c3c3121d27364"
+# 2.6.3
+expat_sha256="274db254a6979bde5aad404763a704956940e465843f2a9bd9ed7af22e2c0efc"
+# 2.6.2
+#expat_sha256="ee14b4c5d8908b1bec37ad937607eab183d4d9806a08adee472c3c3121d27364"
 expat_tarball="expat-${expat_version}.tar.xz"
 
 expect_version="5.45.4"
@@ -136,9 +142,12 @@ flit_core_dnl="https://pypi.org/packages/source/f/flit-core/flit_core-${flit_cor
 flit_core_sha256="72ad266176c4a3fcfab5f2930d76896059851240570ce9a98733b658cb786eba"
 flit_core_tarball="flit_core-${flit_core_version}.tar.gz"
 
-gawk_version="5.3.0"
+gawk_version="5.3.1"
 gawk_dnl="https://ftp.gnu.org/gnu/gawk/gawk-${gawk_version}.tar.xz"
-gawk_sha256="ca9c16d3d11d0ff8c69d79dc0b47267e1329a69b39b799895604ed447d3ca90b"
+#5.3.1
+gawk_sha256="694db764812a6236423d4ff40ceb7b6c4c441301b72ad502bb5c27e00cd56f78"
+#5.3.0
+#gawk_sha256="ca9c16d3d11d0ff8c69d79dc0b47267e1329a69b39b799895604ed447d3ca90b"
 gawk_tarball="gawk-${gawk_version}.tar.xz"
 
 gcc_version="14.2.0"
@@ -210,9 +219,12 @@ intltool_dnl="https://launchpad.net/intltool/trunk/${intltool_version}/+download
 intltool_sha256="67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd"
 intltool_tarball="intltool-${intltool_version}.tar.gz"
 
-iproute2_version="6.10.0"
+iproute2_version="6.11.0"
 iproute2_dnl="https://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-${iproute2_version}.tar.xz"
-iproute2_sha256="91a62f82737b44905a00fa803369c447d549e914e9a2a4018fdd75b1d54e8dce"
+# 6.11.0
+iproute2_sha256="1f795398a04aeaacd06a8f6ace2cfd913c33fa5953ca99daae83bb5c534611c3"
+# 6.10.0
+#iproute2_sha256="91a62f82737b44905a00fa803369c447d549e914e9a2a4018fdd75b1d54e8dce"
 iproute2_tarball="iproute2-${iproute2_version}.tar.xz"
 
 jinja2_version="3.1.4"
@@ -249,9 +261,12 @@ libffi_dnl="https://github.com/libffi/libffi/releases/download/v${libffi_version
 libffi_sha256="b0dea9df23c863a7a50e825440f3ebffabd65df1497108e5d437747843895a4e"
 libffi_tarball="libffi-${libffi_version}.tar.gz"
 
-libpipeline_version="1.5.7"
+libpipeline_version="1.5.8"
 libpipeline_dnl="https://download.savannah.gnu.org/releases/libpipeline/libpipeline-${libpipeline_version}.tar.gz"
-libpipeline_sha256="b8b45194989022a79ec1317f64a2a75b1551b2a55bea06f67704cb2a2e4690b0"
+# 1.5.8
+libpipeline_sha256="1b1203ca152ccd63983c3f2112f7fe6fa5afd453218ede5153d1b31e11bb8405"
+# 1.5.7
+#libpipeline_sha256="b8b45194989022a79ec1317f64a2a75b1551b2a55bea06f67704cb2a2e4690b0"
 libpipeline_tarball="libpipeline-${libpipeline_version}.tar.gz"
 
 libressl_version="3.9.2"
@@ -259,9 +274,12 @@ libressl_dnl="https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-${libressl_v
 libressl_sha256="7b031dac64a59eb6ee3304f7ffb75dad33ab8c9d279c847f92c89fb846068f97"
 libressl_tarball="libressl-${libressl_version}.tar.gz"
 
-libtool_version="2.4.7"
+libtool_version="2.5.3"
 libtool_dnl="https://ftp.gnu.org/gnu/libtool/libtool-${libtool_version}.tar.xz"
-libtool_sha256="4f7f217f057ce655ff22559ad221a0fd8ef84ad1fc5fcb6990cecc333aa1635d"
+# 2.5.3
+libtool_sha256="898011232cc59b6b3bbbe321b60aba9db1ac11578ab61ed0df0299458146ae2e"
+# 2.4.7
+#libtool_sha256="4f7f217f057ce655ff22559ad221a0fd8ef84ad1fc5fcb6990cecc333aa1635d"
 libtool_tarball="libtool-${libtool_version}.tar.xz"
 
 libxcrypt_version="4.4.36"
@@ -289,9 +307,12 @@ make_dnl="https://ftp.gnu.org/gnu/make/make-${make_version}.tar.gz"
 make_sha256="dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3"
 make_tarball="make-${make_version}.tar.gz"
 
-mandb_version="2.12.1"
+mandb_version="2.13.0"
 mandb_dnl="https://download.savannah.gnu.org/releases/man-db/man-db-${mandb_version}.tar.xz"
-mandb_sha256="ddee249daeb78cf92bab794ccd069cc8b575992265ea20e239e887156e880265"
+# 2.13.0
+mandb_sha256="82f0739f4f61aab5eb937d234de3b014e777b5538a28cbd31433c45ae09aefb9"
+# 2.12.1
+#mandb_sha256="ddee249daeb78cf92bab794ccd069cc8b575992265ea20e239e887156e880265"
 mandb_tarball="man-db-${mandb_version}.tar.xz"
 
 man_pages_version="6.9.1"
@@ -304,9 +325,12 @@ markupsafe_dnl="https://pypi.org/packages/source/M/MarkupSafe/MarkupSafe-${marku
 markupsafe_sha256="d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
 markupsafe_tarball="MarkupSafe-${markupsafe_version}.tar.gz"
 
-meson_version="1.5.1"
+meson_version="1.5.2"
 meson_dnl="https://github.com/mesonbuild/meson/releases/download/${meson_version}/meson-${meson_version}.tar.gz"
-meson_sha256="567e533adf255de73a2de35049b99923caf872a455af9ce03e01077e0d384bed"
+# 1.5.2
+meson_sha256="f955e09ab0d71ef180ae85df65991d58ed8430323de7d77a37e11c9ea630910b"
+# 1.5.1
+#meson_sha256="567e533adf255de73a2de35049b99923caf872a455af9ce03e01077e0d384bed"
 meson_tarball="meson-${meson_version}.tar.gz"
 
 mpc_version="1.3.1"
@@ -414,9 +438,12 @@ texinfo_dnl="https://ftp.gnu.org/gnu/texinfo/texinfo-${texinfo_version}.tar.xz"
 texinfo_sha256="deeec9f19f159e046fdf8ad22231981806dac332cc372f1c763504ad82b30953"
 texinfo_tarball="texinfo-${texinfo_version}.tar.xz"
 
-tzdata_version="2024a"
+tzdata_version="2024b"
 tzdata_dnl="https://www.iana.org/time-zones/repository/releases/tzdata${tzdata_version}.tar.gz"
-tzdata_sha256="0d0434459acbd2059a7a8da1f3304a84a86591f6ed69c6248fffa502b6edffe3"
+#2024b
+tzdata_sha256="70e754db126a8d0db3d16d6b4cb5f7ec1e04d5f261255e4558a67fe92d39e550"
+#2024a
+#tzdata_sha256="0d0434459acbd2059a7a8da1f3304a84a86591f6ed69c6248fffa502b6edffe3"
 tzdata_tarball="tzdata${tzdata_version}.tar.gz"
 
 util_linux_series="2.40"
@@ -440,9 +467,12 @@ xml_parser_dnl="https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-${xml
 xml_parser_sha256="ad4aae643ec784f489b956abe952432871a622d4e2b5c619e8855accbfc4d1d8"
 xml_parser_tarball="XML-Parser-${xml_parser_version}.tar.gz"
 
-xz_version="5.6.2"
+xz_version="5.6.3"
 xz_dnl="https://github.com//tukaani-project/xz/releases/download/v${xz_version}/xz-${xz_version}.tar.xz"
-xz_sha256="a9db3bb3d64e248a0fae963f8fb6ba851a26ba1822e504dc0efd18a80c626caf"
+# 5.6.3
+xz_sha256="db0590629b6f0fa36e74aea5f9731dc6f8df068ce7b7bafa45301832a5eebc3a"
+# 5.6.2
+#xz_sha256="a9db3bb3d64e248a0fae963f8fb6ba851a26ba1822e504dc0efd18a80c626caf"
 xz_tarball="xz-${xz_version}.tar.xz"
 
 zlib_version="1.3.1"
