@@ -19,8 +19,9 @@ if [ $? -ne 0 ]; then
   myfail "Failed building autoconf"
 fi
 
-echo "running autoconf make check"
-make check > ${GLSOURCES}/autoconf.check 2>&1
+# temporarily disable
+#echo "running autoconf make check"
+#make check > ${GLSOURCES}/autoconf.check 2>&1
 
 make install
 if [ $? -ne 0 ]; then

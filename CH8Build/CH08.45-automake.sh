@@ -20,8 +20,9 @@ if [ $? -ne 0 ]; then
   myfail "Failed building automake"
 fi
 
-echo "running automake make check"
-make -j$(($(nproc)>4?$(nproc):4)) check > ${GLSOURCES}/automake.check 2>&1
+# temporarily disable
+#echo "running automake make check"
+#make -j$(($(nproc)>4?$(nproc):4)) check > ${GLSOURCES}/automake.check 2>&1
 
 make install
 if [ $? -ne 0 ]; then

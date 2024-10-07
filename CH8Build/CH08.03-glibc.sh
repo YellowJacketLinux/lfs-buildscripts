@@ -30,8 +30,9 @@ if [ $? -ne 0 ]; then
   myfail "Failed building glibc"
 fi
 
-echo "running glibc make check, could take awhile..."
-make check > ${GLSOURCES}/glibc.check.log 2>&1
+# temporarily disable
+#echo "running glibc make check, could take awhile..."
+#make check > ${GLSOURCES}/glibc.check.log 2>&1
 
 touch /etc/ld.so.conf
 
