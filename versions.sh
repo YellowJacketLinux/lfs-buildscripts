@@ -25,10 +25,10 @@ automake_dnl="https://ftp.gnu.org/gnu/automake/automake-${automake_version}.tar.
 automake_sha256="8920c1fc411e13b90bf704ef9db6f29d540e76d232cb3b2c9f4dc4cc599bd990"
 automake_tarball="automake-${automake_version}.tar.xz"
 
-bash_version="5.2.32"
+bash_version="5.2.37"
 bash_dnl="https://ftp.gnu.org/gnu/bash/bash-${bash_version}.tar.gz"
-bash_sha256="9599b22ecd1d5787ad7d3b7bf0c59f312b3396d1e281175dd1f8a4014da621ff"
 # 5.2.37
+bash_sha256="9599b22ecd1d5787ad7d3b7bf0c59f312b3396d1e281175dd1f8a4014da621ff"
 # 5.2.32
 #bash_sha256="d3ef80d2b67d8cbbe4d3265c63a72c46f9b278ead6e0e06d61801b58f23f50b5"
 bash_tarball="bash-${bash_version}.tar.gz"
