@@ -14,12 +14,42 @@ There are some deviations from LFS 12.2, namely:
 
 * LibreSSL is used instead of OpenSSL
 * LTS Kernel series 6.6 is being used in place of 6.10.x kernel series
-* Python 3.12.6 is being used in place of Python 3.12.5
-* setuptools 75.1.0 is being used in place of setuptools 72.2.0
+* Some versions are updated from what is in the LFS book.
 
-The LFS host is an LFS 11.3 system with similar modifications.
+The host I am building from is an LFS 11.3 system with similar modifications.
 
 As of present, these scripts are not complete and probably broken.
+
+These instructions are incomplete notes.
+
+
+Chapter 03 ‘Get Sources’ Script
+-------------------------------
+
+This script is to be run by the 'lfs' user. The partition LFS is to be built on
+must already be mounted at '/mnt/newlfs' and the directory '/mnt/lfs/sources'
+should exist and be owned by the 'lfs' user.
+
+The script will download the needed sources (sourcing 'versions.sh') and make a
+backup of the downloaded sources so that if run again, it can get the sources
+from the backup and not need to download them again.
+
+The file 'versions.sh' also includes 'sha256sum' digests so that the script can
+verify the integrity of the fetched file.
+
+
+Chapter 05 Building
+-------------------
+
+In the 'CH5Build' directory, the 'lfs' user should execute the 'Master.sh'
+script:
+
+    lfs$ bash Master.sh
+
+The script works but is not finished. To do, it needs to verify the system is
+ready for the script to run. The 'Master.sh' script calls the 'CH05.*' scripts.
+
+
 
 
 The Madness
