@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d dejagnu-${dejagnu_version} ] && rm -rf dejagnu-${dejagnu_version}
 
@@ -19,8 +19,10 @@ mkdir build && cd build
 makeinfo --html --no-split -o doc/dejagnu.html ../doc/dejagnu.texi
 makeinfo --plaintext       -o doc/dejagnu.txt  ../doc/dejagnu.texi
 
-echo "running dejagnu make check"
-make check > ${GLSOURCES}/dejagnu.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running dejagnu make check"
+  make check > ${GLSOURCES}/dejagnu.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then
