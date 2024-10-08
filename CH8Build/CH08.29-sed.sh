@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d sed-${sed_version} ] && rm -rf sed-${sed_version}
 
@@ -21,6 +21,12 @@ fi
 make html
 if [ $? -ne 0 ]; then
   myfail "Failed building sed html"
+fi
+
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  chown -R tester .
+  su tester -c "PATH=$PATH make check > sed.check.log"
+  mv sed.check.log ${GLSOURCES}/
 fi
 
 make install

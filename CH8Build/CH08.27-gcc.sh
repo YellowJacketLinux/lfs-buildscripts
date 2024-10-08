@@ -45,11 +45,14 @@ sed -e 's/300000/(1|300000)/'     -i ../libgomp/testsuite/libgomp.c-c++-common/p
 sed -e 's/{ target nonpic } //' \
     -e '/GOTPCREL/d'              -i ../gcc/testsuite/gcc.target/i386/fentryname3.c
 
-# takes really REALLY long time...
-#  Uncomment when patient
-#echo "runninh gcc make check"
-#chown -R tester .
-#su tester -c "PATH=$PATH make -k check"
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running gcc make check. This takes a VERY long time."
+  echo "You can watch progress in another console via:"
+  echo "    tail -f ${GLSOURCES}/gcc-${gcc_version}/build/gcc.check.log"
+  chown -R tester .
+  su tester -c "PATH=$PATH make -k check > gcc.check.log"
+  mv gcc.check.log ${GLSOURCES}/
+fi
 
 make install
 if [ $? -ne 0 ]; then
