@@ -86,11 +86,65 @@ Then, still inside the `chroot` at `/sources/CH7Build`, execute:
 
     bash Master.sh
 
+The script works but is not finished. To do, it needs to verify the system is
+ready for the script to run. The `Master.sh` script calls the `CH07.*` scripts.
+
 Some important build tools previously built in the host environment will be
 rebuilt within the `chroot` environment. After the script runs, it will echo
 instructions on how to back things up. The backup takes a few minutes but it
 saves time if something goes wrong in Chapter 8 building.
 
+
+Chapter 08 Building
+-------------------
+
+__PAY ATTENTION__: After running the build scripts for LFS Chapter 7, the
+instructions for creating the backup involved deleted the `/mnt/newlfs/sources`
+directory.
+
+As the `lfs` user, re-run the `CH03-get-sources.sh` script to restore the
+sources. The script will restore them from backup, it will not need to fetch
+them again.
+
+Then as the `root` user, once again execute the `CHROOT.sh` script to set up
+the `chroot` environment and copy the build scripts into it. Again, the script
+will echo the command to enter the `chroot`. Execute it as `root` and then
+once in the `chroot` environment:
+
+    cd /sources/CH8Build
+    bash Master.sh
+
+That will run many of the `CH08.*` scripts, building the LFS system through
+`CH08.34-bash`. Note that when it builds the `shadow` package, it first builds
+the `cracklib` package from BLFS and then links `shadow` against it. It does
+not however build PAM.
+
+After it finishes building `bash`, the `Master.sh` script will instruct you to
+set the `root` password. After doing so, exit the `chroot` and re-enter so that
+the freshly rebuilt `bash` will be loaded.
+
+Once in the `chroot` environment again:
+
+    cd /sources/CH8Build
+    bash Master2.sh
+
+That will run the rest of the `CH08.*` scripts. Assuming all goes well, the
+system will be ready for LFS Chapter 9 configuration.
+
+Note that `Master2.sh` does have a major deviation from the LFS book. It builds
+LibreSSL to provide the OpenSSL API (e.g. as used by the `kmod` package). Most
+software that builds against OpenSSL will build against LibreSSL and I have
+more trust in the LibreSSL developers.
+
+As of Python 3.10, Python 3 no longer allows building against LibreSSL. So
+OpenSSL is still built, the `_ssl` and `_hashlib` Python modules need it and
+are pretty important to a sane Python environment.
+
+See the file `TLS-README.md` for more information.
+
+The `CH08.*` scripts seem to work but I need to audit them against the LFS book
+and some of them are missing the running of the tests. Also, I need to add a
+way to disable the running of the tests.
 
 
 The Madness
