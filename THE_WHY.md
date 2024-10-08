@@ -1,22 +1,28 @@
 The Why
 =======
 
+This is a lot of blabbering. Blabbering and then reading my own blabbering
+later helps clarify my thoughts.
+
 Well, this is at least a partial explanation at *why* I am attempting to create
 my own GNU/Linux distribution.
 
-I have less and less fond of the current GNU/Linux distribution landscape. It
-seems that each distribution has a specific way of doing things and you do it
-their way or do not do it at all. Each distribution likes to package everything
-under the sun and you use their packages or you build from source.
+I have become less and less fond of the current GNU/Linux distribution
+landscape. It seems that each distribution has a specific way of doing things
+and you do it their way or do not do it at all. Each distribution likes to
+package everything under the sun and you use their packages or you build from
+source.
 
 I have a different philosophy. I do not like monopoly power. I do not like the
 power that Amazon has, I do not like the power that Facebook has, I do not like
-the power that Chase has, I think diversity in options is key to consumer
+the power that Chase has. I think diversity in options is key to consumer
 quality.
 
 It is true that there are many different GNU/Linux distributions to choose from
 but it seems that each one is trying to be a monopoly power and dictate how
 things are to be done.
+
+Some notes on my history with GNU/Linux.
 
 The first GNU/Linux distribution I ever used was MKLinux DR3 on a PowerPC G3.
 For those unaware, MKLinux DR3 was a port of Red Hat 5.1 to the Mach Mikrokernel
@@ -26,7 +32,7 @@ Before long I was running LinuxPPC 1999 (a port of Red Hat 6) and it was on
 LinuxPPC 1999 that I first did the LFS Project, LFS 2.0. That is where I learned
 the most about GNU/Linux.
 
-Eventually I ended up on 'x86' hardware running Red Hat Linux. Life was good.
+Eventually I ended up on `x86` hardware running Red Hat Linux. Life was good.
 Red Hat provided a good base and there were several different third party RPM
 packagers for software beyond what Red Hat provided. When I say life was good,
 of course we will ignore the whole GCC 2.96 debacle...but the third party
@@ -40,18 +46,18 @@ stable, it became ‘End of Life’ and us users were forced to install a new
 version with new bugs. I hated it. Basically it was not profitable for Red Hat
 to produce a consumer distribution so they turned it into a testing ground for
 their Enterprise product. To their corporate mindset, us users were nothing more
-that free beta testers for what would go into their commercial enterprise
+than free beta testers for what would go into their commercial enterprise
 product (RHEL).
 
-I switched to CentOS at that time. The software wasn’t bleeding edge, but it was
+I switched to CentOS at that time. The software wasn’t bleeding edge, and it was
 stable and it worked. CentOS 5 was my first version of CentOS.
 
 When necessary---such as with Apache, MySQL, and PHP---we could install newer
 versions on it either from source or from add-on repositories, but the operating
 system itself was solid and stable and well-maintained.
 
-CentOS (developed as a clone of RHEL) became aquired by Red Hat and CentOS 7 was
-the last version I felt comfortable with. I simply do not like the direction
+CentOS (developed as a clone of RHEL) was then aquired by Red Hat and CentOS 7
+was the last version I felt comfortable with. I simply do not like the direction
 that Red Hat has gone with it.
 
 Debian is still a really good choice, I ran it on an m68k system (Apple SE/30 to
@@ -64,7 +70,9 @@ The issue, my brain works differently. I am not dumb but I do not always
 understand explanations people give because my brain works differently. On the
 Red Hat related lists, it seems people were more patient when I had trouble
 with an explanation but on the Debian lists, I was treated like an imbecile. So
-I never felt welcome in the Debian world. The distribution however is fantastic.
+I never felt welcome in the Debian world.
+
+The distribution however is fantastic and the developers are top notch.
 
 At one point I tried Ubuntu. After installing it, I did not see where the GIMP
 was installed so I used their search tool thingy to search for it, and I was
@@ -88,9 +96,12 @@ Fedora, and Ubuntu options. All of them installed on my hardware and all of them
 kernel panicked on first boot. LFS works fine, even with modern kernels, so it
 seems that the GNU/Linux distributions have something selected in their kernel
 that causes a kernel panic but is not used in their installer. I could try to
-track it down, I suspect it was a bug in the open source nVidia driver, but
-honestly I think rolling my own GNU/Linux distribution is going to give me
-happier results.
+track it down. I suspect it was a bug in the open source nVidia driver, another
+possibility is I needed a firmware update on my motherboard (which I have since
+applied) but honestly I think rolling my own GNU/Linux distribution is going to
+give me happier results.
+
+LFS is fantastic but package management really does have significant benefits.
 
 Worst case scenario, I am my only user. Would that really be so bad?
 
@@ -101,4 +112,5 @@ distribution with user choice in package repositories for software beyond that
 Such a philosophy does sometimes result in conflicts between package
 repositories but such conflicts can usually be solved without too much work.
 
-
+Many conflicts between repositories are the result of packaging bugs. Good
+documentation can potentially reduce such issues.
