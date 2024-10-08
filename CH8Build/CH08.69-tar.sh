@@ -30,3 +30,12 @@ fi
 
 make -C doc install-html docdir=/usr/share/doc/tar-${tar_version}
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf tar-${tar_version}
+
+popd

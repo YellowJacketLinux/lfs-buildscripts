@@ -50,3 +50,13 @@ endif
 
 " End /etc/vimrc
 EOF
+
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf vim-${vim_version}
+
+popd

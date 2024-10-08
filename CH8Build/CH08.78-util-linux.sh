@@ -39,3 +39,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing util-linux"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf util-linux-${util_linux_version}
+
+popd

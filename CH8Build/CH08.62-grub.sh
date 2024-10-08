@@ -31,3 +31,12 @@ if [ $? -ne 0 ]; then
 fi
 mv /etc/bash_completion.d/grub /usr/share/bash-completion/completions
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf grub-${grub_version}
+
+popd

@@ -59,3 +59,13 @@ tar -xf ../../${systemd_man_tarball} \
 systemd-machine-id-setup
 
 systemctl preset-all
+
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf systemd-${systemd_version}
+
+popd

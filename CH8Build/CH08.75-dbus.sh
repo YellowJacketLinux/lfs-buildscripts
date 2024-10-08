@@ -37,4 +37,12 @@ if [ $? -ne 0 ]; then
 fi
 ls -sf /etc/machine-id /var/lib/dbus
 
- 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf dbus-${dbus_version}
+
+popd 

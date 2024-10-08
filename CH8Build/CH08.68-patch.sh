@@ -27,3 +27,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing patch"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf patch-${patch_version}
+
+popd

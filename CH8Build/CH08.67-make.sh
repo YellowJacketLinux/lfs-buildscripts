@@ -24,3 +24,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing make"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf make-${make_version}
+
+popd

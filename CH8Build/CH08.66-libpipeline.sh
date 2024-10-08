@@ -27,3 +27,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing libpipeline"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf libpipeline-${libpipeline_version}
+
+popd

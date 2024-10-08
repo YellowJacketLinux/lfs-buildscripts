@@ -22,3 +22,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing MarkupSafe"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf MarkupSafe-${markupsafe_version}
+
+popd

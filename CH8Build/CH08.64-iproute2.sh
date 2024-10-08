@@ -28,3 +28,12 @@ fi
 mkdir -p /usr/share/doc/iproute2-${iproute2_version}
 cp COPYING README* /usr/share/doc/iproute2-${iproute2_version}/
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf iproute2-${iproute2_version}
+
+popd

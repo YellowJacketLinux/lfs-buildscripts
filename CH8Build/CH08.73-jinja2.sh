@@ -22,3 +22,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing jinja2"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf jinja2-${jinja2_version}
+
+popd

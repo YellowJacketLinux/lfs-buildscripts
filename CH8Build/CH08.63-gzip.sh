@@ -27,3 +27,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing gzip"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf gzip-${gzip_version}
+
+popd

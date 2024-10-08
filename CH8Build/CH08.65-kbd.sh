@@ -34,3 +34,12 @@ fi
 
 cp -R docs/doc -T /usr/share/doc/kbd-${kbd_version}
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf kbd-${kbd_version}
+
+popd

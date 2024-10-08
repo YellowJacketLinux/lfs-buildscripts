@@ -27,3 +27,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing groff"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf groff-${groff_version}
+
+popd

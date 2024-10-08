@@ -45,3 +45,13 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info
 
 # may not be needed soon but...
 sed 's/metadata_csum_seed,//' -i /etc/mke2fs.conf
+
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf e2fsprogs-${e2fsprogs_version}
+
+popd

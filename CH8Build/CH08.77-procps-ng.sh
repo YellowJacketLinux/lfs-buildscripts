@@ -28,3 +28,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing procps-ng"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf procps-ng-${procps_version}
+
+popd

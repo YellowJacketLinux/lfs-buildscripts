@@ -34,3 +34,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing man-db"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf man-db-${mandb_version}
+
+popd

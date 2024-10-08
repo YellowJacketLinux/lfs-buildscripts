@@ -27,3 +27,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing texinfo"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf texinfo-${texinfo_version}
+
+popd
