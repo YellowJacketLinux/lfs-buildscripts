@@ -32,14 +32,14 @@ someone who does. So Python will be built against OpenSSL even though other
 software that requires the OpenSSL API will be built against LibreSSL.
 
 To do this while building the LFS system, OpenSSL is built and installed using
-a prefix of '/opt/openssl' and then when building Python, Python is told where
-to find it and to use __rpath__ for the library.
+a prefix of `/opt/openssl` and then when building Python, Python is told where
+to find it and to use `rpath` for the library.
 
 That is not ideal, but without package management, it is the simplest solution.
 
 Once the RPM package manager has been built, both LibreSSL and OpenSSL can be
-built as RPM packages using an install prefix of '/usr' with their shared
-libraries installed in '/usr/lib' and shared libraries for both can be installed
+built as RPM packages using an install prefix of `/usr` with their shared
+libraries installed in `/usr/lib` and shared libraries for both can be installed
 at the same time as the file names do not conflict.
 
 Then when the Python RPM is built, the development package for OpenSSL will be
@@ -48,6 +48,20 @@ Other packages that need the OpenSSL API and can be built against LibreSSL will
 be built with the LibreSSL development package installed.
 
 Hopefully in the future, a quality patch that allows current versions of Python3
-to build against LibreSSL for the critical '_ssl' and '_hashlib' modules will be
+to build against LibreSSL for the critical `_ssl` and `_hashlib` modules will be
 maintained but until then, YJL can still use LibreSSL for *most* OpenSSL API
 needs and use OpenSSL exclusively for Python3.
+
+
+LibreSSL Build Notes
+--------------------
+
+The build of LibreSSL itself is patched to use `libressl.cnf` instead of
+`openssl.cnf` for the OpenSSL configuration file, and the binary is
+installed as `libressl` instead of as `openssl`.
+
+Doing so will allow those who want the *actual* `openssl` binary to have it
+without the binary or configuration file conflicting with the LibreSSL fork.
+
+For those who do not need the *actual* `openssl` binary, symbolic links allow
+the traditional configuration file and binary name to still be used.
