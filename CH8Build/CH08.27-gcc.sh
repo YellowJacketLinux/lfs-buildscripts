@@ -48,7 +48,7 @@ sed -e 's/{ target nonpic } //' \
 if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
   echo "running gcc make check. This takes a VERY long time."
   echo "You can watch progress in another console via:"
-  echo "    tail -f ${GLSOURCES}/gcc-${gcc_version}/build/gcc.check.log"
+  echo "    tail -f /mnt/newlfs/sources/gcc-${gcc_version}/build/gcc.check.log"
   chown -R tester .
   su tester -c "PATH=$PATH make -k check > gcc.check.log"
   mv gcc.check.log ${GLSOURCES}/
