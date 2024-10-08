@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d lz4-${lz4_version} ] && rm -rf lz4-${lz4_version}
 
@@ -17,8 +17,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building lz4"
 fi
 
-echo "running lz4 make check"
-make -j1 check > ${GLSOURCES}/lz4.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running lz4 make check"
+  make -j1 check > ${GLSOURCES}/lz4.check.log 2>&1
+fi
 
 make BUILD_STATIC=no PREFIX=/usr install
 if [ $? -ne 0 ]; then

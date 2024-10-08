@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d flex-${flex_version} ] && rm -rf flex-${flex_version}
 
@@ -21,8 +21,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building flex"
 fi
 
-echo "running flex make check"
-make check > ${GLSOURCES}/flex.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running flex make check"
+  make check > ${GLSOURCES}/flex.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then

@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d zlib-${zlib_version} ] && rm -rf zlib-${zlib_version}
 
@@ -20,8 +20,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building zlib"
 fi
 
-echo "Running zlib make check."
-make check > ${GLSOURCES}/zlib.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "Running zlib make check."
+  make check > ${GLSOURCES}/zlib.check.log 2>&1
+fi
 
 make install
 

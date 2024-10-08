@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d tcl${tcl_version} ] && rm -rf tcl${tcl_version}
 
@@ -41,8 +41,10 @@ sed -e "s|$SRCDIR/unix/pkgs/itcl4.2.4|/usr/lib/itcl4.2.4|" \
 
 unset SRCDIR
 
-echo "running tcl make test"
-make test > ${GLSOURCES}/tcl.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running tcl make test"
+  make test > ${GLSOURCES}/tcl.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then
