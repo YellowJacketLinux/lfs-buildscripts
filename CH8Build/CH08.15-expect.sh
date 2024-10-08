@@ -35,3 +35,13 @@ if [ $? -ne 0 ]; then
 fi
 
 ln -svf expect${expect_version}/libexpect${expect_version}.so /usr/lib
+
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf expect${expect_version}
+
+popd

@@ -30,3 +30,13 @@ if [ $? -ne 0 ]; then
 fi
 
 rm -f /usr/lib/libz.a
+
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf zlib-${zlib_version}
+
+popd

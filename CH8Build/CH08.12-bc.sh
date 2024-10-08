@@ -27,3 +27,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing bc"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf bc-${bc_version}
+
+popd

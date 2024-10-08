@@ -27,3 +27,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing libcap"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf libcap-${libcap_version}
+
+popd

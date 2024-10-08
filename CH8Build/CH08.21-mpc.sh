@@ -37,4 +37,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing mpc html"
 fi
 
+popd
 
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf mpc-${mpc_version}
+
+popd

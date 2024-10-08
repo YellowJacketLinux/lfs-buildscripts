@@ -55,4 +55,12 @@ grpconv
 mkdir -p /etc/default
 useradd -D --gid 999
 
+popd
 
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf shadow-${shadow_version}
+
+popd

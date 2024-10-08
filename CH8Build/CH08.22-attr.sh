@@ -30,3 +30,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing attr"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf attr-${attr_version}
+
+popd

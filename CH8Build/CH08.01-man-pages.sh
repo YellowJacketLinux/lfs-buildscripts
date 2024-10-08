@@ -19,3 +19,13 @@ make prefix=/usr install
 if [ $? -ne 0 ]; then
   myfail "Failed installing man-pages"
 fi
+
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf man-pages-${man_pages_version}
+
+popd

@@ -26,3 +26,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing acl"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf acl-${acl_version}
+
+popd

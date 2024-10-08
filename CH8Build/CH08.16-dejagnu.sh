@@ -30,4 +30,12 @@ fi
 install -v -dm755  /usr/share/doc/dejagnu-${dejagnu_version}
 install -v -m644   doc/dejagnu.{html,txt} /usr/share/doc/dejagnu-${dejagnu_version}
 
+popd
 
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf dejagnu-${dejagnu_version}
+
+popd

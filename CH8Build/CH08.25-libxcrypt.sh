@@ -31,3 +31,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing libxcrypt"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf libxcrypt-${libxcrypt_version}
+
+popd

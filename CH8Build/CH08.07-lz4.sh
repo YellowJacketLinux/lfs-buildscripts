@@ -25,3 +25,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing lz4"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf lz4-${lz4_version}
+
+popd

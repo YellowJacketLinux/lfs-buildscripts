@@ -62,4 +62,12 @@ tar -xf ../tcl${tcl_version}-html.tar.gz --strip-components=1
 mkdir -v -p /usr/share/doc/tcl-${tcl_version}
 cp -v -r  ./html/* /usr/share/doc/tcl-${tcl_version}
 
+popd
 
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf tcl${tcl_version}
+
+popd

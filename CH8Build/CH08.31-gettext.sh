@@ -30,3 +30,12 @@ if [ $? -ne 0 ]; then
 fi
 chmod 0755 /usr/lib/preloadable_libintl.so
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf gettext-${gettext_version}
+
+popd

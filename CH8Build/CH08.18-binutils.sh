@@ -42,3 +42,12 @@ fi
 
 rm -f /usr/lib/lib{bfd,ctf,ctf-nobfd,gprofng,opcodes,sframe}.a
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf binutils-${binutils_version}
+
+popd

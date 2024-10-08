@@ -27,3 +27,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing psmisc"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf psmisc-${psmisc_version}
+
+popd

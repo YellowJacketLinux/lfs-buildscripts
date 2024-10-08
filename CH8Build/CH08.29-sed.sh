@@ -30,3 +30,12 @@ fi
 install -d -m755           /usr/share/doc/sed-${sed_version}
 install -m644 doc/sed.html /usr/share/doc/sed-${sed_version}
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf sed-${sed_version}
+
+popd

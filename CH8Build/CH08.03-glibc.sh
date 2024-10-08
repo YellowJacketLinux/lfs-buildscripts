@@ -91,6 +91,16 @@ cat >> /etc/ld.so.conf << "EOF"
 include /etc/ld.so.conf.d/*.conf
 
 EOF
-mkdir -pv /etc/ld.so.conf.d
+mkdir -p /etc/ld.so.conf.d
 
 # end glibc
+
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf glibc-${glibc_version}
+
+popd

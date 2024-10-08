@@ -39,3 +39,12 @@ install -v -m755 -d      /usr/lib/cracklib
 create-cracklib-dict     /usr/share/dict/cracklib-words \
                          /usr/share/dict/cracklib-extra-words
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf cracklib-${cracklib_version}
+
+popd

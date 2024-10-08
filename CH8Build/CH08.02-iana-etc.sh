@@ -14,4 +14,12 @@ cd iana-etc-${iana_etc_version}
 
 cp services protocols /etc
 
+popd
 
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf iana-etc-${iana_etc_version}
+
+popd

@@ -44,3 +44,13 @@ done
 ln -sf libncursesw.so /usr/lib/libcurses.so
 
 cp -R doc -T /usr/share/doc/ncurses-${ncurses_version}
+
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf ncurses-${ncurses_version}
+
+popd

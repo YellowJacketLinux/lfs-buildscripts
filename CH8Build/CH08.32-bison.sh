@@ -28,3 +28,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing bison"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf bison-${bison_version}
+
+popd

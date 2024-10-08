@@ -27,3 +27,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing m4"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf m4-${m4_version}
+
+popd

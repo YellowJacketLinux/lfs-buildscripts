@@ -40,4 +40,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing gmp html"
 fi
 
+popd
 
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf gmp-${gmp_version}
+
+popd

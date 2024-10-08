@@ -28,3 +28,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing bash"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf bash-${bash_version}
+
+popd

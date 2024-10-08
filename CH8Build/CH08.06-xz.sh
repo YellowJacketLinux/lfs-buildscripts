@@ -29,3 +29,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing xz"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf xz-${xz_version}
+
+popd

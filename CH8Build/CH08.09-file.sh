@@ -27,3 +27,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing file"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf file-${file_version}
+
+popd

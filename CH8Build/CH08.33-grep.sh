@@ -29,3 +29,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing grep"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf grep-${grep_version}
+
+popd

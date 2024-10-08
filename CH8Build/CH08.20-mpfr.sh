@@ -38,4 +38,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing mpfr html"
 fi
 
+popd
 
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf mpfr-${mpfr_version}
+
+popd

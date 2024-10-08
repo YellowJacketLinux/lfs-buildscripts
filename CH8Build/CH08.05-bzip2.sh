@@ -45,3 +45,13 @@ for i in /usr/bin/{bzcat,bunzip2}; do
 done
 
 rm -fv /usr/lib/libbz2.a
+
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf bzip2-${bzip2_version}
+
+popd

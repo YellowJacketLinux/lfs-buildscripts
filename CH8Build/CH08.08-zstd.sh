@@ -26,3 +26,13 @@ if [ $? -ne 0 ]; then
 fi
 
 rm -f /usr/lib/libzstd.a
+
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf zstd-${zstd_version}
+
+popd

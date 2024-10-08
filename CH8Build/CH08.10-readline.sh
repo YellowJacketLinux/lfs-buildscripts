@@ -26,3 +26,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed building readline"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf readline-${readline_version}
+
+popd
