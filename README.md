@@ -27,7 +27,7 @@ Chapter 03 ‘Get Sources’ Script
 -------------------------------
 
 This script is to be run by the `lfs` user. The partition LFS is to be built on
-must already be mounted at `/mnt/newlfs` and the directory `/mnt/lfs/sources`
+must already be mounted at `/mnt/newlfs` and the directory `/mnt/newlfs/sources`
 should exist and be owned by the `lfs` user.
 
 The script will download the needed sources (sourcing `versions.sh`) and make a
@@ -35,7 +35,7 @@ backup of the downloaded sources so that if run again, it can get the sources
 from the backup and not need to download them again.
 
 The file `versions.sh` also includes `sha256sum` digests so that the script can
-verify the integrity of the fetched file.
+verify the integrity of the fetched files.
 
 
 Chapter 05 Building
