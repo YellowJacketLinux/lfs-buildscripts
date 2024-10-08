@@ -6,7 +6,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH07.01-gettext.sh"
   exit 1
 else
-  echo "LFS Chapter 7 Gettext Complete"
+  echo "LFS Chapter 7 Gettext Complete [1/6]"
   sleep 3
 fi
 
@@ -16,7 +16,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH07.02-bison.sh"
   exit 1
 else
-  echo "LFS Chapter 7 Bison Complete"
+  echo "LFS Chapter 7 Bison Complete [2/6]"
   sleep 3
 fi
 
@@ -26,7 +26,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH07.03-perl.sh"
   exit 1
 else
-  echo "LFS Chapter 7 Perl Complete"
+  echo "LFS Chapter 7 Perl Complete [3/6]"
   sleep 3
 fi
 
@@ -36,7 +36,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH07.04-python.sh"
   exit 1
 else
-  echo "LFS Chapter 7 Python Complete"
+  echo "LFS Chapter 7 Python Complete [4/6]"
   sleep 3
 fi
 
@@ -46,7 +46,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH07.05-texinfo.sh"
   exit 1
 else
-  echo "LFS Chapter 7 Texinfo Complete"
+  echo "LFS Chapter 7 Texinfo Complete [5/6]"
   sleep 3
 fi
 
@@ -56,7 +56,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH07.06-util-linux.sh"
   exit 1
 else
-  echo "LFS Chapter 7 Util-Linux Complete"
+  echo "LFS Chapter 7 Util-Linux Complete [6/6]"
   sleep 3
 fi
 

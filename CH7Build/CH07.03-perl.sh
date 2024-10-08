@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d perl-${perl_version} ] && rm -rf perl-${perl_version}
 
@@ -36,3 +36,13 @@ make install
 if [ $? -ne 0 ]; then
   myfail "Failed installing perl"
 fi
+
+popd
+
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf perl-${perl_version}
+
+popd

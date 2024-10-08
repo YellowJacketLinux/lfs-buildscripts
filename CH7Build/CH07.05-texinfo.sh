@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d texinfo-${texinfo_version} ] && rm -rf texinfo-${texinfo_version}
 
@@ -25,3 +25,13 @@ make install
 if [ $? -ne 0 ]; then
   myfail "Failed installing texinfo"
 fi
+
+popd
+
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf texinfo-${texinfo_version}
+
+popd

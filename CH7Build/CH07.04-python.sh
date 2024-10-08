@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d Python-${python_version} ] && rm -rf Python-${python_version}
 
@@ -27,3 +27,13 @@ make install
 if [ $? -ne 0 ]; then
   myfail "Failed installing python"
 fi
+
+popd
+
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf Python-${python_version}
+
+popd

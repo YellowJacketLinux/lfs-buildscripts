@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d bison-${bison_version} ] && rm -rf bison-${bison_version}
 
@@ -26,3 +26,13 @@ make install
 if [ $? -ne 0 ]; then
   myfail "Failed installing bison"
 fi
+
+popd
+
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf bison-${bison_version}
+
+popd
