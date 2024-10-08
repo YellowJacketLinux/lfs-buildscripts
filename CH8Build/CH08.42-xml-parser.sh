@@ -27,3 +27,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing XML-Parser"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf XML-Parser-${xml_parser_version}
+
+popd

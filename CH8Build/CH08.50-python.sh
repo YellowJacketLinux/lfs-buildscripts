@@ -47,3 +47,12 @@ tar --no-same-owner \
 cp -R --no-preserve=mode python-${python_version}-docs-html/* \
     /usr/share/doc/python-${python_version}/html
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf Python-${python_version}
+
+popd

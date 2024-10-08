@@ -29,3 +29,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing automake"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf automake-${automake_version}
+
+popd

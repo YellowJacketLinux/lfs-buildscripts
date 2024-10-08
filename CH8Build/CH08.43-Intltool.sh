@@ -28,5 +28,14 @@ make install
 if [ $? -ne 0 ]; then
   myfail "Failed installing intltool"
 fi
-install -v -Dm644 doc/I18N-HOWTO /usr/share/doc/intltool-${intltool_version}/I18N-HOWTO
+install -Dm644 doc/I18N-HOWTO /usr/share/doc/intltool-${intltool_version}/I18N-HOWTO
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf intltool-${intltool_version}
+
+popd

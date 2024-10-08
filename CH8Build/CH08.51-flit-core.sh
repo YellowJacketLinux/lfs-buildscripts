@@ -22,3 +22,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing xz"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf flit_core-${flit_core_version}
+
+popd

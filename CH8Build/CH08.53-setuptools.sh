@@ -22,3 +22,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing setuptools"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf setuptools-${setuptools_version}
+
+popd

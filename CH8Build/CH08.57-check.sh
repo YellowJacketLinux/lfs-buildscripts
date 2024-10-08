@@ -28,3 +28,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing check"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf check-${check_version}
+
+popd

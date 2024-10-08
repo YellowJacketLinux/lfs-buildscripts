@@ -28,3 +28,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing gperf"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf gperf-${gperf_version}
+
+popd

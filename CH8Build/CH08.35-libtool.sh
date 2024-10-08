@@ -28,3 +28,13 @@ if [ $? -ne 0 ]; then
 fi
 
 rm -f /usr/lib/libltdl.a
+
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf libtool-${libtool_version}
+
+popd

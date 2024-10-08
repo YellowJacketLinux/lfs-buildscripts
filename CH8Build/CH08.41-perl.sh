@@ -49,3 +49,13 @@ if [ $? -ne 0 ]; then
 fi
 
 unset BUILD_ZLIB BUILD_BZIP2 MY_PERL_VERSION
+
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf perl-${perl_version}
+
+popd

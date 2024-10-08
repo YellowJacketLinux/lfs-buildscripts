@@ -22,3 +22,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing wheel"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf wheel-${wheel_version}
+
+popd

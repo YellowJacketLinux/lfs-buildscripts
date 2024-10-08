@@ -25,3 +25,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing findutils"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf findutils-${findutils_version}
+
+popd

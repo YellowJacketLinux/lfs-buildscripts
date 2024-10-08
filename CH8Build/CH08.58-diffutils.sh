@@ -27,3 +27,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing diffutils"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf diffutils-${diffutils_version}
+
+popd

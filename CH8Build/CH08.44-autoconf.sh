@@ -28,3 +28,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing autoconf"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf autoconf-${autoconf_version}
+
+popd

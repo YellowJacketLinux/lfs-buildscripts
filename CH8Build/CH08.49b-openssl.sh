@@ -29,3 +29,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing openssl"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf openssl-${openssl_version}
+
+popd

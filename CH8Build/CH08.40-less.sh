@@ -28,3 +28,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing less"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf less-${less_version}
+
+popd

@@ -34,3 +34,12 @@ mv /usr/bin/chroot /usr/sbin
 mv /usr/share/man/man1/chroot.1 /usr/share/man/man8/chroot.8
 sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf coreutils-${coreutils_version}
+
+popd

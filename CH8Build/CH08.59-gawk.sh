@@ -30,3 +30,13 @@ ln -sv gawk.1 /usr/share/man/man1/awk.1
 
 mkdir -p /usr/share/doc/gawk-${gawk_version}
 cp doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-${gawk_version}
+
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf gawk-${gawk_version}
+
+popd

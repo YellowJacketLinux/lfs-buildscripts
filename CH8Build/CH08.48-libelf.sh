@@ -31,4 +31,12 @@ fi
 install -m644 config/libelf.pc /usr/lib/pkgconfig
 rm -f /usr/lib/libelf.a
 
+popd
 
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf elfutils-${elfutils_version}
+
+popd

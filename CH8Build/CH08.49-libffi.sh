@@ -32,3 +32,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing libffi"
 fi
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf libffi-${libffi_version}
+
+popd

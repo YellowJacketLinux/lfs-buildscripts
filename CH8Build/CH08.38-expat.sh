@@ -29,5 +29,14 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing expat"
 fi
 
-install -v -m644 doc/*.{html,css} /usr/share/doc/expat-${expat_version}
+install -m644 doc/*.{html,css} /usr/share/doc/expat-${expat_version}
 
+popd
+
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf expat-${expat_version}
+
+popd

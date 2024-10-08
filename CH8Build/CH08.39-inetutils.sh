@@ -38,6 +38,14 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing inetutils"
 fi
 
-mv -v /usr/{,s}bin/ifconfig
+mv /usr/{,s}bin/ifconfig
 
+popd
 
+# cleanup
+
+pushd $GLSOURCES 
+
+rm -rf inetutils-${inetutils_version}
+
+popd
