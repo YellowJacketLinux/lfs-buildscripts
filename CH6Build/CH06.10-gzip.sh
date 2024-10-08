@@ -8,7 +8,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d gzip-${gzip_version} ] && rm -rf gzip-${gzip_version}
 
@@ -31,4 +31,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing gzip"
 fi
 
+popd
 
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf gzip-${gzip_version}
+
+popd

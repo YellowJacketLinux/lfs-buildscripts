@@ -8,7 +8,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d grep-${grep_version} ] && rm -rf grep-${grep_version}
 
@@ -32,4 +32,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing grep"
 fi
 
+popd
 
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf grep-${grep_version}
+
+popd

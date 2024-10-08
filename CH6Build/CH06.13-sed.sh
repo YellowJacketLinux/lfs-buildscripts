@@ -8,7 +8,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d sed-${sed_version} ] && rm -rf sed-${sed_version}
 
@@ -32,4 +32,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing sed"
 fi
 
+popd
 
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf sed-${sed_version}
+
+popd

@@ -8,7 +8,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d ncurses-${ncurses_version} ] && rm -rf ncurses-${ncurses_version}
 
@@ -54,4 +54,12 @@ ln -sv libncursesw.so ${LFS}/usr/lib/libncurses.so
 sed -e 's/^#if.*XOPEN.*$/#if 1/' \
   -i ${LFS}/usr/include/curses.h
 
+popd
 
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf ncurses-${ncurses_version}
+
+popd

@@ -8,7 +8,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d binutils-${binutils_version} ] && rm -rf binutils-${binutils_version}
 
@@ -43,7 +43,14 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing binutils"
 fi
 
-rm -v ${LFS}/usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes,sframe}.{a,la}
+rm ${LFS}/usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes,sframe}.{a,la}
 
+popd
 
+# cleanup
 
+pushd ${GLSOURCES}
+
+rm -rf binutils-${binutils_version}
+
+popd

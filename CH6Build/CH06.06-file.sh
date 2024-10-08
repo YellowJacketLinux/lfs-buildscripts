@@ -8,7 +8,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d file-${file_version} ] && rm -rf file-${file_version}
 
@@ -45,8 +45,17 @@ fi
 make DESTDIR=${LFS} install
 
 if [ $? -ne 0 ]; then
-  myfail "Failed installing libstdc++"
+  myfail "Failed installing file"
 fi
 
 rm -f ${LFS}/usr/lib/libmagic.la
 
+popd
+
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf file-${file_version}
+
+popd

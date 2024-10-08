@@ -8,7 +8,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d coreutils-${coreutils_version} ] && rm -rf coreutils-${coreutils_version}
 
@@ -39,5 +39,12 @@ mkdir -p ${LFS}/usr/share/man/man8
 mv ${LFS}/usr/share/man/man1/chroot.1 ${LFS}/usr/share/man/man8/chroot.8
 sed -i 's/"1"/"8"/' ${LFS}/usr/share/man/man8/chroot.8
 
+popd
 
+# cleanup
 
+pushd ${GLSOURCES}
+
+rm -rf coreutils-${coreutils_version}
+
+popd

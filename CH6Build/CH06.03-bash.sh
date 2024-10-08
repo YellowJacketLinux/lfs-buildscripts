@@ -8,7 +8,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d bash-${bash_version} ] && rm -rf bash-${bash_version}
 
@@ -36,4 +36,12 @@ fi
 
 ln -s bash ${LFS}/bin/sh
 
+popd
 
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf bash-${bash_version}
+
+popd

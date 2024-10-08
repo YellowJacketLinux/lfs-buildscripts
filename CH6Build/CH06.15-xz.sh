@@ -8,7 +8,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d xz-${xz_version} ] && rm -rf xz-${xz_version}
 
@@ -36,4 +36,12 @@ fi
 
 rm -v ${LFS}/usr/lib/liblzma.la
 
+popd
 
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf xz-${xz_version}
+
+popd

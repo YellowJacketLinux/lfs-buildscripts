@@ -8,7 +8,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d gawk-${gawk_version} ] && rm -rf gawk-${gawk_version}
 
@@ -34,4 +34,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing gawk"
 fi
 
+popd
 
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf gawk-${gawk_version}
+
+popd

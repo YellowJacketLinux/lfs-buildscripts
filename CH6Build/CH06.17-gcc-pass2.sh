@@ -10,7 +10,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d gcc-${gcc_version} ] && rm -rf gcc-${gcc_version}
 
@@ -44,7 +44,7 @@ mkdir build && cd build
   --build=$(../config.guess) \
   --host=${LFS_TGT} \
   --target=${LFS_TGT} \
-  LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc \
+  LDFLAGS_FOR_TARGET=-L${PWD}/${LFS_TGT}/libgcc \
   --prefix=/usr \
   --with-build-sysroot=${LFS} \
   --enable-default-pie \
@@ -72,4 +72,14 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing gcc pass2"
 fi
 
-ln -sv gcc $LFS/usr/bin/cc
+ln -sv gcc ${LFS}/usr/bin/cc
+
+popd
+
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf gcc-${gcc_version}
+
+popd

@@ -8,7 +8,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d findutils-${findutils_version} ] && rm -rf findutils-${findutils_version}
 
@@ -33,4 +33,12 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing findutils"
 fi
 
+popd
 
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf findutils-${findutils_version}
+
+popd
