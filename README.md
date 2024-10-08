@@ -26,28 +26,28 @@ These instructions are incomplete notes.
 Chapter 03 ‘Get Sources’ Script
 -------------------------------
 
-This script is to be run by the 'lfs' user. The partition LFS is to be built on
-must already be mounted at '/mnt/newlfs' and the directory '/mnt/lfs/sources'
-should exist and be owned by the 'lfs' user.
+This script is to be run by the `lfs` user. The partition LFS is to be built on
+must already be mounted at `/mnt/newlfs` and the directory `/mnt/lfs/sources`
+should exist and be owned by the `lfs` user.
 
-The script will download the needed sources (sourcing 'versions.sh') and make a
+The script will download the needed sources (sourcing `versions.sh`) and make a
 backup of the downloaded sources so that if run again, it can get the sources
 from the backup and not need to download them again.
 
-The file 'versions.sh' also includes 'sha256sum' digests so that the script can
+The file `versions.sh` also includes `sha256sum` digests so that the script can
 verify the integrity of the fetched file.
 
 
 Chapter 05 Building
 -------------------
 
-In the 'CH5Build' directory, the 'lfs' user should execute the 'Master.sh'
+In the `CH5Build` directory, the `lfs` user should execute the `Master.sh`
 script:
 
     lfs$ bash Master.sh
 
 The script works but is not finished. To do, it needs to verify the system is
-ready for the script to run. The 'Master.sh' script calls the 'CH05.*' scripts.
+ready for the script to run. The `Master.sh` script calls the `CH05.*` scripts.
 
 
 
