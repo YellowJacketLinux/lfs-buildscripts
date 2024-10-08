@@ -10,7 +10,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d gcc-${gcc_version} ] && rm -rf gcc-${gcc_version}
 
@@ -68,3 +68,13 @@ cd ..
 
 cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
   `dirname $(${LFS_TGT}-gcc -print-libgcc-file-name)`/include/limits.h
+
+popd
+
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf gcc-${gcc_version}
+
+popd

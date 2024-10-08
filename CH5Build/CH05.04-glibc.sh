@@ -8,7 +8,7 @@ if [ "`whoami`" != "lfs" ]; then
   myfail "Must run this script as lfs user"
 fi  
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d glibc-${glibc_version} ] && rm -rf glibc-${glibc_version}
 
@@ -52,3 +52,13 @@ echo 'int main(){}' | ${LFS_TGT}-gcc -xc -
 readelf -l a.out | grep ld-linux
 
 rm -v a.out
+
+popd
+
+# cleanup
+
+pushd ${GLSOURCES}
+
+rm -rf glibc-${glibc_version}
+
+popd
