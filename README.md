@@ -50,6 +50,47 @@ The script works but is not finished. To do, it needs to verify the system is
 ready for the script to run. The `Master.sh` script calls the `CH05.*` scripts.
 
 
+Chapter 06 Building
+-------------------
+
+In the `CH6Build` directory, the `lfs` user should execute the `Master.sh`
+script:
+
+   lfs$ bash Master.sh
+
+The script works but is not finished. To do, it needs to verify the system is
+ready for the script to run. The `Master.sh` script calls the `CH06.*` scripts.
+
+
+Chapter 07 Building
+-------------------
+
+__PAY ATTENTION__: First, the `root` user must execute the `CHROOT.sh` script.
+That script will copy `CH7Build` and `CH8Build` into `/mnt/newlfs/sources` and
+then fix some permissions and set up `/mnt/newlfs` for the `chroot`
+environment.
+
+Finally, it echoes the command that the `root` user must execute to enter the
+`chroot` environment.
+
+Once in the `chroot`:
+
+    cd /sources/CH7Build
+    bash 0-CH07-Prep.sh
+
+After executing `0-CH07-Prep.sh` reload `bash` with the following:
+
+    exec /usr/bin/bash --login
+
+Then, still inside the `chroot` at `/sources/CH7Build`, execute:
+
+    bash Master.sh
+
+Some important build tools previously built in the host environment will be
+rebuilt within the `chroot` environment. After the script runs, it will echo
+instructions on how to back things up. The backup takes a few minutes but it
+saves time if something goes wrong in Chapter 8 building.
+
 
 
 The Madness
