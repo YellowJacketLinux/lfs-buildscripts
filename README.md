@@ -56,7 +56,7 @@ Chapter 06 Building
 In the `CH6Build` directory, the `lfs` user should execute the `Master.sh`
 script:
 
-   lfs$ bash Master.sh
+    lfs$ bash Master.sh
 
 The script works but is not finished. To do, it needs to verify the system is
 ready for the script to run. The `Master.sh` script calls the `CH06.*` scripts.
