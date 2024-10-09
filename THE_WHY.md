@@ -104,8 +104,8 @@ multiple physical drives.
 For the home user and even for the corporate workstation, I really do not see
 the need for it and prefer the simplicity of not having it.
 
-Even where LVM2 does make sense, where it makes is for partitions that need to
-use large amounts of data. That is not the root `/` filesystem that the
+Even where LVM2 does make sense, where it makes sense is for partitions that
+need to use large amounts of data. That is not the root `/` filesystem that the
 operating system lives on, but is typically `/home` or `/srv` or something
 similar.
 
@@ -118,9 +118,9 @@ frequently patch `e2fsprogs` to provide features that are not standard which
 then make it difficult to mount the partition on a different GNU/Linux system
 for recovery. I have run into this issue several times in the past.
 
-Only vanilla `e2fsprogs` should be used in and even then, bleeding edge features
-should be disabled by default (for example, the `metadata_csum_seed` feature in
-current `ext4`).
+Only vanilla `e2fsprogs` should be used in the distribution installer and even
+then, bleeding edge features should be disabled by default (for example, the
+`metadata_csum_seed` feature in current `ext4`).
 
 If bleeding edge features are *truly* needed, the user can manually enable them.
 If non-standard filesystem features are *truly* needed, they can be provided by
@@ -153,7 +153,7 @@ Foo
 ### Fonts
 
 In my opinion, fonts in GNU/Linux is a mess. The problem is there are far too
-many installed, making it difficult to select a font.
+many installed, making it difficult from a UI perspective to select a font.
 
 Back when the Apple Macintosh first shipped, there was a small collection of
 high quality variable-width bitmap fonts. The ‘Desktop Publishing’ era had
