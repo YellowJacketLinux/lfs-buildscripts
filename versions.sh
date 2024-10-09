@@ -462,4 +462,18 @@ zstd_tarball="zstd-${zstd_version}.tar.gz"
 
 # Essentials from BLFS etc.
 
+systemd_units_version="20240916"
+systemd_units_dnl="https://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-${systemd_units_version}.tar.xz"
+systemd_units_sha256="2ead4a17f00cf0d3f338fa4a055cd46e2609b2326615bc2f901c09572e37b65d"
+systemd_units_tarball="blfs-systemd-units-${systemd_units_version}.tar.xz"
+
+gpm_version="1.20.7"
+gpm_dnl="https://anduin.linuxfromscratch.org/BLFS/gpm/gpm-${gpm_version}.tar.bz2"
+gpm_sha256="f011b7dc7afb824e0a017b89b7300514e772853ece7fc4ee640310889411a48d"
+gpm_tarball="gpm-${gpm_version}.tar.bz2"
+
+gpm_patch_dnl="https://www.linuxfromscratch.org/patches/blfs/svn/gpm-${gpm_version}-consolidated-1.patch"
+gpm_patch_sha256="3659543dc3c9074f768f80c32a9e9aa1773f147068c49cf7f560ff73a0674524"
+gpm_patch_file="gpm-${gpm_version}-consolidated-1.patch"
+
 # EOF
