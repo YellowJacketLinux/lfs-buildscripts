@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d findutils-${findutils_version} ] && rm -rf findutils-${findutils_version}
 
@@ -18,6 +18,13 @@ cd findutils-${findutils_version}
 make
 if [ $? -ne 0 ]; then
   myfail "Failed building findutils"
+fi
+
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running findutils make check"
+  chown -R tester .
+  su tester -c "PATH=$PATH make check > findutils.check.log"
+  mv findutils.check.log ${GLSOURCES}/
 fi
 
 make install

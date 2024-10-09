@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d gperf-${gperf_version} ] && rm -rf gperf-${gperf_version}
 
@@ -20,8 +20,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building gperf"
 fi
 
-echo "running gperf make check"
-make -j1 check > ${GLSOURCES}/gperf.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running gperf make check"
+  make -j1 check > ${GLSOURCES}/gperf.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then

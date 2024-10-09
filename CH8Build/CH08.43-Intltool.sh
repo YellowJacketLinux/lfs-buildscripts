@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d intltool-${intltool_version} ] && rm -rf intltool-${intltool_version}
 
@@ -21,8 +21,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building intltool"
 fi
 
-echo "running intltool make check"
-make check > ${GLSOURCES}/intltool.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running intltool make check"
+  make check > ${GLSOURCES}/intltool.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then

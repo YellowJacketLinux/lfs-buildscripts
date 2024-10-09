@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d XML-Parser-${xml_parser_version} ] && rm -rf XML-Parser-${xml_parser_version}
 
@@ -19,8 +19,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building XML Parser"
 fi
 
-echo "running XML Parser make test"
-make test > ${GLSOURCES}/XML-Parser.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running XML Parser make test"
+  make test > ${GLSOURCES}/XML-Parser.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then

@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d wheel-${wheel_version} ] && rm -rf wheel-${wheel_version}
 

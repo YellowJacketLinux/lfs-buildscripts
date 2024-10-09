@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d kbd-${kbd_version} ] && rm -rf kbd-${kbd_version}
 
@@ -24,8 +24,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building kbd"
 fi
 
-echo "running kbd make check"
-make check > ${GLSOURCES}/kbd.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running kbd make check"
+  make check > ${GLSOURCES}/kbd.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then

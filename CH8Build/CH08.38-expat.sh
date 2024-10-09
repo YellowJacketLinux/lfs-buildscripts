@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d expat-${expat_version} ] && rm -rf expat-${expat_version}
 
@@ -21,8 +21,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building expat"
 fi
 
-echo "running expat make check"
-make check > ${GLSOURCES}/expat.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running expat make check"
+  make check > ${GLSOURCES}/expat.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then

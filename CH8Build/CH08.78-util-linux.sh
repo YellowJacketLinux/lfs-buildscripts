@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d util-linux-${util_linux_version} ] && rm -rf util-linux-${util_linux_version}
 
@@ -32,6 +32,14 @@ cd util-linux-${util_linux_version}
 make
 if [ $? -ne 0 ]; then
   myfail "Failed building util-linux"
+fi
+
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running util-linux make check"
+  touch /etc/fstab
+  chown -R tester .
+  su tester -c "make -k check > util-linux.check.log"
+  mv util-linux.check.log ${GLSOURCES}/
 fi
 
 make install

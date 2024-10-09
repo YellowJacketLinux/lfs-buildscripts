@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d texinfo-${texinfo_version} ] && rm -rf texinfo-${texinfo_version}
 
@@ -19,8 +19,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building texinfo"
 fi
 
-echo "running texinfo make check"
-make check > ${GLSOURCES}/texinfo.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running texinfo make check"
+  make check > ${GLSOURCES}/texinfo.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then

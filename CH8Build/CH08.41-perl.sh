@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d perl-${perl_version} ] && rm -rf perl-${perl_version}
 
@@ -41,6 +41,11 @@ sh Configure -des                                                        \
 make
 if [ $? -ne 0 ]; then
   myfail "Failed building perl"
+fi
+
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running perl make test"
+  TEST_JOBS=$(nproc) make test_harness > ${GLSOURCES}/perl.check.log 2>&1
 fi
 
 make install

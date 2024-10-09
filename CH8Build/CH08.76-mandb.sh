@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d man-db-${mandb_version} ] && rm -rf man-db-${mandb_version}
 
@@ -26,8 +26,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building man-db"
 fi
 
-echo "running man-db make check"
-make check > ${GLSOURCES}/man-db.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running man-db make check"
+  make check > ${GLSOURCES}/man-db.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then

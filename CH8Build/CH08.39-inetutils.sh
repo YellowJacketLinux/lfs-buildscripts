@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d inetutils-${inetutils_version} ] && rm -rf inetutils-${inetutils_version}
 
@@ -30,8 +30,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building inetutils"
 fi
 
-echo "running inetutils make check"
-make check > ${GLSOURCES}/inetutils.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running inetutils make check"
+  make check > ${GLSOURCES}/inetutils.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then

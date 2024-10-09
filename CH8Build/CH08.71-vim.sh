@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d vim-${vim_version} ] && rm -rf vim-${vim_version}
 
@@ -19,6 +19,14 @@ echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
 make
 if [ $? -ne 0 ]; then
   myfail "Failed building vim"
+fi
+
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running vim make test"
+  chown -R tester .
+  su tester -c "TERM=xterm-256color LANG=en_US.UTF-8 make -j1 test" \
+    &> vim.test.log
+  mv vim.test.log ${GLSOURCES}/
 fi
 
 make install

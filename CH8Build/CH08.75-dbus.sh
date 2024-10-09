@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d dbus-${dbus_version} ] && rm -rf dbus-${dbus_version}
 
@@ -28,8 +28,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building dbus"
 fi
 
-echo "running dbus make check"
-make check > ${GLSOURCES}/dbus.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running dbus make check"
+  make check > ${GLSOURCES}/dbus.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then

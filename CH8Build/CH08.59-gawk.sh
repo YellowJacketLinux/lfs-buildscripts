@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d gawk-${gawk_version} ] && rm -rf gawk-${gawk_version}
 
@@ -19,6 +19,13 @@ sed -i 's/extras//' Makefile.in
 make
 if [ $? -ne 0 ]; then
   myfail "Failed building gawk"
+fi
+
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running gawk make check"
+  chown -R tester .
+  su tester -c "PATH=$PATH make check > gawk.check.log"
+  mv gawk.check.log ${GLSOURCES}/
 fi
 
 rm -f /usr/bin/gawk-${gawk_version}

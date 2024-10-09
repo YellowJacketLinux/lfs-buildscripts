@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d Python-${python_version} ] && rm -rf Python-${python_version}
 
@@ -24,8 +24,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building Python"
 fi
 
-echo "running Python make test. Could be time consuming."
-make test TESTOPTS="--timeout 120" > ${GLSOURCES}/python.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running Python make test. Could be time consuming."
+  make test TESTOPTS="--timeout 120" > ${GLSOURCES}/python.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then

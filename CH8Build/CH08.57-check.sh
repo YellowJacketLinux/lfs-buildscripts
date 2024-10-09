@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d check-${check_version} ] && rm -rf check-${check_version}
 
@@ -20,8 +20,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building check"
 fi
 
-echo "running check make check"
-make check > ${GLSOURCES}/check.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running check make check"
+  make check > ${GLSOURCES}/check.check.log 2>&1
+fi
 
 make docdir=/usr/share/doc/check-${check_version} install
 if [ $? -ne 0 ]; then

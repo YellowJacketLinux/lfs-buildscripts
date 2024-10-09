@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d openssl-${openssl_version} ] && rm -rf openssl-${openssl_version}
 
@@ -21,6 +21,11 @@ cd openssl-${openssl_version}
 make
 if [ $? -ne 0 ]; then
   myfail "Failed building openssl"
+fi
+
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running openssl make test"
+  HARNESS_JOBS=$(nproc) make test > ${GLSOURCES}/openssl.check.log 2>&1
 fi
 
 sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile

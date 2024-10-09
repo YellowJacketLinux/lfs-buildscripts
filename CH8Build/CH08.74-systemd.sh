@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d systemd-${systemd_version} ] && rm -rf systemd-${systemd_version}
 
@@ -44,8 +44,10 @@ fi
 
 echo 'NAME="Linux From Scratch"' > /etc/os-release
 
-echo "running systemd ninja test"
-ninja test > ${GLSOURCES}/systemd.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running systemd ninja test"
+  ninja test > ${GLSOURCES}/systemd.check.log 2>&1
+fi
 
 ninja install
 if [ $? -ne 0 ]; then

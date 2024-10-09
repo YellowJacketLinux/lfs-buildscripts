@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d e2fsprogs-${e2fsprogs_version} ] && rm -rf e2fsprogs-${e2fsprogs_version}
 
@@ -27,8 +27,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building e2fsprogs"
 fi
 
-echo "running e2fsprogs make check"
-make check > ${GLSOURCES}/e2fsprogs.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running e2fsprogs make check"
+  make check > ${GLSOURCES}/e2fsprogs.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then

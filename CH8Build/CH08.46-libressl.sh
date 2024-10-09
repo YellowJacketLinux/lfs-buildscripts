@@ -4,7 +4,7 @@ source versions.sh
 
 GLSOURCES="/sources"
 
-pushd $GLSOURCES > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
+pushd ${GLSOURCES} > /dev/null 2>&1 || myfail "Failed to move to ${GLSOURCES}"
 
 [ -d libressl-${libressl_version} ] && rm -rf libressl-${libressl_version}
 
@@ -41,8 +41,10 @@ if [ $? -ne 0 ]; then
   myfail "Failed building libressl"
 fi
 
-echo "running libressl make check"
-make check > ${GLSOURCES}/libressl.check 2>&1
+if [ ! -f ${GLSOURCES}/SKIPTESTS ]; then
+  echo "running libressl make check"
+  make check > ${GLSOURCES}/libressl.check.log 2>&1
+fi
 
 make install
 if [ $? -ne 0 ]; then
