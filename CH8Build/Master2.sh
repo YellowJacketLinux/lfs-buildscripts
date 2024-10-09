@@ -478,6 +478,10 @@ else
   sleep 3
 fi
 
+#stripping
+
+/bin/bash CH08.80-stripping.sh > /dev/null 2>&1
+
 #cleanup
 
 rm -rf /tmp/{*,.*}
