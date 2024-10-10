@@ -476,4 +476,24 @@ gpm_patch_dnl="https://www.linuxfromscratch.org/patches/blfs/svn/gpm-${gpm_versi
 gpm_patch_sha256="3659543dc3c9074f768f80c32a9e9aa1773f147068c49cf7f560ff73a0674524"
 gpm_patch_file="gpm-${gpm_version}-consolidated-1.patch"
 
+libunistring_version="1.2"
+libunistring_dnl="https://ftp.gnu.org/gnu/libunistring/libunistring-${libunistring_version}.tar.xz"
+libunistring_sha256="632bd65ed74a881ca8a0309a1001c428bd1cbd5cd7ddbf8cedcd2e65f4dcdc44"
+libunistring_tarball="libunistring-${libunistring_version}.tar.xz"
+
+libidn2_version="2.3.7"
+libidn2_dnl="https://ftp.gnu.org/gnu/libidn/libidn2-2.3.7.tar.gz"
+libidn2_sha256="4c21a791b610b9519b9d0e12b8097bf2f359b12f8dd92647611a929e6bfd7d64"
+libidn2_tarball="libidn2-${libidn2_version}.tar.gz"
+
+libpsl_version="0.21.5"
+libpsl_dnl="https://github.com/rockdaboot/libpsl/releases/download/${libpsl_version}/libpsl-${libpsl_version}.tar.gz"
+libpsl_sha256="1dcc9ceae8b128f3c0b3f654decd0e1e891afc6ff81098f227ef260449dae208"
+libpsl_tarball="libpsl-${libpsl_version}.tar.gz"
+
+wget_version="1.24.5"
+wget_dnl="https://ftp.gnu.org/gnu/wget/wget-${wget_version}.tar.gz"
+wget_sha256="fa2dc35bab5184ecbc46a9ef83def2aaaa3f4c9f3c97d4bd19dcb07d4da637de"
+wget_tarball="wget-${wget_version}.tar.gz"
+
 # EOF
