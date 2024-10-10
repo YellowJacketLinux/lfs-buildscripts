@@ -490,6 +490,46 @@ else
   sleep 3
 fi
 
+/bin/bash BLFS.04-libunistring.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed BLFS.04-libunistring.sh"
+  exit 1
+else
+  echo "BLFS Libunistring Install Complete [83/86]"
+  sleep 3
+fi
+
+/bin/bash BLFS.05-libidn2.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed BLFS.05-libidn2.sh"
+  exit 1
+else
+  echo "BLFS Libisn2 Install Complete [84/86]"
+  sleep 3
+fi
+
+/bin/bash BLFS.06-libpsl.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed BLFS.06-libpsl.sh"
+  exit 1
+else
+  echo "BLFS Libpsl Install Complete [85/86]"
+  sleep 3
+fi
+
+/bin/bash BLFS.07-wget.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed BLFS.07-wget.sh"
+  exit 1
+else
+  echo "BLFS Wget Install Complete [86/86]"
+  sleep 3
+fi
+
 #stripping
 
 /bin/bash CH08.80-stripping.sh > /dev/null 2>&1
