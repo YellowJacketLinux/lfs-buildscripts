@@ -9,7 +9,7 @@ if [ "`whoami`" != "root" ]; then
   myfail "Must run this script as r00t"
 fi
 
-LFS=/mnt/newlfs
+LFS="/mnt/newlfs"
 
 [ ! -d ${LFS}/sources/CH7Build ] && cp -ar CH7Build ${LFS}/sources/
 [ ! -d ${LFS}/sources/CH8Build ] && cp -ar CH8Build ${LFS}/sources/
