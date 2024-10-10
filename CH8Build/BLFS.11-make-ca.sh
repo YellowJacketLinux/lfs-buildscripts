@@ -19,8 +19,14 @@ if [ $? -ne 0 ]; then
   myfail "Failed installing make-ca"
 fi
 
+# initial certificate bundles
+cp ../certdata-dist.txt /etc/ssl/certdata.txt
+/usr/sbin/make-ca -r
+
+# auto-update via systemd
 systemctl enable update-pki.timer
 
+# configure pip3
 [ ! -d /etc/profile.d ] && mkdir -p /etc/profile.d
 
 cat > /etc/profile.d/pythoncerts.sh << "EOF"

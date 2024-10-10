@@ -143,6 +143,7 @@ getSource "${zstd_dnl}" "${zstd_sha256}" "${zstd_tarball}"
 
 cp ${CWD}/CH8Build/libressl-${libressl_version}-cnf-name.patch .
 cp ${CWD}/CH8Build/make-ca-${makeca_version}-libressl.patch .
+cp ${CWD}/CH8Build/certdata-dist.txt .
 
 rm -f ${HOME}/lfs-sources.tar
 tar -cpf ${HOME}/lfs-sources.tar .

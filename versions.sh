@@ -509,7 +509,7 @@ libtasn1_tarball="libtasn1-${libtasn1_version}.tar.gz"
 p11kit_version="0.25.5"
 p11kit_dnl="https://github.com/p11-glue/p11-kit/releases/download/${p11kit_version}/p11-kit-${p11kit_version}.tar.xz"
 p11kit_sha256="04d0a86450cdb1be018f26af6699857171a188ac6d5b8c90786a60854e1198e5"
-p11kit_tarball="p11-kit-${p11kit_version}"
+p11kit_tarball="p11-kit-${p11kit_version}.tar.xz"
 
 makeca_version="1.14"
 makeca_dnl="https://github.com/lfs-book/make-ca/archive/v${makeca_version}/make-ca-${makeca_version}.tar.gz"
