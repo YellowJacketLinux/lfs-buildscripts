@@ -102,6 +102,7 @@ getSource "${linux_lts_dnl}" "${linux_lts_sha256}" "${linux_lts_tarball}"
 getSource "${lz4_dnl}" "${lz4_sha256}" "${lz4_tarball}"
 getSource "${m4_dnl}" "${m4_sha256}" "${m4_tarball}"
 getSource "${make_dnl}" "${make_sha256}" "${make_tarball}"
+getSource "${makeca_dnl}" "${makeca_sha256}" "${makeca_tarball}"
 getSource "${mandb_dnl}" "${mandb_sha256}" "${mandb_tarball}"
 getSource "${man_pages_dnl}" "${man_pages_sha256}" "${man_pages_tarball}"
 getSource "${markupsafe_dnl}" "${markupsafe_sha256}" "${markupsafe_tarball}"
@@ -141,6 +142,7 @@ getSource "${zlib_dnl}" "${zlib_sha256}" "${zlib_tarball}"
 getSource "${zstd_dnl}" "${zstd_sha256}" "${zstd_tarball}"
 
 cp ${CWD}/CH8Build/libressl-${libressl_version}-cnf-name.patch .
+cp ${CWD}/CH8Build/make-ca-${makeca_version}-libressl.patch .
 
 rm -f ${HOME}/lfs-sources.tar
 tar -cpf ${HOME}/lfs-sources.tar .

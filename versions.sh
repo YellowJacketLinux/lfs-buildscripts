@@ -511,4 +511,9 @@ p11kit_dnl="https://github.com/p11-glue/p11-kit/releases/download/${p11kit_versi
 p11kit_sha256="04d0a86450cdb1be018f26af6699857171a188ac6d5b8c90786a60854e1198e5"
 p11kit_tarball="p11-kit-${p11kit_version}"
 
+makeca_version="1.14"
+makeca_dnl="https://github.com/lfs-book/make-ca/archive/v${makeca_version}/make-ca-${makeca_version}.tar.gz"
+makeca_sha256="6391698fe6db16eb190da1aba802bc90c09c8baa4c116d9c65647bea87f190db"
+makeca_tarball="make-ca-${makeca_version}.tar.gz"
+
 # EOF

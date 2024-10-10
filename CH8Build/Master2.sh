@@ -561,6 +561,16 @@ else
   sleep 3
 fi
 
+/bin/bash BLFS.11-make-ca.sh
+
+if [ $? -ne 0 ]; then
+  echo "failed BLFS.11-make-ca.sh"
+  exit 1
+else
+  echo "BLFS make-ca Install Complete [90/${FULLSET}]"
+  sleep 3
+fi
+
 #stripping
 
 /bin/bash CH08.80-stripping.sh > /dev/null 2>&1

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # compiles the system software
+FULLSET="35/90"
 
 /bin/bash CH08.01-man-pages.sh
 
@@ -8,7 +9,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.01-man-pages.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Man Pages complete [1/35/82]"
+  echo "LFS Chapter 8 Man Pages complete [1/${FULLSET}]"
   sleep 3
 fi
 
@@ -18,7 +19,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.02-iana-etc.sh"
   exit 1
 else
-  echo "LFS Chapter 8 IANA ETC Complete [2/35/82]"
+  echo "LFS Chapter 8 IANA ETC Complete [2/${FULLSET}]"
   sleep 3
 fi
 
@@ -28,7 +29,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.03-glibc.sh"
   exit 1
 else
-  echo "LFS Chapter 8 GlibC Complete [3/35/82]"
+  echo "LFS Chapter 8 GlibC Complete [3/${FULLSET}]"
   sleep 3
 fi
 
@@ -38,7 +39,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.04-zlib.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Zlib Complete [4/35/82]"
+  echo "LFS Chapter 8 Zlib Complete [4/${FULLSET}]"
   sleep 3
 fi
 
@@ -48,7 +49,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.05-bzip2.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Bzip2 Complete [5/35/82]"
+  echo "LFS Chapter 8 Bzip2 Complete [5/${FULLSET}]"
   sleep 3
 fi
 
@@ -58,7 +59,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.06-xz.sh"
   exit 1
 else
-  echo "LFS Chapter 8 XZ Complete [6/35/82]"
+  echo "LFS Chapter 8 XZ Complete [6/${FULLSET}]"
   sleep 3
 fi
 
@@ -68,7 +69,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.07-lz4.sh"
   exit 1
 else
-  echo "LFS Chapter 8 LZ4 Complete [7/35/82]"
+  echo "LFS Chapter 8 LZ4 Complete [7/${FULLSET}]"
   sleep 3
 fi
 
@@ -78,7 +79,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.08-zstd.sh"
   exit 1
 else
-  echo "LFS Chapter 8 ZSTD Complete [8/35/82]"
+  echo "LFS Chapter 8 ZSTD Complete [8/${FULLSET}]"
   sleep 3
 fi
 
@@ -88,7 +89,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.09-file.sh"
   exit 1
 else
-  echo "LFS Chapter 8 File Complete [9/35/82]"
+  echo "LFS Chapter 8 File Complete [9/${FULLSET}]"
   sleep 3
 fi
 
@@ -98,7 +99,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.10-readline.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Readline Complete [10/35/82]"
+  echo "LFS Chapter 8 Readline Complete [10/${FULLSET}]"
   sleep 3
 fi
 
@@ -108,7 +109,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.11-m4.sh"
   exit 1
 else
-  echo "LFS Chapter 8 M4 Complete [11/35/82]"
+  echo "LFS Chapter 8 M4 Complete [11/${FULLSET}]"
   sleep 3
 fi
 
@@ -118,7 +119,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.12-bc.sh"
   exit 1
 else
-  echo "LFS Chapter 8 BC Complete [12/35/82]"
+  echo "LFS Chapter 8 BC Complete [12/${FULLSET}]"
   sleep 3
 fi
 
@@ -128,7 +129,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.13-flex.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Flex Complete [13/35/82]"
+  echo "LFS Chapter 8 Flex Complete [13/${FULLSET}]"
   sleep 3
 fi
 
@@ -138,7 +139,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.14-tcl.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Tcl Complete [14/35/82]"
+  echo "LFS Chapter 8 Tcl Complete [14/${FULLSET}]"
   sleep 3
 fi
 
@@ -148,7 +149,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.15-expect.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Expect Complete [15/35/82]"
+  echo "LFS Chapter 8 Expect Complete [15/${FULLSET}]"
   sleep 3
 fi
 
@@ -158,7 +159,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.16-dejagnu.sh"
   exit 1
 else
-  echo "LFS Chapter 8 DejaGNU Complete [16/35/82]"
+  echo "LFS Chapter 8 DejaGNU Complete [16/${FULLSET}]"
   sleep 3
 fi
 
@@ -168,7 +169,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.17-pkgconf.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Pkgconf Complete [17/35/82]"
+  echo "LFS Chapter 8 Pkgconf Complete [17/${FULLSET}]"
   sleep 3
 fi
 
@@ -178,7 +179,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.18-binutils.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Binutils Complete [18/35/82]"
+  echo "LFS Chapter 8 Binutils Complete [18/${FULLSET}]"
   sleep 3
 fi
 
@@ -188,7 +189,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.19-gmp.sh"
   exit 1
 else
-  echo "LFS Chapter 8 GMP Complete [19/35/82]"
+  echo "LFS Chapter 8 GMP Complete [19/${FULLSET}]"
   sleep 3
 fi
 
@@ -198,7 +199,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.20-mpfr.sh"
   exit 1
 else
-  echo "LFS Chapter 8 MPFR Complete [20/35/82]"
+  echo "LFS Chapter 8 MPFR Complete [20/${FULLSET}]"
   sleep 3
 fi
 
@@ -208,7 +209,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.21-mpc.sh"
   exit 1
 else
-  echo "LFS Chapter 8 MPC Complete [21/35/82]"
+  echo "LFS Chapter 8 MPC Complete [21/${FULLSET}]"
   sleep 3
 fi
 
@@ -218,7 +219,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.22-attr.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Attr Complete [22/35/82]"
+  echo "LFS Chapter 8 Attr Complete [22/${FULLSET}]"
   sleep 3
 fi
 
@@ -228,7 +229,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.23-acl.sh"
   exit 1
 else
-  echo "LFS Chapter 8 ACL Complete [23/35/82]"
+  echo "LFS Chapter 8 ACL Complete [23/${FULLSET}]"
   sleep 3
 fi
 
@@ -238,7 +239,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.24-libcap.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Libcap Complete [24/35/82]"
+  echo "LFS Chapter 8 Libcap Complete [24/${FULLSET}]"
   sleep 3
 fi
 
@@ -248,7 +249,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.25-libxcrypt.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Libxcrypt Complete [25/35/82]"
+  echo "LFS Chapter 8 Libxcrypt Complete [25/${FULLSET}]"
   sleep 3
 fi
 
@@ -258,7 +259,7 @@ if [ $? -ne 0 ]; then
   echo "failed BLFS.01-cracklib.sh"
   exit 1
 else
-  echo "BLFS Cracklib Complete [26/35/82]"
+  echo "BLFS Cracklib Complete [26/${FULLSET}]"
   sleep 3
 fi
 
@@ -268,7 +269,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.26-shadow.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Shadow Complete [27/35/82]"
+  echo "LFS Chapter 8 Shadow Complete [27/${FULLSET}]"
   sleep 3
 fi
 
@@ -278,7 +279,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.27-gcc.sh"
   exit 1
 else
-  echo "LFS Chapter 8 GCC Complete [28/35/82]"
+  echo "LFS Chapter 8 GCC Complete [28/${FULLSET}]"
   sleep 60
 fi
 
@@ -288,7 +289,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.28-ncurses.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Ncurses Complete [29/35/82]"
+  echo "LFS Chapter 8 Ncurses Complete [29/${FULLSET}]"
   sleep 3
 fi
 
@@ -298,7 +299,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.29-sed.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Sed Complete [30/35/82]"
+  echo "LFS Chapter 8 Sed Complete [30/${FULLSET}]"
   sleep 3
 fi
 
@@ -308,7 +309,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.30-psmisc.sh"
   exit 1
 else
-  echo "LFS Chapter 8 Psmisc Complete [31/35/82]"
+  echo "LFS Chapter 8 Psmisc Complete [31/${FULLSET}]"
   sleep 3
 fi
 
@@ -318,7 +319,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.31-gettext"
   exit 1
 else
-  echo "LFS Chapter 8 Gettext Complete [32/35/82]"
+  echo "LFS Chapter 8 Gettext Complete [32/${FULLSET}]"
   sleep 3
 fi
 
@@ -328,7 +329,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.32-bison"
   exit 1
 else
-  echo "LFS Chapter 8 Bison Complete [33/35/82]"
+  echo "LFS Chapter 8 Bison Complete [33/${FULLSET}]"
   sleep 3
 fi
 
@@ -338,7 +339,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.33-grep"
   exit 1
 else
-  echo "LFS Chapter 8 Grep Complete [34/35/82]"
+  echo "LFS Chapter 8 Grep Complete [34/${FULLSET}]"
   sleep 3
 fi
 
@@ -348,7 +349,7 @@ if [ $? -ne 0 ]; then
   echo "failed CH08.34-bash"
   exit 1
 else
-  echo "LFS Chapter 8 Bash Complete [35/35/82]"
+  echo "LFS Chapter 8 Bash Complete [35/${FULLSET}]"
   sleep 3
 fi
 
