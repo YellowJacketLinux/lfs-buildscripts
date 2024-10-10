@@ -52,7 +52,7 @@ should not even have Linux-PAM loaded but with virtually every GNU/Linux
 distribution out there, Linux-PAM is installed and the `shadow` package is
 linked against it. The LSB requires it.
 
-There have been more than one occassion where vulnerabilities in PAM allow for
+There have been more than one occasion where vulnerabilities in PAM allow for
 __REMOTE__ access to the system. Often those vulnerabilities require special
 circumstances that necessitate another attack first, but when that happens (e.g.
 via malware) systems were vulnerable to the remote attack because of a flaw in
@@ -85,7 +85,7 @@ zero-day) exploits in Linux-PAM. Such systems would __NOT__ be vulnerable if
 they did not use Linux-PAM.
 
 Linux-PAM is absolutely the right solution in some corporate environments but it
-should be provided by add-on package respositories rather than forced upon all
+should be provided by add-on package repositories rather than forced upon all
 the users when the vast majority of home users will __NEVER__ use its
 capabilities. Keep It Simple, Silly! Less is More!
 
@@ -237,7 +237,7 @@ Additional fonts of course will be available. There are a lot of high quality
 free fonts out there: Intel ClearSans, Linux Libertine, and many many more.
 
 I do want YJL to provide a package repository specifically for packaged fonts
-and if YJL takes off to become a distrubution used by more than a handful of
+and if YJL takes off to become a distribution used by more than a handful of
 people, I want YJL to work with independent font foundries to make it easy for
 users to buy fonts created by those independent font foundries.
 
@@ -248,7 +248,7 @@ are still using the fonts and then they sue you knowing that if you had trouble
 paying the subscription fee, you probably can not afford a lawyer. I hate what
 the commercial font market has become but I also want very creative people who
 design fonts to be able to sell their fonts, a LOT of work goes into creating a
-qualiyt font.
+quality font.
 
 When the ‘Desktop Publishing’ era was new, font licensing was much friendlier to
 the consumer than it is now. I want YJL to help restore that.
@@ -282,7 +282,7 @@ needs to be available at system installation rather than provided by an add-on
 package repository.
 
 My *personal* experience with SELinux is that it gets in the way of the user and
-adds too much complexity to system admimistration. It may be necessary for the
+adds too much complexity to system administration. It may be necessary for the
 Enterprise user, but the benefit just does not justify the added work for the
 desktop user.
 
@@ -367,7 +367,7 @@ When necessary---such as with Apache, MySQL, and PHP---we could install newer
 versions on it either from source or from add-on repositories, but the operating
 system itself was solid and stable and well-maintained.
 
-CentOS (developed as a clone of RHEL) was then aquired by Red Hat and CentOS 7
+CentOS (developed as a clone of RHEL) was then acquired by Red Hat and CentOS 7
 was the last version I felt comfortable with. I simply do not like the direction
 that Red Hat has gone with it.
 
