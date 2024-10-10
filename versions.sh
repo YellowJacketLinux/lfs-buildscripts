@@ -496,4 +496,19 @@ wget_dnl="https://ftp.gnu.org/gnu/wget/wget-${wget_version}.tar.gz"
 wget_sha256="fa2dc35bab5184ecbc46a9ef83def2aaaa3f4c9f3c97d4bd19dcb07d4da637de"
 wget_tarball="wget-${wget_version}.tar.gz"
 
+curl_version="8.10.1"
+curl_dnl="https://curl.se/download/curl-${curl_version}.tar.xz"
+curl_sha256="73a4b0e99596a09fa5924a4fb7e4b995a85fda0d18a2c02ab9cf134bebce04ee"
+curl_tarball="curl-${curl_version}.tar.xz"
+
+libtasn1_version="4.19.0"
+libtasn1_dnl="https://ftp.gnu.org/gnu/libtasn1/libtasn1-${libtasn1_version}.tar.gz"
+libtasn1_sha256="1613f0ac1cf484d6ec0ce3b8c06d56263cc7242f1c23b30d82d23de345a63f7a"
+libtasn1_tarball="libtasn1-${libtasn1_version}.tar.gz"
+
+p11kit_version="0.25.5"
+p11kit_dnl="https://github.com/p11-glue/p11-kit/releases/download/${p11kit_version}/p11-kit-${p11kit_version}.tar.xz"
+p11kit_sha256="04d0a86450cdb1be018f26af6699857171a188ac6d5b8c90786a60854e1198e5"
+p11kit_tarball="p11-kit-${p11kit_version}"
+
 # EOF
