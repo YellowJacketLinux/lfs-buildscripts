@@ -65,3 +65,44 @@ without the binary or configuration file conflicting with the LibreSSL fork.
 
 For those who do not need the *actual* `openssl` binary, symbolic links allow
 the traditional configuration file and binary name to still be used.
+
+
+Certificate Bundle Notes
+------------------------
+
+Most GNU/Linux distributions package TLS certificate bundles for the users.
+
+The BLFS developers maintain a tool called `make-ca` which generates the TLS
+certificate bundles on the user’s system and quite frankly, that is a superior
+method as it allows end users who need to do so to customize the certificate
+bundles.
+
+Their tool makes use of `/usr/bin/openssl` and when I first installed LFS 11.3
+using LibreSSL instead of OpenSSL, I found that the tool ‘mostly’ worked but not
+completely.
+
+Generation of the certificate bundles worked perfectly, what did not work was
+the retrievel of the `certdata.txt` file.
+
+The `make-ca` utility uses `/usr/bin/openssl s_client` to retrieve the file with
+hard-coded certificate information for `hg.mozilla.org`. Either LibreSSL does
+not support the optiomd to `openssl s_client` that were used, or the hard-coded
+certificate was no longer valid.
+
+What I found was that if I instead used `/usr/bin/curl` to retrieve the
+`certdata.txt` file when an update was available, it worked, as long as there
+already was valid certificate bundle for `curl` to validate the connection
+against.
+
+So long story short, I patch `make-ca` to use `/usr/bin/libressl` for everything
+*except* the retrieval of a new `certdata.txt` file. For that, I use `curl`.
+
+The initial `certdata.txt` file is installed from elsewhere (not retrieved via
+the `make-ca` file) and then the certificate bundles are generated from it
+using `make-ca -r`. This then results in a valid certificate bundle that `curl`
+can use to grab an updated `certdata.txt` file when a new version is published.
+
+This method also allows generation of the initial certificate bundles even from
+within the `chroot` being used to build the LFS system before the system has
+ever booted so that the certificate bundles are there even on the very first
+boot, allowing both `wget` and `curl` to work properly with TLS connections.
