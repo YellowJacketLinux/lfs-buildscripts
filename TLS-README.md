@@ -1,8 +1,8 @@
 TLS Implementation
 ==================
 
-LFS and most of the GNU/Linux world primarily uses OpenSSL for TLS. This is
-one place where I am deviating, sort of.
+LFS and most of the GNU/Linux world primarily use OpenSSL for TLS. This is one
+place where I am deviating, sort of.
 
 With Yellow-Jacket GNU/Linux my preference is to use GnuTLS for the TLS stack
 wherever possible and use LibreSSL to provide the OpenSSL API for software that
@@ -52,6 +52,27 @@ to build against LibreSSL for the critical `_ssl` and `_hashlib` modules will be
 maintained but until then, YJL can still use LibreSSL for *most* OpenSSL API
 needs and use OpenSSL exclusively for Python3.
 
+Note that `wget` and `curl` as built from the shell scripts in this git repo do
+link against LibreSSL. That is temporary because GnuTLS is *not* built from the
+shell scripts in this git repo.
+
+The actual RPM spec files for those tools will build them against GnuTLS so they
+will not use either implementation of the OpenSSL API.
+
+
+LibreSSL Build Notes
+--------------------
+
+The build of LibreSSL itself is patched to use `libressl.cnf` instead of
+`openssl.cnf` for the OpenSSL configuration file, and the binary is
+installed as `libressl` instead of as `openssl`.
+
+Doing so will allow those who want the *actual* `openssl` binary to have it
+without the binary or configuration file conflicting with the LibreSSL fork.
+
+For those who do not need the *actual* `openssl` binary, symbolic links allow
+the traditional configuration file and binary name to still be used.
+
 
 Important Concept
 -----------------
@@ -60,8 +81,8 @@ On YJL, `/usr/bin/libressl` is guaranteed to exist. It is a required package and
 is always there.
 
 On YJL, `/usr/bin/openssl` *might* exist but may not be present. When it is
-present, it *might* be a symbolic link to `/usr/bin/openssl` or it *might* be
-the binary built from OpenSSL.
+present, it *might* be a symbolic link to `/usr/bin/libressl` or it *might* be
+the binary built from the unforked modern OpenSSL source. The user has choice.
 
 Scripts that ordinarily call the `openssl` binary should call the `libressl`
 binary instead and should not use features of OpenSSL newer than what was
@@ -92,19 +113,10 @@ On the other hand, packages that build just fine against LibreSSL should have:
 so that the proper devel package is present on the system when the package
 builds.
 
-
-LibreSSL Build Notes
---------------------
-
-The build of LibreSSL itself is patched to use `libressl.cnf` instead of
-`openssl.cnf` for the OpenSSL configuration file, and the binary is
-installed as `libressl` instead of as `openssl`.
-
-Doing so will allow those who want the *actual* `openssl` binary to have it
-without the binary or configuration file conflicting with the LibreSSL fork.
-
-For those who do not need the *actual* `openssl` binary, symbolic links allow
-the traditional configuration file and binary name to still be used.
+The `libressl-devel` and `openssl-devel` packages do conflict with each other
+but there is never a need to have both installed at the same time. In fact the
+only reason either is ever needed is when compiling software that links against
+the shared libraries.
 
 
 Certificate Bundle Notes
@@ -131,7 +143,7 @@ certificate was no longer valid.
 
 What I found was that if I instead used `/usr/bin/curl` to retrieve the
 `certdata.txt` file when an update was available, it worked, as long as there
-already was valid certificate bundle for `curl` to validate the connection
+already was a valid certificate bundle for `curl` to validate the connection
 against.
 
 So long story short, I patched `make-ca` to use `/usr/bin/libressl` for
@@ -139,9 +151,10 @@ everything *except* the retrieval of a new `certdata.txt` file. For that, I
 patched it to use `/usr/bin/curl`.
 
 The initial `certdata.txt` file is installed from elsewhere (not retrieved via
-the `make-ca` file) and then the certificate bundles are generated from it
-using `make-ca -r`. This then results in a valid certificate bundle that `curl`
-can use to grab an updated `certdata.txt` file when a new version is published.
+the `make-ca` script on first run) and then the initial certificate bundles are
+generated from it using `make-ca -r`. This then results in a valid certificate
+bundle that `curl` can use to grab an updated `certdata.txt` file when a new
+version is published.
 
 In this git repo, the file `CH8Build/certdata-dist.txt` is installed as the
 initial `certdata.txt` file and is the same file that unpatched `make-ca` would

@@ -81,8 +81,8 @@ However there are many people now using 5G for home networks who either do not
 have adequate IPv6 firewall technology or do not know that they should turn off
 IPv6 support and just use IPv4 with NAT for their home network. Such systems
 would potentially have __remote__ vulnerability to future (or present secret
-zero-day) exploits in Linux-PAM. Such systems would __NOT__ be vulnerable if
-they did not use Linux-PAM.
+zero-day) exploits in Linux-PAM. Such systems would __NOT__ be vulnerable to
+Linux-PAM exploits if they did not use Linux-PAM.
 
 Linux-PAM is absolutely the right solution in some corporate environments but it
 should be provided by add-on package repositories rather than forced upon all
@@ -92,6 +92,11 @@ capabilities. Keep It Simple, Silly! Less is More!
 Those who need (or want) Linux-PAM in YJL can get it from a third-party package
 repository, if it *really* is important enough for a third-party package
 repository to provide it.
+
+As far as I know, Slackware was the only mainstream GNU/Linux distribution that
+did not force Linux-PAM on its users and I suspect the LSB is why virtually
+every distribution did force it on its users instead of making it an optional
+component to be installed when actually needed.
 
 
 ### Filesystems
@@ -202,9 +207,9 @@ available for YJL.
 
 ### Fonts
 
-In my opinion, fonts in GNU/Linux is a mess. The problem is there are far too
-many installed, making it difficult from a UI perspective to select a font. Less
-is more.
+In my opinion, fonts in most GNU/Linux distributions are a mess. The problem is
+there are far too many installed, making it difficult from a UI perspective to
+select a font. Less is more.
 
 Back when the Apple Macintosh first shipped, there was a small collection of
 high quality variable-width bitmap fonts. The ‘Desktop Publishing’ era had
@@ -288,13 +293,14 @@ desktop user.
 
 ### 32-bit Compatibility
 
-YJL is for 64-bit systems. The base operating system will not provide any 32-bit
-libraries.
+YJL is for 64-bit `x86_64` systems. The base operating system will not provide
+any 32-bit libraries.
 
 It *hopefully* will be possible to cross-compile 32-bit libraries to install
-into `/opt/32-bit` so that things like the Second Life ‘Firestorm’ client viewer
-can run it, but the operating system is __NOT__ being built with 32-bit
-compatibility in mind.
+into somewhere like `/opt/32-bit` so that things like the Second Life
+‘Firestorm’ client viewer can run on it, but the operating system is __NOT__
+being built with 32-bit compatibility in mind. Of course it would be even better
+if applications like Firestorm were ported to 64-bit.
 
 ### FireFox
 
