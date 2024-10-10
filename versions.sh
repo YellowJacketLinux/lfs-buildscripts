@@ -269,9 +269,9 @@ libxcrypt_dnl="https://github.com/besser82/libxcrypt/releases/download/v${libxcr
 libxcrypt_sha256="e5e1f4caee0a01de2aee26e3138807d6d3ca2b8e67287966d1fefd65e1fd8943"
 libxcrypt_tarball="libxcrypt-${libxcrypt_version}.tar.xz"
 
-linux_lts_version="6.6.54"
+linux_lts_version="6.6.56"
 linux_lts_dnl="https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-${linux_lts_version}.tar.xz"
-linux_lts_sha256="5fae869d6a24055c16ffc2d92669e3fb2b258e34d36c850bb8cf9def417ecfa0"
+linux_lts_sha256="f74812f78e88992c416434cb107639e13a551dbaff36bb90d6346ab16ab71a95"
 linux_lts_tarball="linux-${linux_lts_version}.tar.xz"
 
 lz4_version="1.10.0"
@@ -430,9 +430,9 @@ util_linux_dnl="https://www.kernel.org/pub/linux/utils/util-linux/v${util_linux_
 util_linux_sha256="d78b37a66f5922d70edf3bdfb01a6b33d34ed3c3cafd6628203b2a2b67c8e8b3"
 util_linux_tarball="util-linux-${util_linux_version}.tar.xz"
 
-vim_version="9.1.0764"
+vim_version="9.1.0774"
 vim_dnl="https://github.com/vim/vim/archive/refs/tags/v${vim_version}.tar.gz"
-vim_sha256="874be6146792d67ae47dc8d89f9d32558a266df87a81f5f80ad1b9b4cb31c1a1"
+vim_sha256="2bbf5cfcd4210330a0edc7d11ac18ff3f8e78cf0ff26e0d03a52ce2e04d2c9b8"
 vim_tarball="v${vim_version}.tar.gz"
 
 wheel_version="0.44.0"
