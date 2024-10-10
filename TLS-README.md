@@ -53,6 +53,46 @@ maintained but until then, YJL can still use LibreSSL for *most* OpenSSL API
 needs and use OpenSSL exclusively for Python3.
 
 
+Important Concept
+-----------------
+
+On YJL, `/usr/bin/libressl` is guaranteed to exist. It is a required package and
+is always there.
+
+On YJL, `/usr/bin/openssl` *might* exist but may not be present. When it is
+present, it *might* be a symbolic link to `/usr/bin/openssl` or it *might* be
+the binary built from OpenSSL.
+
+Scripts that ordinarily call the `openssl` binary should call the `libressl`
+binary instead and should not use features of OpenSSL newer than what was
+present in OpenSSL 1.0.1g which is the version that LibreSSL forked.
+
+When a script genuinely needs to use the `openssl` binary with newer features,
+then (and only then) the script should be packaged via RPM with:
+
+    Requires: /usr/bin/openssl >= n
+
+where `n` is the minimum version of OpenSSL that provides the needed feature.
+YJL will maintain an RPM package for a recent versions of OpenSSL to meet that
+requirement.
+
+If (like Python 3) all you need is the shared library from the recent version of
+OpenSSL, RPM will take of the shared library resolution but the RPM spec file
+should have:
+
+    BuildRequires: openssl-devel
+
+so that the proper devel package is present on the system when the package
+builds.
+
+On the other hand, packages that build just fine against LibreSSL should have:
+
+    BuildRequires: libressl-devel
+
+so that the proper devel package is present on the system when the package
+builds.
+
+
 LibreSSL Build Notes
 --------------------
 
@@ -111,3 +151,14 @@ This method also allows generation of the initial certificate bundles even from
 within the `chroot` being used to build the LFS system before the system has
 ever booted so that the certificate bundles are there even on the very first
 boot, allowing both `wget` and `curl` to work properly with TLS connections.
+
+Most users will never have to do anything. As long as the machine has a network
+connection, once a week `make-ca` will check for a new `certdata.txt` file and
+securely retrieve it if found, regenerating the TLS certificate bundles.
+
+Users who do not trust all of the certificate authorities Mozilla does, or who
+do trust certificate authorities Mozilla does not trust, can (assuming `root`
+privilege) adjust the generation of the certificate bundles as needed.
+
+The BLFS mechanism for maintaining TLS certificate bundles really is superior to
+what is in the vast majority of GNU/Linux distributions. I like it.

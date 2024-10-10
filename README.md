@@ -65,7 +65,10 @@ ready for the script to run. The `Master.sh` script calls the `CH06.*` scripts.
 Chapter 07 Building
 -------------------
 
-__PAY ATTENTION__: First, the `root` user must execute the `CHROOT.sh` script.
+__PAY ATTENTION__: First, the `root` user must execute the `CHROOT.sh` script:
+
+    root# bash CHROOT.sh
+
 That script will copy `CH7Build` and `CH8Build` into `/mnt/newlfs/sources` and
 then fix some permissions and set up `/mnt/newlfs` for the `chroot`
 environment.
@@ -75,16 +78,16 @@ Finally, it echoes the command that the `root` user must execute to enter the
 
 Once in the `chroot`:
 
-    cd /sources/CH7Build
-    bash 0-CH07-Prep.sh
+    root# cd /sources/CH7Build
+    root# bash 0-CH07-Prep.sh
 
 After executing `0-CH07-Prep.sh` reload `bash` with the following:
 
-    exec /usr/bin/bash --login
+    root# exec /usr/bin/bash --login
 
 Then, still inside the `chroot` at `/sources/CH7Build`, execute:
 
-    bash Master.sh
+    root# bash Master.sh
 
 The script works but is not finished. To do, it needs to verify the system is
 ready for the script to run. The `Master.sh` script calls the `CH07.*` scripts.
@@ -103,16 +106,23 @@ instructions for creating the backup involved deleted the `/mnt/newlfs/sources`
 directory.
 
 As the `lfs` user, re-run the `CH03-get-sources.sh` script to restore the
-sources. The script will restore them from backup, it will not need to fetch
-them again.
+sources:
+
+    lfs$ bash CH03-get-sources.sh
+
+The script will restore the sources from the backup it made the first time it
+ran, it will not need to fetch them again.
 
 Then as the `root` user, once again execute the `CHROOT.sh` script to set up
-the `chroot` environment and copy the build scripts into it. Again, the script
-will echo the command to enter the `chroot`. Execute it as `root` and then
-once in the `chroot` environment:
+the `chroot` environment and copy the build scripts into it:
 
-    cd /sources/CH8Build
-    bash Master.sh
+    root# bash CHROOT.sh
+
+Again, the script will echo the command to enter the `chroot`. Execute it as
+`root` and then once in the `chroot` environment:
+
+    root# cd /sources/CH8Build
+    root# bash Master.sh
 
 That will run many of the `CH08.*` scripts, building the LFS system through
 `CH08.34-bash`. Note that when it builds the `shadow` package, it first builds
@@ -125,11 +135,15 @@ the freshly rebuilt `bash` will be loaded.
 
 Once in the `chroot` environment again:
 
-    cd /sources/CH8Build
-    bash Master2.sh
+    root# cd /sources/CH8Build
+    root# bash Master2.sh
 
 That will run the rest of the `CH08.*` scripts. Assuming all goes well, the
 system will be ready for LFS Chapter 9 configuration.
+
+It also builds several packages from BLFS, specifically enough so that `wget`
+and `curl` are built, along with the TLS certificate bundles needed for those
+tools to make TLS (HTTPS) connections.
 
 Note that `Master2.sh` does have a major deviation from the LFS book. It builds
 LibreSSL to provide the OpenSSL API (e.g. as used by the `kmod` package). Most
