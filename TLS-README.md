@@ -86,7 +86,7 @@ the retrievel of the `certdata.txt` file.
 
 The `make-ca` utility uses `/usr/bin/openssl s_client` to retrieve the file with
 hard-coded certificate information for `hg.mozilla.org`. Either LibreSSL does
-not support the optiomd to `openssl s_client` that were used, or the hard-coded
+not support the options to `openssl s_client` that were used, or the hard-coded
 certificate was no longer valid.
 
 What I found was that if I instead used `/usr/bin/curl` to retrieve the
@@ -94,13 +94,18 @@ What I found was that if I instead used `/usr/bin/curl` to retrieve the
 already was valid certificate bundle for `curl` to validate the connection
 against.
 
-So long story short, I patch `make-ca` to use `/usr/bin/libressl` for everything
-*except* the retrieval of a new `certdata.txt` file. For that, I use `curl`.
+So long story short, I patched `make-ca` to use `/usr/bin/libressl` for
+everything *except* the retrieval of a new `certdata.txt` file. For that, I
+patched it to use `/usr/bin/curl`.
 
 The initial `certdata.txt` file is installed from elsewhere (not retrieved via
 the `make-ca` file) and then the certificate bundles are generated from it
 using `make-ca -r`. This then results in a valid certificate bundle that `curl`
 can use to grab an updated `certdata.txt` file when a new version is published.
+
+In this git repo, the file `CH8Build/certdata-dist.txt` is installed as the
+initial `certdata.txt` file and is the same file that unpatched `make-ca` would
+grab with OpenSSL.
 
 This method also allows generation of the initial certificate bundles even from
 within the `chroot` being used to build the LFS system before the system has
