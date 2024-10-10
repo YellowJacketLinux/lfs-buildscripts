@@ -147,13 +147,64 @@ Free Software stands for.
 
 ### Desktop Environments
 
-Foo
+You can tell someone is potentially subject to authoritarian leanings when they
+cite the plethora of desktop environments for GNU/Linux as a downside to
+GNU/Linux. The plethora of desktop environments available is important and is
+one of the areas where GNU/Linux really shines!
+
+Neurodiversity in our species is a *good* thing. There is no such thing as a
+desktop environment that is best for everyone, we all have different ways in
+which our mind works and differences in desktop environments allows us to find
+one that works better for our way of thinking rather than be forced into the
+corporate conformity of a single way of doing things.
+
+It is my philosophy that a GNU/Linux distribution should provide a stable,
+mature desktop environment that runs well on modest older hardware and __ALSO__
+provide for the vast diversity that exists in the Desktop Environment world.
+
+XFCE is a stable, mature desktop environment that runs well on modest older
+hardware and that is why XFCE is the desktop environment that YJL will package
+in the base repository.
+
+Even if maintained by the distribution, additional Desktop Environments should
+be packaged in their own separate package repositories to avoid cluttering up
+software package installers with too many options---especially when many of
+those options are designed for Desktop Environments that the user is not even
+running.
+
+Another reason why the additional Desktop Environments should have their own
+package repositories is that sometimes for generic libraries the Desktop
+Environment uses, there are compile-time options or even library version issues
+that are specific to that Desktop Environment. In such cases, the package
+repository can package the dependency for use with the Desktop Environment
+without imposing those compile-time options or version restrictions on the rest
+of the GNU/Linux distribution.
+
+When I first started using GNU/Linux, I used WindowMaker. When GNOME 0.8 Beta
+was released, I switched to it and quickly became a ‘GNOME Fan Boy’. However
+when GNOME3 was released---I hated it. Just to even get it *partially* usable I
+had to create custom `.css` files. It felt like they were trying to force a
+tablet user interface down my throat. Some people love GNOME3 and more power to
+them, it just is not for me. Fortunately MATE gave me alternative, being a clone
+of GNOME2.
+
+YJL will have a package repository for MATE.
+
+I have personal doubts I will ever get to the point of a working RPM based
+installer. If I do, I have personal doubts I will ever find even 50 users who
+are not relatives.
+
+The hope however is that there will be enough users that both demand and capable
+maintainers exist at least for GNOME3 and KDE but I would absolutely __LOVE__ to
+see many of the lesser-used Desktop Environments have package repositories
+available for YJL.
 
 
 ### Fonts
 
 In my opinion, fonts in GNU/Linux is a mess. The problem is there are far too
-many installed, making it difficult from a UI perspective to select a font.
+many installed, making it difficult from a UI perspective to select a font. Less
+is more.
 
 Back when the Apple Macintosh first shipped, there was a small collection of
 high quality variable-width bitmap fonts. The ‘Desktop Publishing’ era had
@@ -219,14 +270,64 @@ Google Noto fonts will provide decent coverage but probably are not the best
 collection of fonts for many scripts out there.
 
 
+Controversial Design Decisions
+------------------------------
 
+At least I *think* these are controversial design decisions...
 
+### SELinux
 
+YJL will not support SELinux. SELinux support is really the kind of thing that
+needs to be available at system installation rather than provided by an add-on
+package repository.
 
+My *personal* experience with SELinux is that it gets in the way of the user and
+adds too much complexity to system admimistration. It may be necessary for the
+Enterprise user, but the benefit just does not justify the added work for the
+desktop user.
 
+### 32-bit Compatibility
 
+YJL is for 64-bit systems. The base operating system will not provide any 32-bit
+libraries.
 
+It *hopefully* will be possible to cross-compile 32-bit libraries to install
+into `/opt/32-bit` so that things like the Second Life ‘Firestorm’ client viewer
+can run it, but the operating system is __NOT__ being built with 32-bit
+compatibility in mind.
 
+### FireFox
+
+This will likely be a show-stopper for many. I have no plans to ever package the
+FireFox web browser for YJL. I will provide clear instructions on how to
+*safely* install it, but I will not provide a YJL maintained RPM package for it.
+
+An add-on repository can do so if they so choose, but I am very serious about
+user privacy and some of the decisions FireFox has made have made me feel like
+they are trying to subvert user privacy. Doing things like new options that have
+privacy concerns that are opt-out instead of opt-in, etc.
+
+From https://www.pcmag.com/news/firefox-mozilla-data-collection-feature-sparks-privacy-concerns:
+
+> “If you don’t want Firefox to send data about your web activity in this
+> manner, you can turn it off.”
+
+Attitudes like that from corporations really tick me off. They should not be
+collecting the data in the first place even if they claim to anonymize it, and
+when they do collect it, it should be opt-in with the user fully understanding
+the potential implications of the data collection.
+
+That article is just but one example.
+
+YJL will package web browsers, but not FireFox (or Chromium as it seems to me to
+be just as bad).
+
+Yes, that means much of the web will not work properly from a YJL provided web
+browser.
+
+Web developers who can not figure out how to create web pages that work without
+FireFox or Chrome need to look for another job, and GNU/Linux distributions need
+to stop enabling companies like FireFox that do creepy things.
 
 
 Personal History
