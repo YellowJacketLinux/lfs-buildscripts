@@ -195,12 +195,53 @@ users seeming to indicate it is still quite buggy.
 
 So the script for setting up networking disables `systemd-resolved` and instead
 creates a classic `/etc/resolv.conf` file. Once I have the system running, I
-will likely play with `systemd-resolved` but even if I do play with it and get
-it working well, I generally like to run `unbound` (in DNSSEC enforcing mode)
-on the localhost anyway.
+will likely play with `systemd-resolved` and figure things out. For the desktop
+user, it seems like the biggest advantages of `systemd-resolved` over the
+simpler `/etc/resolv.conf` are the ability to endorce DNSSEC and the ability to
+use DNS over TLS (different than DNS over HTTPS) *however* it seems both of
+those features are marked as *experimental*. For the present, users who want
+DNSSEC should probably run `unbound` on the localhost for DNS services. That is
+what I personally do.
 
-Network configuration for the USB flash drive is to not use it, it does not need
-a network connection for anything.
+DoT does have some privacy benefits but honestly I am not that fond of it, I do
+not think the extra complexity and added points of failure are of a real world
+benefit. DoT does not prevent the DNS server itself from tracking your requests
+or selling data about you. DoT does protect against DNS injection attacks *but
+only between you and the recursive resolver*. It does not provide end to end
+injection protection between you and the authoritative DNS server. Recursive
+resolvers __should__ opportunisticly use DoT when communicating with
+authoritative servers (or upstream recursive resolvers) but they should only use
+opportunistic DoT as otherwise, a TLS issue could cause a large service outage
+that potentially impacts life-saving emergency services.
+
+I am not convinced that the added complexity of DoT is proper for the desktop
+user. Users who *want* to run it though should be able to, and
+`systemd-resolved` potentially allows them to.
+
+DNSSEC is the only way you can verify the response to your DNS request has not
+been tampered with, and DNSSEC *should* be implemented on each client machine.
+That is a definite benefit to `systemd-resolved` or at least will be once it is
+working properly and no longer marked as *experimental*.
+
+For the small business or larger home, a couple (never only one) of ‘Raspberry
+Pi’ devices running `unbound` is a very good thing. The `unbound` caching DNS
+server should be running opportunistic DoT of course but the desktop machines
+that query them really do not need to.
+
+Medium and larger businesses may need something more powerful than a ‘Raspberry
+Pi’ device, but they should have IT departments with people trained to figure out
+what they need. Point is, DoT really is not a desktop user technology IMHO.
+
+DNS over HTTPS is a browser technology and IMHO is rubbish, the only real
+benefit is to trackers because it prevents DNS based advertisement and tracker
+blocking and thus DoH actually serves to __reduce end-user privacy__. Turn it off
+in your browser, some browsers now *cough*FireFox*cough* enable it by default.
+
+Okay back on topic...
+
+Network configuration for the USB flash drive is to simply not use it, it does
+not need a network connection for anything, it will have all the source tarballs
+it needs to rebuild LFS on the target hard drive.
 
 ### /etc/fstab
 
@@ -228,56 +269,4 @@ is compiled.
 The `/etc/fstab` entry for the root filesystem on the USB flash drive still
 needs to be filled in, I have not formatted the drive yet, I am still doing
 dry runs.
-
-
-
-The Madness
------------
-
-Long term goal is to produce a GNU/Linux distribution largely based upon LFS
-but using RPM packages with a ‘core’ package repository and then additional
-package repositories that require the ‘core’ package repository.
-
-Multilib is not a goal, nor is compatibility with WINE. The goal is to allow
-‘Free Libre Open Source Software’ to have a capable GNU system running the
-Linux kernel upon which to run.
-
-I *personally* will be involved in the package repository for the MATE Desktop
-Environment when it gets that far, but as far as GNOME, KDE, etc. if they are
-to have package repositories then others will have to provide them.
-
-What I want is a stable ‘LTS’ distribution along the lines of what CentOS used
-to be but third-party package repositories providing for the needs of the user
-community, similar to how ‘Fedora Extras’ supplemented Red Hat Linux back in the
-day.
-
-Is that too much to ask?
-
-
-The Plan
---------
-
-These scripts will be used to build a bootable USB thumb drive that will then
-be used to run the scripts again to rebuild itself on the hard disk. The thumb
-drive then becomes my emergency boot device.
-
-Once installed on the hard drive, BLFS packages will be added until I have a
-basic usable system bootstrapped with the RPM package manager.
-
-At that point, packages will be added until I am able to run the XFCE desktop
-environment. Long-term goal personally is MATE but MATE will be done as a
-separate package repository. Hopefully KDE and GNOME will also be done as
-separate package repositories as well.
-
-Users who are happy with XFCE will not need a separate package repository for
-their desktop environment.
-
-Back on topic, once XFCE is properly packaged and working, then the scripts
-used to build the bootable USB thumb drive will be used to build an installer
-thumb drive with a crude basic installer to create a system using RPM packages.
-
-That will be the first release of ‘Yellow-Jacket GNU/Linux’ and it is probable
-that by the time that happens, the LTS kernel will have changed and quite
-likely other core components like GCC and GlibC and Python.
-
 
