@@ -37,6 +37,7 @@ export LFS LC_ALL LFS_TGT PATH CONFIG_SITE
 # below is conservative but safe
 export MAKEFLAGS=-j8
 EOF
+chown lfs:lfs /home/lfs/.bashrc
 
 echo "Please set the password for the lfs user:"
 echo "   passwd lfs"
