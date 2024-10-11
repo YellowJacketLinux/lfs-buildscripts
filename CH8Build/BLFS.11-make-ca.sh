@@ -23,9 +23,6 @@ fi
 cp ../certdata-dist.txt /etc/ssl/certdata.txt
 /usr/sbin/make-ca -r
 
-# auto-update via systemd
-systemctl enable update-pki.timer
-
 # configure pip3
 [ ! -d /etc/profile.d ] && mkdir -p /etc/profile.d
 
