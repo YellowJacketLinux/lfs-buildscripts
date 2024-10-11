@@ -183,6 +183,8 @@ Chapter Nine Configuration
 These configuration scripts have things very specific to my hardware, such as
 the MAC Address of my NIC and the UUID identifiers for my disk partitions.
 
+### Network Configuration
+
 For the network configuration, I am trying to use `systemd-networkd` to
 configure the network interface card, I think I understand the documentation
 for that and the general impression I get is that it works quite well.
@@ -200,6 +202,32 @@ on the localhost anyway.
 Network configuration for the USB flash drive is to not use it, it does not need
 a network connection for anything.
 
+### /etc/fstab
+
+Note that for the generation of the `/etc/fstab` files, I am using the partion
+`UUID`. That is a deviation from the LFS book but it is a more reliable way to
+identify the partition to be mounted.
+
+For the `/etc/fstab` that will be used when built to the hard disk, the `/home`
+partition is commented out. My `/home` is actually shared between several
+different installs and distributions, so once I actually boot into the system
+and add the user accounts with their proper user and group ID, then I can
+uncomment that entry and reboot.
+
+For the `/etc/fstab` that will be used when built to the USB thumb drive, at
+boot it will mount the partition of the hard drive I plan to install to at
+`/mnt/newlfs` so that it is ready to go.
+
+There is an `fstab` entry for `/mnt/newlfs/boot` but it does not mount that
+filesystem automatically. That is also the `/boot` for my LFS 11.3 install
+and it will not be mounted until I am ready to build the kernel that will be
+installed to it, so the entry is there to make it easy to mount when I need
+to mount it but it will not actually be mounted until just before the kernel
+is compiled.
+
+The `/etc/fstab` entry for the root filesystem on the USB flash drive still
+needs to be filled in, I have not formatted the drive yet, I am still doing
+dry runs.
 
 
 
