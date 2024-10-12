@@ -275,10 +275,43 @@ Google Noto fonts will provide decent coverage but probably are not the best
 collection of fonts for many scripts out there.
 
 
+To Be Researched
+----------------
+
+A lot of hardware, especially modern hardware, requires binary blobs to properly
+function. These binary blobs can often be found in the Linux Firmware git at:
+
+https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/
+
+As they are binary blobs, they can not be shipped as part of a Linux kernel
+package because of the GPL but they can be shipped as part of a separate package
+and then loaded by the kernel while the kernel is booting.
+
+Loading them by the kernel while the kernel is booting generally requires that
+they be placed into an `initrd` image that the `grub` boot loader knows about.
+
+BLFS has a really good write-up on this in Chapter 3 but I need to do a lot more
+research on the topic *especially* since the proper way to handle it may depend
+specifically on the hardware that needs the blob loaded.
+
+
 Controversial Design Decisions
 ------------------------------
 
 At least I *think* these are controversial design decisions...
+
+### Ease of Use
+
+Ease of Use is not my biggest concern. Not everything needs a GUI tool, I do not
+think it is a problem for the user to be expected to know how to use a text
+editor from a console to perform some configuration tasks.
+
+I am certainly not opposed to configuration tools that are properly written but
+for example, I do not have a problem with manual creation of the files in the
+`/etc/systemd/network` directory being necessary in order for networking to
+work.
+
+Operating systems used to come with a printed manual. Was that really so bad?
 
 ### SELinux
 
@@ -323,7 +356,15 @@ collecting the data in the first place even if they claim to anonymize it, and
 when they do collect it, it should be opt-in with the user fully understanding
 the potential implications of the data collection.
 
-That article is just but one example.
+That article is just but one example. Another example is FireFox defaulting to
+DNS over HTTPS by default. See thr section labeled ‘__DNS over HTTPS (DoH)__’
+in the file `SECURE_DNS.md` for details.
+
+It is true that YJL could ship a version of FireFox patched to disable those
+defaults (or even remove the features completely) but that is a lot of work and
+also, the fact that the code is in FireFox and enabled by default to start with
+makes me very suspicious of what *else* is in their code that is potentially
+harmful to users. I just do not trust them.
 
 YJL will package web browsers, but not FireFox (or Chromium as it seems to me to
 be just as bad).

@@ -101,7 +101,7 @@ have not seen researched.
 
 If (and when if not currently) `systemd-resolved` with DNSSEC validation works
 smoothly and reliably it absolutely should be used in place of
-`/etc/resolv.conf` for DNS resolution of a Linux desktop.
+`/etc/resolv.conf` for DNS resolution of a GNU/Linux desktop.
 
 Until `systemd-resolved` with DNSSEC validation works smoothly and reliably,
 the best solution is to run `unbound` in DNSSEC enforcing mode on your local
@@ -115,7 +115,7 @@ DNS over TLS (DoT)
 ------------------
 
 DNS over TLS is just like regular DNS except it uses a TLS connection to make
-the request and receive the answer.
+the request and receive the answer. DoT should not be confused with DoH.
 
 DoT does offer protection against DNS injection attacks between the client and
 the recursive server it queries, but it is important to understand that DoT is
@@ -167,7 +167,7 @@ activity. If your system is configured to *only* allow DoT queries, your system
 will not work on a network that blocks DoT queries.
 
 Honestly I just recommend desktop systems enforce DNSSEC but should avoid DoT
-and only use opportunistic DoT when if they really want to use it at all.
+and only use opportunistic DoT when and if they really want to use it at all.
 
 Recursive DNS servers absolutely should use DoT when communicating with the
 authoritative DNS servers they query, however, even then it should be
@@ -186,8 +186,8 @@ default but users will be told how to enable it in opportunistic mode.
 
 Until `systemd-resolved` works well and smoothly in DNSSEC enforcing mode, I
 will disable it by default. Users who want it of course can enable it. I really
-do not YJL to be a distribution that pushes technology not quite ready for mass
-adoption on its users.
+do not want YJL to be a distribution that pushes technology not quite ready for
+mass adoption on its users.
 
 If `systemd-resolved` with DNSSEC support is not yet working well and smoothly
 when the first official YJL release happens, then YJL will ship with `unbound`
