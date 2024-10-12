@@ -23,7 +23,7 @@ On social media (especially places like reddit) you will often run into
 GNU/Linux users who make the claim that `systemd-resolved` is trying to solve
 a problem that has already long been solved by `/etc/resolv.conf` and is an
 example of programmers trying to force complexity on us. They will often get a
-lot of upvotes and confirming replies. I hate to be condescending but those
+lot of up-votes and confirming replies. I hate to be condescending but those
 people are just fucking idiots who like to sound wise.  DNS injection attacks
 are a __SERIOUS__ problem that `/etc/resolv.conf` does not even *begin* to
 address.
@@ -138,7 +138,7 @@ problem.
 
 Failure to resolve domain names because of a TLS problem (such as a revoked
 certificate, a certificate not trusted by your client’s certificate bundle, or
-an inability for your client and the server to agree upon cypher suite to use)
+an inability for your client and the server to agree upon cipher suite to use)
 results in a *complete loss* of DNS services unless DoT is used as an
 opportunistic feature that allows a fall-back to plain text.
 
@@ -243,4 +243,11 @@ without also blocking all secure web pages.
 
 DoH is both a privacy and security disaster and the companies behind it, that
 embrace it, and promote it should be ashamed of themselves.
+
+When secure DNS is needed, it should be done through DoT. The *only* reason for
+DoH to even exist is to bypass system and network privacy and security. Believe
+me when I say companies like Apple, Google, and Mozilla (makers of FireFox) most
+certainly do NOT have your best interests in mind. They want to track you, they
+want to allow advertisers to track you, even when the mechanism by which they
+allow such tracking also causes a security nightmare.
 
