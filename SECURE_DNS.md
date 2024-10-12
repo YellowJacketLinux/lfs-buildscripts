@@ -214,6 +214,15 @@ routers that need updating. I do not anticipate setting `DNSSEC=yes` in the
 default configuration will cause an issue for the vast majority of users, and it
 is *much* safer than `DNSSEC=allow-downgrade`.
 
+Another configuration I hope to be able to accomplish is to disable DNSSEC *if
+and only if* the DNS server is the localhost. The reason for this, if the user
+is running `unbound` on the localhost, it will *already* be performing DNSSEC
+validation and there is no exposed network between `unbound` and the localhost
+so there it is just a waste of processor resources to have `systemd-resolved`
+*also* perform DNSSEC validation. However if the local `unbound` service fails
+or stops causing a fallback DNS server to be needed, those results then *should*
+be DNSSEC validated by `systemd-resolved`.
+
 Until `systemd-resolved` works well and smoothly in DNSSEC enforcing mode, I
 will disable `systemd-resolved` by default. Users who want it of course can
 enable it. I really do not want YJL to be a distribution that pushes technology
