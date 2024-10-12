@@ -42,10 +42,11 @@ Name=lan0
 [Network]
 DHCP=ipv4
 EOF
-  # auto-update certificate bundle
+  # auto-update "make-ca" certificate bundle
   systemctl enable update-pki.timer
 else
   # bootable USB thumb drive
   echo "lfsusb" > /etc/hostname
-  systemctl disable systemd-networkd-wait-online
+  #systemctl disable systemd-networkd-wait-online
+  systemctl disable systemd-networkd
 fi

@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Do not try to bring up the network when booted from a thumb drive
-
-systemctl disable systemd-networkd-wait-online
-
-# hostname
-
-echo "lfsusb" > /etc/hostname
-
 # LFS user
 
 groupadd lfs
