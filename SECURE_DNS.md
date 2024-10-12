@@ -3,7 +3,7 @@ DNS and Security
 
 On traditional GNU/Linux (and most other UNIX and UNIX-like systems), DNS
 resolution was accomplished by adding the static IP addresses of at least two
-DNS servers is the file `/etc/resolv.conf`. It worked but it lacked any
+DNS servers in the file `/etc/resolv.conf`. It worked but it lacked any
 mechanism for DNS injection attack security.
 
 A DNS injection attack is where the attacker intercepts a query to a DNS server
@@ -47,7 +47,7 @@ but the documentation for `systemd-resolved` is currently very confusing to me.
 
 Furthermore, it seems that it is only enabled by default on two mainstream
 GNU/Linux distributions: Fedora and Ubuntu. In both cases, user support
-resources are full of people having problemd with `systemd-networkd` including
+resources are full of people having problems with `systemd-networkd` including
 very slow responses that are solved when the user disables the services and
 instead uses `/etc/resolv.conf` to configure DNS resolution.
 
@@ -69,7 +69,7 @@ the response over TLS but is having a TLS failure, finally making the request
 without TLS once a certain number of failures have occurred.
 
 I would definitely like to play with `systemd-resolved` and figure out how to
-properly configure it, but that is something to do after I __know__ the new
+properly configure it, but that is something to do after I __know__ the new LFS
 system is otherwise stable so that I do not blame `systemd-resolved` for what
 it is not to be blamed for.
 
@@ -86,14 +86,14 @@ against the DNSSEC signature unless the attacker *also* modifies the signature
 but to do that, they need the DNSSEC signing key for the domain.
 
 It is not impossible for an attacker to obtain the DNSSEC signing key for a
-domain but it makes a DNS injection much more difficult and when it is
+domain but it makes a DNS injection attack much more difficult and when it is
 discovered that a DNSSEC signing key has been compromised, it is trivial to
 revoke the key so that it is no longer valid and issue a new signing key.
 
 Every DNS client __SHOULD__ validate DNS responses with DNSSEC and every domain
 should sign their DNS records with DNSSEC. The signing key should be kept on a
 machine that is not connected to a network, with the signed records then
-uploaded to the authoritated DNS server for the domain.
+uploaded to the authoritative DNS server for the domain.
 
 Unfortunately many domains do not yet sign their DNS records. Of those that do,
 how many of them keep their signing key on an offline machine is a question I
@@ -157,7 +157,10 @@ VPN to achieve those privacy benefits. For the desktop user who fears DNS
 injection between their system and the recursive DNS server they make queries
 to, DoT can be used but if used, configure it to be opportunistic.
 
-Many networks monitors DNS traffic for suspicious queries that indicate malware
+Malware on corporate networks cost corporations *billions* of dollars *every
+year*.
+
+Many networks monitor DNS traffic for suspicious queries that indicate malware
 has found its way onto the network. Those networks will often block DoT because
 the traffic is encrypted and the queries can not be analyzed for malware
 activity. If your system is configured to *only* allow DoT queries, your system
@@ -196,4 +199,48 @@ no like installing running servers by default.
 DNS over HTTPS (DoH)
 --------------------
 
-foo
+The `systemd-resolved` does not support DoH and hopefully it never will, DoH is
+an abomination that should not exist.
+
+I have this paranoid sick feeling in my gut that some pop culture GNU/Linux
+distribution, or perhaps even the SystemD developers themselves, will think it
+is a good idea to add DoH support to `systemd-resolved` and cause a lot of
+problems.
+
+DoH is a web browser technology that allows a web browser to bypass the
+operating system DNS resolution system and make DNS queries directly to a DNS
+server using HTTPS on port 443.
+
+By bypassing the operating system DNS resolution system, any software on the
+system to protect the user against malware or to provide content filtering for
+children that uses the operating system DNS resolution is thus bypassed.
+
+By bypassing the operating system DNS resolution system, any software on the
+LAN recursive DNS resolver to protect the user against malware or to provide
+content filtering for children is thus bypassed.
+
+Many people like to run a ‘Pi-Hole’ resolving DNS server on their LAN to
+block domains known to violate user privacy with tracking. When a web browser
+makes its DNS requests using DoH, those systems are completely bypassed.
+
+Many browsers enable DoH by default, despite these concerns being plainly made
+to them. My suspicion is that the entire reason why the technology exists in
+the first place is specifically the thwart DNS based anti-tracker privacy
+protection but in doing so not only is user privacy reduced, DNS based filtering
+to protect users against known malware hosts is also bypassed.
+
+My fear is that either `systemd-resolved` support of DoH (if it ever happens)
+or through code within malware itself, malware will start using DoH for its own
+domain name resolution needs if it has not done so already. This would be
+incredibly dangerous.
+
+With DoT, port 853 is used. A corporate or school network that needs to monitor
+DNS traffic for signs of a malware infested host can just block port 853 and
+force DNS resolution in the plain text on port 53.
+
+With DoH on the other hand, port 443 is used. A network can not block port 443
+without also blocking all secure web pages.
+
+DoH is both a privacy and security disaster and the companies behind it, that
+embrace it, and promote it should be ashamed of themselves.
+

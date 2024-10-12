@@ -189,55 +189,8 @@ For the network configuration, I am trying to use `systemd-networkd` to
 configure the network interface card, I think I understand the documentation
 for that and the general impression I get is that it works quite well.
 
-For DNS resolution however, I found the documentation for `systemd-resolved` to
-be quite confusing and I also found many complaints from Ubuntu and Fedora
-users seeming to indicate it is still quite buggy.
-
-So the script for setting up networking disables `systemd-resolved` and instead
-creates a classic `/etc/resolv.conf` file. Once I have the system running, I
-will likely play with `systemd-resolved` and figure things out. For the desktop
-user, it seems like the biggest advantages of `systemd-resolved` over the
-simpler `/etc/resolv.conf` are the ability to endorce DNSSEC and the ability to
-use DNS over TLS (different than DNS over HTTPS) *however* it seems both of
-those features are marked as *experimental*. For the present, users who want
-DNSSEC should probably run `unbound` on the localhost for DNS services. That is
-what I personally do.
-
-DoT does have some privacy benefits but honestly I am not that fond of it, I do
-not think the extra complexity and added points of failure are of a real world
-benefit. DoT does not prevent the DNS server itself from tracking your requests
-or selling data about you. DoT does protect against DNS injection attacks *but
-only between you and the recursive resolver*. It does not provide end to end
-injection protection between you and the authoritative DNS server. Recursive
-resolvers __should__ opportunisticly use DoT when communicating with
-authoritative servers (or upstream recursive resolvers) but they should only use
-opportunistic DoT as otherwise, a TLS issue could cause a large service outage
-that potentially impacts life-saving emergency services.
-
-I am not convinced that the added complexity of DoT is proper for the desktop
-user. Users who *want* to run it though should be able to, and
-`systemd-resolved` potentially allows them to.
-
-DNSSEC is the only way you can verify the response to your DNS request has not
-been tampered with, and DNSSEC *should* be implemented on each client machine.
-That is a definite benefit to `systemd-resolved` or at least will be once it is
-working properly and no longer marked as *experimental*.
-
-For the small business or larger home, a couple (never only one) of ‘Raspberry
-Pi’ devices running `unbound` is a very good thing. The `unbound` caching DNS
-server should be running opportunistic DoT of course but the desktop machines
-that query them really do not need to.
-
-Medium and larger businesses may need something more powerful than a ‘Raspberry
-Pi’ device, but they should have IT departments with people trained to figure out
-what they need. Point is, DoT really is not a desktop user technology IMHO.
-
-DNS over HTTPS is a browser technology and IMHO is rubbish, the only real
-benefit is to trackers because it prevents DNS based advertisement and tracker
-blocking and thus DoH actually serves to __reduce end-user privacy__. Turn it off
-in your browser, some browsers now *cough*FireFox*cough* enable it by default.
-
-Okay back on topic...
+For DNS resolution however, I am *presently* disabling `systemd-resolved`. To
+understand why, see the file `SECURE_DNS.md`.
 
 Network configuration for the USB flash drive is to simply not use it, it does
 not need a network connection for anything, it will have all the source tarballs
