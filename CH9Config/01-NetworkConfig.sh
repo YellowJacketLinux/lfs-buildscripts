@@ -47,6 +47,6 @@ EOF
 else
   # bootable USB thumb drive
   echo "lfsusb" > /etc/hostname
-  #systemctl disable systemd-networkd-wait-online
+  systemctl disable systemd-networkd-wait-online
   systemctl disable systemd-networkd
 fi

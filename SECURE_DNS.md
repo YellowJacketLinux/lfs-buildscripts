@@ -184,6 +184,29 @@ When I am confident that `systemd-resolved` works well and smoothly in DNSSEC
 enforcing mode, that will be the enabled default. I will *not* enable DoT by
 default but users will be told how to enable it in opportunistic mode.
 
+It appears that the default at compile time is `DNSSEC=allow-downgrade` and I
+probably should leave that simply because a lot of people now look at man pages
+online even when the man page is available locally, so to have a different
+compile-time default could cause confusion.
+
+However the file `/etc/system.d/resolved.conf` could be created by default to
+override some compile time defaults, as the man page specifies that file as a
+place to look.
+
+What I would like to see happen is `DNSSEC=yes` set in that file, and the Google
+public DNS servers set as the backup DNS servers. The default DNS servers would
+still be retrieved from DHCP (or manually configured by the user) and in the
+event that the DNS server retrieved from DHCP does not support DHCP, the
+`systemd-resolved` service would failover to using the Google public DNS servers
+rather than downgrading DNSSEC support.
+
+There may be some networks where the DNS server assigned by the DHCP server does
+not support DNSSEC *and* the network blocks DNS requests outside the network. In
+such cases, DNS resolution would be broken but *hopefully* the user could then
+configure `DNSSEC=allow-downgrade` for that connection which, if WiFi, hopefully
+could be done by SSID so that `DNSSEC=allow-downgrade` only applies to that
+SSID.
+
 Until `systemd-resolved` works well and smoothly in DNSSEC enforcing mode, I
 will disable it by default. Users who want it of course can enable it. I really
 do not want YJL to be a distribution that pushes technology not quite ready for
