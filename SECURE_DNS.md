@@ -207,16 +207,27 @@ configure `DNSSEC=allow-downgrade` for that connection which, if WiFi, hopefully
 could be done by SSID so that `DNSSEC=allow-downgrade` only applies to that
 SSID.
 
+At this point in time, it *appears to me* (not properly researched) that at
+least in developed countries, the only DNS servers that do NOT support DNSSEC
+querries are some very old caching DNS servers that are built into very old
+routers that need updating. I do not anticipate setting `DNSSEC=yes` in the
+default configuration will cause an issue for the vast majority of users, and it
+is *much* safer than `DNSSEC=allow-downgrade`.
+
 Until `systemd-resolved` works well and smoothly in DNSSEC enforcing mode, I
-will disable it by default. Users who want it of course can enable it. I really
-do not want YJL to be a distribution that pushes technology not quite ready for
-mass adoption on its users.
+will disable `systemd-resolved` by default. Users who want it of course can
+enable it. I really do not want YJL to be a distribution that pushes technology
+not quite ready for mass adoption on its users.
 
 If `systemd-resolved` with DNSSEC support is not yet working well and smoothly
 when the first official YJL release happens, then YJL will ship with `unbound`
 configured for DNSSEC and opportunistic DoT queries to the authoritative DNS
 servers, but the user will have to enable the service if they want it as I do
 no like installing running servers by default.
+
+It is *possible* that `systemd-resolved` with DNSSEC support *already* works
+smoothly and well, the reports of issues I saw online from Fedora and Ubuntu
+users involved older versions of SystemD.
 
 
 DNS over HTTPS (DoH)
