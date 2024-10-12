@@ -199,8 +199,8 @@ no like installing running servers by default.
 DNS over HTTPS (DoH)
 --------------------
 
-The `systemd-resolved` does not support DoH and hopefully it never will, DoH is
-an abomination that should not exist.
+The `systemd-resolved` service does not support DoH and hopefully it never will,
+DoH is an abomination that should not exist.
 
 I have this paranoid sick feeling in my gut that some pop culture GNU/Linux
 distribution, or perhaps even the SystemD developers themselves, will think it
