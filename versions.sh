@@ -516,4 +516,11 @@ makeca_dnl="https://github.com/lfs-book/make-ca/archive/v${makeca_version}/make-
 makeca_sha256="6391698fe6db16eb190da1aba802bc90c09c8baa4c116d9c65647bea87f190db"
 makeca_tarball="make-ca-${makeca_version}.tar.gz"
 
+# Other
+
+linux_firmware_version="20240909"
+linux_firmware_dnl="https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/snapshot/linux-firmware-${linux_firmware_version}.tar.gz"
+linux_firmware_sha256="93e9b6ae2240661639c874f5fc38f677d18afe365b17a13fee6b4fc4fba42c10"
+linux_firmware_tarball="linux-firmware-${linux_firmware_version}.tar.gz"
+
 # EOF
