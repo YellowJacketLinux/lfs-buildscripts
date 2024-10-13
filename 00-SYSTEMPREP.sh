@@ -22,12 +22,6 @@ mkdir -p ${LFS}/lib64
 
 mkdir -p ${LFS}/tools
 
-groupadd lfs
-useradd -s /bin/bash -g lfs -m -k /dev/null lfs
-
 chown lfs ${LFS}/{usr{,/*},lib,var,etc,bin,sbin,tools}
 chown lfs ${LFS}/lib64
 
-echo "Please set a password for the lfs user account"
-echo ""
-echo "    passwd lfs"
