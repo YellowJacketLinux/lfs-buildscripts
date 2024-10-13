@@ -61,19 +61,18 @@ set timeout=5
 
 insmod part_gpt
 insmod ext2
-set root=(hd0,2)
+search --set=root --fs-uuid add2119a-1a46-4c72-b212-863ee869ebd1
 
 EOF
 
-echo "root=(hd0,2)" >> /boot/grub/grub.cfg
+echo "#USB Flash Grub" >> /boot/grub/grub.cfg
 echo "" >> /boot/grub/grub.cfg
 echo "menuentry \"GNU/Linux, Linux ${KVSTRING}\" {" \
   >> /boot/grub/grub.cfg
-echo "  linux /boot/vmlinuz-${KVSTRING} root=/dev/sda2 ro" \
+echo "  linux /boot/vmlinuz-${KVSTRING} root=PARTUUID=8d5d11ba-01 ro" \
   >> /boot/grub/grub.cfg
 echo "}" >> /boot/grub/grub.cfg
 
 echo "Please verify /boot/grub/grub.cfg is correct."
-echo "If so, exit the chroot and run grub-install on USB Flash device"
-echo "and set device as bootable."
+echo "If so, run grub-install on USB Flash device inside the chroot."
 
