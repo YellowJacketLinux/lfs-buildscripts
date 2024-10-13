@@ -67,9 +67,9 @@ EOF
 
 echo "root=(hd0,2)" >> /boot/grub/grub.cfg
 echo "" >> /boot/grub/grub.cfg
-echo " menuentry \"GNU/Linux, Linux ${KVSTRING}\" {" \
+echo "menuentry \"GNU/Linux, Linux ${KVSTRING}\" {" \
   >> /boot/grub/grub.cfg
-echo "        linux   /boot/vmlinuz-${KVSTRING} root=/dev/sda2 ro" \
+echo "  linux /boot/vmlinuz-${KVSTRING} root=/dev/sda2 ro" \
   >> /boot/grub/grub.cfg
 echo "}" >> /boot/grub/grub.cfg
 
