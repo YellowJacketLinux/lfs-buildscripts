@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# LFS user
+# LFS user on flash drive
 
 groupadd lfs
 useradd -d /home/lfs -s /bin/bash -g lfs -m -k /dev/null lfs
