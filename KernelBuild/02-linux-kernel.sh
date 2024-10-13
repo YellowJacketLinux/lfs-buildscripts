@@ -47,6 +47,8 @@ install -D -m644 .config /boot/config-${KVSTRING}
 install -m644 System.map /boot/System.map-${KVSTRING}
 install -m644 arch/x86_64/boot/bzImage /boot/vmlinuz-${KVSTRING}
 
+[ ! -d /usr/share/doc/linux ] && mkdir -p /usr/share/doc/linux
+
 cp -r Documentation /usr/share/doc/linux/linux-${linux_lts_version}
 
 popd

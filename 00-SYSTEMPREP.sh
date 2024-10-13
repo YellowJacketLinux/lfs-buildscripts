@@ -25,3 +25,5 @@ mkdir -p ${LFS}/tools
 chown lfs ${LFS}/{usr{,/*},lib,var,etc,bin,sbin,tools}
 chown lfs ${LFS}/lib64
 
+mkdir -p ${LFS}/sources
+chown lfs ${LFS}/sources
