@@ -14,8 +14,10 @@ LFS="/mnt/newlfs"
 [ ! -d ${LFS}/sources/CH7Build ] && cp -ar CH7Build ${LFS}/sources/
 [ ! -d ${LFS}/sources/CH8Build ] && cp -ar CH8Build ${LFS}/sources/
 [ ! -d ${LFS}/sources/CH9Config ] && cp -ar CH9Config ${LFS}/sources/
+[ ! -d ${LFS}/sources/KernelBuild ] && cp -ar KernelBuild ${LFS}/sources/
 cp versions.sh ${LFS}/sources/CH7Build/
 cp versions.sh ${LFS}/sources/CH8Build/
+cp versions.sh ${LFS}/sources/KernelBuild/
 
 chown --from lfs -R root:root ${LFS}/{usr,lib,var,etc,bin,sbin,tools}
 
