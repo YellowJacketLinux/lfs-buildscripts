@@ -18,6 +18,8 @@ make mrproper
 cp ../lts-kernel-config ./.config
 
 make oldconfig
+
+make
 if [ $? -ne 0 ]; then
   myfail "Failed building kernel"
 fi
