@@ -21,7 +21,6 @@ UUID=2322f8e6-1d3d-43ee-becf-67417a46e124 /boot          ext2     defaults      
 UUID=a36492d9-de00-4c51-9649-cd5b5004f790 swap           swap     defaults            0 0
 EOF
 else
-  cat > /etc/fstab << "EOF"
   # When the USBFlash boots
   cat > /etc/fstab << "EOF"
 # UUID/File System                        mount-point    type     options          dump fsck
