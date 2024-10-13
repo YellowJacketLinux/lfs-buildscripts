@@ -17,13 +17,4 @@ if [ ! -f ${LFS}/USBFlash ]; then
   cp /home/lfs/lfs-sources.tar ${LFS}/home/lfs/
   cp -ar /home/lfs/lfs-buildscripts ${LFS}/home/lfs/
   touch ${LFS}/USBFlash
-else
-  echo "Mounting existing /boot"
-  #uncomment below before final build
-  #  [ ! -d /mnt/newlfs/boot ] && mkdir /mnt/newlfs/boot
-  #  mount /mnt/newlfs/boot
-  #  if [ $? -ne 0 ]; then
-  #    echo "failed to mount /mnt/newlfs/boot"
-  #    exit 1
-  #  fi
 fi

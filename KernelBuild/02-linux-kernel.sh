@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# if booted from flash drive and building for system install...
+
+if [ ! -f /USBFlash ]; then
+  echo "Mounting existing /boot"
+  [ ! -d /boot ] && mkdir /boot
+  mount /boot
+  if [ $? -ne 0 ]; then
+    echo "failed to mount /boot"
+    exit 1
+  fi  
+fi
+
 source versions.sh
 
 GLSOURCES="/sources"
@@ -49,6 +61,9 @@ rm -rf linux-${linux_lts_version}
 if [ ! -f /USBFlash ]; then
   echo "Manually update the /boot/grub/grub.cfg file."
   echo "In theory, you can shut down, remove the thumb drive, and boot!"
+  echo
+  echo "of course if it is a virgin /boot and this is first OS being installed"
+  echo "on it, you have to run grub-install /dev/whatever first."
   exit 0
 fi
 
@@ -67,7 +82,7 @@ EOF
 
 echo "#USB Flash Grub" >> /boot/grub/grub.cfg
 echo "" >> /boot/grub/grub.cfg
-echo "menuentry \"GNU/Linux, Linux ${KVSTRING}\" {" \
+echo "menuentry \"USB Flash GNU/Linux, Linux ${KVSTRING}\" {" \
   >> /boot/grub/grub.cfg
 echo "  linux /boot/vmlinuz-${KVSTRING} root=PARTUUID=8d5d11ba-01 ro" \
   >> /boot/grub/grub.cfg
