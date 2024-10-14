@@ -172,10 +172,14 @@ are pretty important to a sane Python environment.
 
 See the file `TLS-README.md` for more information.
 
-The `CH08.*` scripts seem to work but I need to audit them against the LFS book
-and some of them are missing the running of the tests. Also, I need to add a
-way to disable the running of the tests.
+After `Master2.sh` has successfully finished, exit the `chroot` and as root
+run the `PRENINE.sh`:
 
+    root# bash PRENINE.sh
+
+You can then enter re-enter the chroot (using the same command used before,
+it should be in very recent bash history) and proceed to the Chapter Nine
+configuration scripts.
 
 Chapter Nine Configuration
 --------------------------
