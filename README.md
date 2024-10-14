@@ -5,31 +5,50 @@ Shell scripts for building LFS SystemD
 Based upon https://www.linuxfromscratch.org/lfs/view/stable-systemd/
 version 12.2
 
+This git assumes the use user `lfs` has already been created according to the
+LFS book __except `$LFS=/mnt/newlfs` in these scripts__.
+
 This set of scripts does not use `fdisk` or `mke2fs`, those need to be run and
 formatted for the appropriate partitions before starting. With caution of
-course.
+course. See Chapter Two of the LFS book.
 
-Do not yet use
+The scripts associated with Chapter Nine and Ten in this git are *very* specific
+to my system and even then, currently not perfect (e.g. my network did not come
+up on first boot and there was a time zone issue). A future modification to
+these scripts may allow some of the hardware specific stuff (like filesystem
+`UUID`) to be set in a config file the scripts source but that has not yet been
+done.
 
-This git repository contains shell scripts needed to build LFS 12.2-systemd and
-is being worked on in an `x86_64` LFS 11.3 (modified) system.
-
+My build host is an is an `x86_64` LFS 11.3 (modified) system.  
 There are some deviations from LFS 12.2, namely:
 
 * LibreSSL is used instead of OpenSSL *except* with Python3
 * LTS Kernel series 6.6.x is being used in place of 6.10.x kernel series
 * Some versions are updated from what is in the LFS book.
 
-The host I am building from is an LFS 11.3 system with similar modifications.
+The host I currently am building from is an LFS 11.3 system with similar
+modifications. If curious, that LFS 11.3 system was built from a CentOS 7 host
+but some mods were needed to the CentOS 7 host and the LFS 11.3 build
+instructions for it to work (however I did then bootstrap build LFS 11.3 in
+LFS 11.3 without using the needed build instruction changes).
+
+The idea for this git was to first build LFS 12.2 to a thumb drive, and then
+boot the thumb drive to rebuild it to the hard disk.
 
 When LFS 12.2 is built on the USB Thumb Drive, it should then be possible to
 boot from the USB Thumb Drive and run the scripts again to build LFS 12.2 from
 LFS 12.2 on a hard disk partition where I can then proceed with the other steps
 in `THE_PLAN.md` towards creating a RPM distro from scratch.
 
-As of present, these scripts are not complete and some are probably broken.
+As of present (14 October 2024) the scripts build an LFS 12.2 SystemD system on
+my build host *except* the thumb drive does not boot and some of the initial
+configuration in Chapter Nine was not quite correct. See the file
+`INSTALL_NOTES.md` for details.
 
-These instructions are not complete notes.
+Now that I have a working system, I am moving on to ‘Phase Two’ in `THE-PLAN.md`
+and am unlikely to make revisions to this git for some time.
+
+-------------------------
 
 If you run the script `version-check.sh` (copy-pasta straight from the LFS
 book) and everything on your build system passes, there is a *good chance*
@@ -85,8 +104,9 @@ __PAY ATTENTION__: First, the `root` user must execute the `CHROOT.sh` script:
 
     root# bash CHROOT.sh
 
-That script will copy `CH7Build` and `CH8Build` into `/mnt/newlfs/sources` and
-then fix some permissions and set up `/mnt/newlfs` for the `chroot`
+That script will copy `CH7Build`, `CH8Build`, `CH9Config`, and `KernelBuild`
+into `/mnt/newlfs/sources` so that those scripts will be available within the
+`chroot` and then fix some permissions and set up `/mnt/newlfs` for the `chroot`
 environment.
 
 Finally, it echoes the command that the `root` user must execute to enter the
@@ -105,21 +125,18 @@ Then, still inside the `chroot` at `/sources/CH7Build`, execute:
 
     root# bash Master.sh
 
-The script works but is not finished. To do, it needs to verify the system is
-ready for the script to run. The `Master.sh` script calls the `CH07.*` scripts.
-
 Some important build tools previously built in the host environment will be
 rebuilt within the `chroot` environment. After the script runs, it will echo
 instructions on how to back things up. The backup takes a few minutes but it
-saves time if something goes wrong in Chapter 8 building.
+saves time when starting over if something goes wrong in Chapter 8 building.
 
 
 Chapter 08 Building
 -------------------
 
 __PAY ATTENTION__: After running the build scripts for LFS Chapter 7, the
-instructions for creating the backup involved deleted the `/mnt/newlfs/sources`
-directory.
+instructions for creating the backup involved deleting the `/mnt/newlfs/sources`
+directory to reduse the size of the chroot tools backup.
 
 As the `lfs` user, re-run the `CH03-get-sources.sh` script to restore the
 sources:
@@ -143,11 +160,17 @@ Again, the script will echo the command to enter the `chroot`. Execute it as
 That will run many of the `CH08.*` scripts, building the LFS system through
 `CH08.34-bash`. Note that when it builds the `shadow` package, it first builds
 the `cracklib` package from BLFS and then links `shadow` against it. It does
-not however build PAM.
+not however build PAM. PAM is a complex solution to complex problems that exist
+in enterprise. For the home user, those complex problems generally do not exist
+so the complex solution is not needed and using it is potentially dangerous as
+complex solutions that are not needed sometimes introduce remote exploitable
+code that otherwise would not exist.
 
 After it finishes building `bash`, the `Master.sh` script will instruct you to
 set the `root` password. After doing so, exit the `chroot` and re-enter so that
-the freshly rebuilt `bash` will be loaded.
+the freshly rebuilt `bash` will be loaded. Reloading `bash` within the `chroot`
+*probably* would work too but since the binary the `chroot` command originally
+called has been replaced, just exit and re-enter.
 
 Once in the `chroot` environment again:
 
@@ -157,14 +180,15 @@ Once in the `chroot` environment again:
 That will run the rest of the `CH08.*` scripts. Assuming all goes well, the
 system will be ready for LFS Chapter 9 configuration.
 
-It also builds several packages from BLFS, specifically enough so that `wget`
-and `curl` are built, along with the TLS certificate bundles needed for those
-tools to make TLS (HTTPS) connections.
+It also builds several packages from BLFS, specifically enough so that a mouse,
+`wget`, `curl`, and the TLS certificate bundle (BLFS `make-ca`) are built, so
+that the new system will be capable of HTTPS connections.
 
 Note that `Master2.sh` does have a major deviation from the LFS book. It builds
 LibreSSL to provide the OpenSSL API (e.g. as used by the `kmod` package). Most
 software that builds against OpenSSL will build against LibreSSL and I have
-more trust in the LibreSSL developers.
+more trust in the LibreSSL developers. LibreSSL is also a smaller, more simpler
+code base.
 
 As of Python 3.10, Python 3 no longer allows building against LibreSSL. So
 OpenSSL is still built, the `_ssl` and `_hashlib` Python modules need it and
@@ -176,6 +200,9 @@ After `Master2.sh` has successfully finished, exit the `chroot` and as root
 run the `PRENINE.sh`:
 
     root# bash PRENINE.sh
+
+Note that running that script is only needed when building the USB thumb drive
+that is used to run the scripts again.
 
 You can then enter re-enter the chroot (using the same command used before,
 it should be in very recent bash history) and proceed to the Chapter Nine

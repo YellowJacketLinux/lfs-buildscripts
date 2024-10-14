@@ -91,7 +91,7 @@ present in OpenSSL 1.0.1g which is the version that LibreSSL forked.
 When a script genuinely needs to use the `openssl` binary with newer features,
 then (and only then) the script should be packaged via RPM with:
 
-    Requires: /usr/bin/openssl >= n
+    Requires: openssl >= n
 
 where `n` is the minimum version of OpenSSL that provides the needed feature.
 YJL will maintain an RPM package for a recent versions of OpenSSL to meet that
@@ -101,10 +101,11 @@ If (like Python 3) all you need is the shared library from the recent version of
 OpenSSL, RPM will take of the shared library resolution but the RPM spec file
 should have:
 
-    BuildRequires: openssl-devel
+    BuildRequires: openssl-devel  >= n
 
-so that the proper devel package is present on the system when the package
-builds.
+Using `BuildRequire: pkgconfig(openssl)` does not work because both devel
+packages provide it and version numbers can not distinguish between them.
+
 
 On the other hand, packages that build just fine against LibreSSL should have:
 
