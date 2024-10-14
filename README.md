@@ -208,6 +208,7 @@ You can then enter re-enter the chroot (using the same command used before,
 it should be in very recent bash history) and proceed to the Chapter Nine
 configuration scripts.
 
+
 Chapter Nine Configuration
 --------------------------
 
@@ -254,3 +255,32 @@ The `/etc/fstab` entry for the root filesystem on the USB flash drive still
 needs to be filled in, I have not formatted the drive yet, I am still doing
 dry runs.
 
+
+Kernel Building
+---------------
+
+While in the `chroot` environment, run the script `01-linux-firmware.sh` to
+install the binary firmware blobs that are needed for some hardware to function.
+
+These firmware blobs are from:
+https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/
+and the 20240909 snapshot was retrieved by the `CH03-get-sources.sh` script.
+
+Once the firmware is installed, run the script `02-linux-kernel.sh` to build and
+install the Linux kernel in the chroot.
+
+Except when building the kernel for the USB flash drive, the script will try to
+mount `/boot` within the `chroot` and will fail if it can not.
+
+When building the kernel for the USB flash drive, the script will create a
+`/boot/grub/grub.cfg` file but it does not try to create one when it is not
+building the kernel for the USB flash drive.
+
+The kernel configuration used is in the file `lfs-kernel-config` and is quite
+likely very wrong for most systems other than my build host, you will need to
+replace that file with one more suitable for YOUR hardware.
+
+### grub-install
+
+These scripts do NOT run `grub-install`. It is quite dangerous to run that from
+a shell script.
