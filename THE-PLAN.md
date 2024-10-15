@@ -85,11 +85,15 @@ Anyway, boostrapping an Ada and D capable GCC within LFS 12.2 will be my first
 priority once it is booting.
 
 
-Phase Three: RPM Bootstrap
+Phase Three: Building RPM
 --------------------------
 
 The needed libraries to build RPM will need to be built and installed, and then
 RPM will be built and installed.
+
+
+Phase Four: RPM Bootstrap
+-------------------------
 
 Once RPM is built and installed comes the long and tedious task of writing the
 needed RPM spec files to rebuild every package on the system in RPM. Much of
@@ -97,7 +101,7 @@ that work has already been done from my LFS 11.3 system but the spec files need
 to be updated and some still needed to be written when the water pipe broke.
 
 
-Phase Four: Mock Build Environment
+Phase Five: Mock Build Environment
 ----------------------------------
 
 After the system is RPM bootstrapped, I have to build and configure a Mock build
@@ -108,8 +112,8 @@ have used Mock build environments in the past but creating one from scratch for
 a new distribution is something I have not done.
 
 
-Phase Five: XFCE
-----------------
+Phase Six: XFCE
+---------------
 
 Once the system is RPM bootstrapped, I can start building the software needed
 for the XFCE desktop environment.
@@ -118,8 +122,8 @@ My *personal* preferred desktop environment is actually MATE but XFCE is what I
 am building as the default desktop environment for YJL.
 
 
-Phase Six: Installer
---------------------
+Phase Seven: Installer
+----------------------
 
 With XFCE running, a bootable USB thumb drive that can install the system from
 RPM packages will have the be created. That will be when YJL becomes a reality
