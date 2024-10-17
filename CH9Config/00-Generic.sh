@@ -115,4 +115,20 @@ options nouveau modset=0
 # End /etc/modprobe.d/blacklist.conf
 EOF
 
+cat > /etc/os-release << "EOF"
+NAME="Linux From Scratch"
+VERSION="12.2-systemd"
+ID=lfs
+PRETTY_NAME="Linux From Scratch 12.2-systemd"
+VERSION_CODENAME="Genesis Insanity"
+HOME_URL="https://www.linuxfromscratch.org/lfs/"
+EOF
 
+cat > /etc/lsb-release << "EOF"
+DISTRIB_ID="Linux From Scratch"
+DISTRIB_RELEASE="12.2-systemd"
+DISTRIB_CODENAME="YJL Genesis"
+DISTRIB_DESCRIPTION="Linux From Scratch"
+EOF
+
+echo 12.2-systemd > /etc/lfs-release
