@@ -34,10 +34,6 @@ sh Configure -des                                                        \
              -D useshrplib                                               \
              -D usethreads
 
-./configure --prefix=/usr \
-  --disable-static \
-  --docdir=/usr/share/doc/xz-${xz_version}
-
 make
 if [ $? -ne 0 ]; then
   myfail "Failed building perl"
